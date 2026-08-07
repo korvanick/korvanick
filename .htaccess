@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Remove the ".html" extension from the URL (if already configured)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# Remove the "pages" directory from the URL
+RewriteRule ^([a-zA-Z0-9_/-]+)$ /pages/$1.html [L]

@@ -1,0 +1,21 @@
+Photos with GPS that matched no city in travel.json.
+Matching radius is 20 km. Add the city with add_city.py, or widen
+the radius with --radius, then re-run update_gallery.py.
+
+Re-run with --name-unmatched to have OpenStreetMap name each spot.
+
+photo	coordinates	nearest city on your map	looks like
+20160312_091927.jpg	33.608333, -112.500556	nearest: Phoenix, Arizona (43 km away)
+20171029_081917.jpg	46.405872, -86.851736	nearest: Copper Harbor, Michigan (143 km away)
+20220526_150850.jpg	46.112607, -99.065193	nearest: Jamestown, North Dakota (93 km away)
+20220526_153527.jpg	46.112259, -99.069322	nearest: Jamestown, North Dakota (93 km away)
+20220903_181958.jpg	39.438001, -76.240962	nearest: Washington, D.C. (90 km away)
+20230813_200716.jpg	46.124189, -92.594214	nearest: Hinckley, Minnesota (30 km away)
+20230820_165619.jpg	62.447245, 21.428091	nearest: Vaasa, Finland (73 km away)
+20230823_111459.jpg	65.798899, 30.098938	nearest: Kuusamo, Finland (45 km away)
+20240915_110329.jpg	39.989795, -110.274026	nearest: Grand Canyon National Park (461 km away)
+20251030_131715(0).jpg	43.283434, 11.603283	nearest: Siena, Italy (22 km away)
+20251116_154554.jpg	43.933189, 18.791103	nearest: Sarajevo, Bosnia and Herzegovina (32 km away)
+20260106_160711.jpg	43.276336, 84.336966	nearest: Almaty, Kazakhstan (606 km away)
+20260615_105304.jpg	62.729718, 29.006428	nearest: Joensuu, Finland (41 km away)
+20260722_164053.jpg	48.72621, -113.723981	nearest: East Glacier Park, Montana (49 km away)

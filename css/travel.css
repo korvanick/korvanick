@@ -1,0 +1,689 @@
+/* ==========================================================================
+   TRAVEL MAP
+
+   Height: the map fills whatever the sticky header leaves, at any screen
+   size. <body class="page-fill"> and .container.fill do that work (see
+   styles.css) -- no fixed pixel height to keep in sync with the header.
+
+   Dots: each city is an L.divIcon -- a zero-size wrapper sitting exactly on
+   the coordinate, with the visible dot as a span centred on it. The wrapper
+   stays at 0x0 on purpose; that is what lets the dot change size here in CSS
+   without travel.js having to recompute an icon anchor to keep it centred.
+
+   travel.js adds one of .dot-z0 ... .dot-z4 to #map for size, and a
+   .type-<name> class to each dot for colour. Everything about how the map
+   looks lives in this file.
+
+   Type: city names are content, so they are Newsreader. The panel is a
+   control surface, so it is Public Sans. Counts and photo captions are
+   metadata, so they are Plex Mono. Leaflet sets its own font-family on
+   popups and tooltips, which is why the families are restated on those
+   elements rather than left to inherit.
+
+   Colour: the dot palette below is the one place the site keeps hues of its
+   own, because they carry meaning rather than theme. Everything else uses
+   the tokens from styles.css and follows the light/dark switch.
+   ========================================================================== */
+
+#map {
+  /* Dot colours by trip type. Change them here, nowhere else. */
+  /* Two states, and the difference is shape before it is colour: somewhere he
+     has been is a filled dot, somewhere he wants to go is an open ring. That
+     reads correctly in greyscale and with any colour vision deficiency. */
+  /* The only hex values left outside styles.css, and they stay here because
+     they are a MEANING palette: shape and outline carry what a dot is, not the
+     site theme. They are still theme-aware, because the basemap underneath
+     them changes -- see the light override below.
+
+     PURPLE, hue 305. This was blue (hue 255) before Aug 2026, and everything
+     here is the same construction with only the angle moved -- if you ever
+     want it back, swap 305 for 255 in the four places it appears across both
+     blocks. For reference, the blue values were:
+         --dot-been     #5988C4 dark  ·  #3A659A light
+         --marker-lift  #78AEF2 dark  ·  #5488CA light
+
+     There is no third hue. The highlight ring and glow are --marker-lift,
+     which is the dot's OWN colour raised in lightness -- attention without
+     introducing a colour that means nothing else on the map. Two hues and
+     ink for the entire thing.
+
+     Chroma is matched to what the GREEN can hold (ceiling 0.133 dark, 0.114
+     light at L 0.54/0.46). Purple has far more headroom, but using it would
+     make it shout over the green and break the family. Do not raise chroma
+     here without checking the green first.
+
+     To make purple and green read as EQUALS rather than a hierarchy, drop
+     --dot-been to L 0.54 dark / 0.46 light -- the green's own lightness. If
+     you do, also drop --ring-quiet to about 0.38 dark, or the quiet outline
+     stops separating from the fill it sits on. */
+  --dot-been:      oklch(0.62 0.105 305);  /* #9575B9 */
+  --ring-story:    #ffffff;                /* outline: a city with something written about it */
+  --ring-quiet:    oklch(0.46 0.030 305);  /* outline: a line, or nothing */
+  --dot-future:    oklch(0.54 0.105 155);  /* #328053 green: open circuit, not yet */
+  --marker-lift:   oklch(0.74 0.115 305);  /* #BC98E5 highlight ring + glow */
+
+  --panel-bg: var(--plate-bg);
+}
+
+/* On the light Positron basemap a white outline disappears, so the two tokens
+   carrying contrast against dark tiles invert. The hierarchy is what has to
+   survive, not the hue: the "story" outline stays the strong one and
+   --ring-quiet stays the weaker, in both directions.
+
+   Everything else darkens rather than inverting -- against near-white paper a
+   dark dot is the legible one.
+
+   --marker-lift darkens far less than the dots do, and that gap is the whole
+   trick. It cannot be brighter than paper, so it will never glow the way it
+   does on dark tiles; what saves it is CHROMA. A saturated mid-lightness halo
+   reads as coloured light, where the old near-black one read as a drop shadow.
+   Do not darken --marker-lift below about L 0.58 or the shadow comes back. */
+:root[data-theme="light"] #map {
+  --dot-been:      oklch(0.50 0.098 305);  /* #705490 */
+  --ring-story:    #14130F;
+  --ring-quiet:    oklch(0.70 0.030 305);
+  --dot-future:    oklch(0.46 0.098 155);  /* #1E683F */
+  --marker-lift:   oklch(0.62 0.115 305);  /* #9673BE */
+}
+
+.container {
+  display: flex;
+}
+
+.map {
+  flex: 1 1 auto;
+  min-height: 320px;
+  background: var(--panel);   /* shows while tiles load, instead of a flash */
+}
+
+/* --- dots ---------------------------------------------------------------- */
+
+.travel-dot-wrapper {
+  background: none;
+  border: 0;
+}
+
+.travel-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid var(--ring-story);
+  opacity: 0.9;
+  cursor: pointer;
+  background: var(--dot-been);
+  transition: width 0.15s ease, height 0.15s ease;
+}
+
+/* Every visited city is the same colour at the same size and opacity. What
+   marks one worth clicking is its OUTLINE: white when there is something
+   written about it, a muted desaturated version of the dot colour when there
+   is only a line or nothing. The dot itself never looks faded or shrunken --
+   only its edge changes. */
+.travel-dot.type-been          { border-color: var(--ring-quiet); }
+.travel-dot.type-been.has-note { border-color: var(--ring-story); }
+
+.travel-dot.type-future {
+  background: transparent;
+  border: 2.5px solid var(--dot-future);
+  opacity: 0.85;
+}
+
+/* Highlights carry a card, so their dot gets a ring to match. The ring used to
+   be white, which put it in direct competition with the white --ring-story
+   outline sitting a pixel inside it -- two meanings, one colour. It is now the
+   dot's own hue lifted in lightness: unmistakably the same family, clearly a
+   different signal.
+
+   ORDER OF PROMINENCE, deliberately: the white outline first, the lift ring
+   second. "There is something written here" is the more useful fact, so a
+   highlight always takes --ring-story regardless of has-note, and takes it
+   HEAVIER than an ordinary dot. Opacity goes to 1 as well, so the white is
+   full strength rather than the 0.9 every other dot carries.
+
+   The lift ring is a pseudo-element, not a box-shadow, because a box-shadow
+   starts at the border's outer edge and butts straight up against the white
+   -- at small zoom buckets the two blur into one thick band and the white
+   stops registering. inset: -4px leaves a real transparent gap, so the
+   basemap shows between them and the outline reads as its own mark. */
+.travel-dot.is-highlight {
+  border-color: var(--ring-story);
+  border-width: 2px;
+  opacity: 1;
+}
+
+.travel-dot.is-highlight::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px solid color-mix(in oklab, var(--marker-lift) 55%, transparent);
+}
+
+/* ...and any highlight whose card is NOT on screen glows and breathes, whether
+   that is because it is hover-only, because it lost its space to a neighbour,
+   or because auto-display is switched off. One rule, one meaning: there is
+   something here to read.
+
+   The glow lives on a pseudo-element and only its OPACITY animates. Animating
+   box-shadow directly means the browser repaints every glowing dot on every
+   frame, for as long as the page is open; opacity is handled by the compositor,
+   so the shadow is painted once and then simply faded. Same look, a fraction of
+   the work. */
+.travel-dot.is-highlight.card-hidden::after {
+  content: "";
+  position: absolute;
+  inset: -4px;   /* sits on the lift ring, so the glow never washes inward
+                    over the white outline */
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow:
+    0 0 12px 4px color-mix(in oklab, var(--marker-lift) 55%, transparent),
+    0 0 22px 9px color-mix(in oklab, var(--marker-lift) 22%, transparent);
+  animation: dot-glow 2.8s ease-in-out infinite;
+  will-change: opacity;
+}
+
+@keyframes dot-glow {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+.travel-dot:hover {
+  opacity: 1;
+  border-width: 2px;
+}
+
+/* Size by zoom bucket -- diameters. Adjust these three lines to taste;
+   nothing in travel.js needs to change. */
+#map .travel-dot        { width: 18px; height: 18px; }   /* before the first bucket lands */
+#map.dot-z0 .travel-dot { width: 12px; height: 12px; }   /* world and continent */
+#map.dot-z1 .travel-dot { width: 18px; height: 18px; }   /* country and region */
+#map.dot-z2 .travel-dot { width: 26px; height: 26px; }   /* city and street */
+
+/* --- cards: the always-on label and the click popup are one component -----
+
+   Both get the same box, the same title, the same body text. The always-on
+   version usually carries more, since a highlight has a label written for it
+   and may have a photo. Leaflet's own stylesheet is loaded BEFORE this file
+   (see travel.html) so these win at equal specificity.
+   ------------------------------------------------------------------------- */
+
+.leaflet-popup-content-wrapper,
+.leaflet-tooltip.travel-label {
+  background: var(--panel);
+  color: var(--ink-body);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.leaflet-popup-tip {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  box-shadow: none;
+}
+
+/* The card sizes itself, so the popup and the tooltip come out identical: the
+   containers just wrap whatever this is. Without a width here the popup
+   shrink-wraps to its longest word and the text runs down a column. */
+.travel-card {
+  width: max-content;
+  max-width: 230px;
+  text-align: left;
+}
+
+/* A city name is content, not chrome -- Newsreader, at the display weight.
+   Held at 0.92rem rather than the 1.25rem card-title step because these sit
+   on the map itself and have to survive twenty of them on screen at once. */
+.card-title {
+  display: inline;
+  font-family: var(--display);
+  color: var(--ink);
+  font-size: 0.92rem;
+  font-weight: var(--display-weight);
+  line-height: 1.3;
+}
+
+/* Rides on the end of the title: a city with photos and one without produce
+   the same card, and the name is not made longer by saying so. */
+/* Selectors carry .leaflet-container because Leaflet styles `.leaflet-container
+   a` with its own blue -- an element-plus-class selector that outranks a bare
+   class no matter which stylesheet loads first. */
+.leaflet-container a.card-photos {
+  display: inline-block;
+  vertical-align: -2px;
+  color: var(--ink-soft);
+  line-height: 0;
+}
+.leaflet-container a.card-photos svg { width: 13px; height: 13px; fill: currentColor; }
+.leaflet-container a.card-photos:hover { color: var(--ink); }
+.leaflet-container a.card-photos:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.card-text {
+  margin: 5px 0 0;
+  font-family: var(--body);
+  color: var(--ink-body);
+  font-size: 0.85rem;
+  font-weight: var(--body-weight);
+  line-height: 1.45;
+}
+
+.leaflet-container a.card-photo {
+  display: block;
+  margin: 0 0 8px;
+}
+/* A photo always fills the card's width; what changes is how wide the card is.
+   Landscape keeps the full width and stays short. Portrait narrows the whole
+   card to suit the photo -- text and all -- so the picture is the width of the
+   card rather than a stamp floating in the middle of it. travel.js adds
+   .is-portrait once it can see the image's real proportions. */
+.card-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: 4px;
+}
+
+.travel-card.is-portrait { width: 170px; max-width: 170px; }
+.travel-card.is-portrait .card-photo img { max-height: 230px; }
+
+/* A plain dot's name, shown while the pointer is on it. Replaces the browser's
+   native `title` box, which arrived on its own delay and could not be styled to
+   match anything else on the page. */
+.leaflet-tooltip.travel-name {
+  background: var(--plate-bg);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px var(--shadow);
+  padding: 5px 8px;
+  font-family: var(--display);
+  font-size: 0.8rem;
+  font-weight: var(--display-weight);
+  line-height: 1.3;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.leaflet-tooltip.travel-name::before { border-top-color: var(--rule); }
+
+/* --- the always-on version ----------------------------------------------- */
+
+.leaflet-tooltip.travel-label {
+  /* No width here: the card inside sets it, and the tooltip shrink-wraps that.
+     A max-width on this element would be the padded box, so the card would be
+     allowed to grow wider than the space inside it and spill past the edge. */
+  width: auto;
+  max-width: none;
+  white-space: normal;
+  padding: 8px 10px;
+  font-family: var(--body);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.leaflet-tooltip.travel-label::before { border-top-color: var(--rule); }
+
+/* Hidden with visibility, not opacity: Leaflet writes opacity inline on
+   tooltips, so a stylesheet rule could never win. visibility still leaves a
+   real box to measure on the next layout pass. */
+.leaflet-tooltip.travel-label.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* The card being hovered overlaps its neighbours rather than displacing them,
+   so it needs to sit clearly on top: brighter edge, heavier shadow. */
+.leaflet-tooltip.travel-label.is-peek {
+  z-index: 1200;
+  border-color: var(--accent);
+  box-shadow: 0 8px 26px var(--shadow);
+}
+
+/* --- the click version ---------------------------------------------------- */
+
+/* The popup is the same card as the always-on one: same widths, same photo
+   sizes, same padding. Clicking a card should show what you were already
+   looking at, not a differently shaped version of it. width:auto stops Leaflet
+   sizing the box independently of the card inside it. */
+.leaflet-popup-content {
+  margin: 8px 10px;
+  width: auto !important;
+  font-family: var(--body);
+}
+/* Leaflet parks the close button at the popup's outer corner, which puts it
+   half onto the photo with nothing behind it -- a bare glyph over whatever the
+   picture happens to be there, sometimes invisible.
+
+   The overlap itself is fine and deliberate: the card's padding stays even all
+   the way round the image rather than being pushed open to make room. What the
+   button needed was a PLATE to sit on and a position that looks chosen. It is
+   now a round chip inset the same 6px from the photo's top edge as from its
+   right edge, so it sits square in the corner instead of straddling it.
+   Top/right are 6px plus the popup's own content margin (8px / 10px). */
+.leaflet-container a.leaflet-popup-close-button {
+  top: 14px;
+  right: 16px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(12, 11, 9, 0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  transition: background 0.15s ease;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #fff;
+  background: rgba(12, 11, 9, 0.8);
+}
+.leaflet-container a.leaflet-popup-close-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* A card with no photo has nothing to sit on, so the chip would be a dark blob
+   over the text. There it drops the plate and tucks back into the corner. */
+.leaflet-popup:not(:has(.card-photo)) a.leaflet-popup-close-button {
+  top: 6px;
+  right: 8px;
+  color: var(--ink-soft);
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+.leaflet-popup:not(:has(.card-photo)) a.leaflet-popup-close-button:hover {
+  color: var(--ink);
+  background: transparent;
+}
+
+/* ...but on a photo-less card the title is the FIRST line, and the camera glyph
+   rides the end of it -- straight underneath where the close button sits. The
+   close button is positioned, so it paints on top and swallows the click: the
+   popup shuts instead of the gallery opening, which looks exactly like a link
+   that does nothing.
+
+   A float reserves the chip's footprint on the first line only. The title and
+   its camera wrap short of it, the body text below flows the full width, and
+   the two controls can no longer occupy the same pixels. Photo cards need none
+   of this -- their chip sits on the image, well above the title. */
+.leaflet-popup .travel-card:not(:has(.card-photo))::before {
+  content: "";
+  float: right;
+  width: 26px;
+  height: 20px;
+}
+
+/* Belt and braces: wherever the two do end up close, the camera takes the
+   click. It is the smaller target and the one with somewhere to go. */
+.leaflet-container a.card-photos {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- the panel: search, counts, legend, labels toggle -------------------- */
+
+/* The panel is a control surface, so the whole thing sits in Public Sans and
+   the pieces below inherit it. Only the counts break out, into mono. */
+.map-panel {
+  background: var(--panel-bg);
+  color: var(--ink-body);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px var(--shadow);
+  font-family: var(--ui);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+  width: 230px;
+  overflow: visible;
+}
+
+.panel-toggle { display: none; }   /* desktop: the panel is simply open */
+
+.panel-body {
+  padding: 12px;
+}
+
+.map-counts {
+  margin: 12px 0 8px;
+  font-family: var(--micro);
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+  line-height: 1.4;
+}
+.map-counts strong { color: var(--ink); font-weight: 500; }
+
+.legend {
+  list-style: none;
+  margin: 0 0 4px;
+  padding: 0;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  color: var(--ink-body);
+  padding: 6px 2px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.legend-item:hover { color: var(--ink); }
+.legend-item input { accent-color: var(--accent); cursor: pointer; }
+.legend-item input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* filtered out: struck through as well as dimmed, so the state isn't carried
+   by brightness alone */
+.legend-item.is-off { color: var(--ink-faint); }
+.legend-item.is-off .legend-name { text-decoration: line-through; }
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ring-story);
+  flex: 0 0 auto;
+}
+.swatch.type-been   { background: var(--dot-been); }
+.swatch.type-future { background: transparent; border: 3px solid var(--dot-future); }
+.swatch.is-highlight {
+  background: var(--dot-been);
+  border-color: var(--ring-story);
+  border-width: 2px;
+  box-shadow: 0 0 0 2.5px color-mix(in oklab, var(--marker-lift) 50%, transparent);
+}
+
+.legend-name { flex: 1 1 auto; text-align: left; }
+.legend-count {
+  font-family: var(--micro);
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.labels-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 5px 2px;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+  cursor: pointer;
+  color: var(--ink-body);
+}
+.labels-toggle input { accent-color: var(--accent); cursor: pointer; }
+.labels-toggle .legend-count { margin-left: auto; }
+
+.zoom-all {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background: var(--panel-2);
+  color: var(--ink-body);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 7px;
+  font-family: var(--ui);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+}
+.zoom-all:hover { background: var(--accent-bg); color: var(--ink); }
+.zoom-all:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* --- full-size photo, over the map ---------------------------------------- */
+
+.travel-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: var(--scrim);
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.travel-lightbox.is-open { display: flex; }
+
+.travel-lightbox figure {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+}
+.travel-lightbox img {
+  display: block;
+  max-width: min(1200px, 92vw);
+  max-height: 84vh;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 12px 40px var(--shadow);
+}
+/* Same plate as the gallery's: mono, sentence case, quiet. */
+.travel-lightbox figcaption {
+  margin-top: 12px;
+  font-family: var(--micro);
+  color: var(--ink);
+  background: var(--plate-bg);
+  border-radius: 4px;
+  padding: 6px 10px;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: 0;
+  color: var(--ink-soft);
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 8px;
+  cursor: pointer;
+}
+.lightbox-close:hover { color: var(--ink); }
+.lightbox-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* --- Leaflet chrome in the site's colours -------------------------------- */
+
+.leaflet-bar a {
+  background: var(--panel-bg);
+  color: var(--ink-body);
+  border-bottom-color: var(--rule);
+}
+.leaflet-bar a:hover { color: var(--ink); }
+
+.leaflet-control-attribution {
+  background: var(--plate-bg) !important;
+  color: var(--ink-faint);
+  font-family: var(--micro);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+}
+.leaflet-control-attribution a { color: var(--accent); }
+
+/* --- if the data fails to load, say so instead of showing an empty map --- */
+
+.map-error {
+  position: absolute;
+  z-index: 500;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  color: var(--ink-body);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+/* --- mobile: the panel collapses so it isn't sitting on top of the map --- */
+
+@media (max-width: 820px) {
+  .map-panel { width: auto; }
+
+  .panel-toggle {
+    display: block;
+    background: none;
+    border: 0;
+    color: var(--ink-body);
+    font-family: var(--ui);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 9px 12px;
+    cursor: pointer;
+  }
+  .panel-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+  .panel-body { display: none; }
+  .map-panel.open .panel-body { display: block; width: 210px; padding-top: 0; }
+
+  .leaflet-tooltip.travel-label { padding: 7px 9px; }
+  .travel-card { max-width: 190px; }        /* the card, not its padded box */
+  .card-title { font-size: 0.85rem; }
+  .card-text { font-size: 0.8rem; }
+}
+
+/* No hover on a touchscreen, so a pulsing dot promises an interaction that
+   isn't there. The glow still reads as "there is more here", and tapping the
+   dot still opens the card. */
+@media (hover: none) {
+  .travel-dot.is-highlight.card-hidden::after { animation: none; opacity: 0.8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .travel-dot,
+  .leaflet-tooltip.travel-label { transition: none; }
+
+  /* Keep the glow, drop the breathing. */
+  .travel-dot.is-highlight.card-hidden::after { animation: none; opacity: 0.8; }
+}

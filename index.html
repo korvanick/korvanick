@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make it happen. Do it right. - Korvanick</title>
+    <!-- Theme before paint: dark is the stylesheet default, so this only has to
+         act when the visitor has chosen light. Inline and synchronous on purpose --
+         an external or deferred script runs after the first paint and would flash. -->
+    <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <script src="/scripts/nav.js" defer></script>
+
+</head>
+<body class="page-fill">
+    <nav></nav>
+
+    <!-- Container for the four blocks -->
+    <div class="content-container fill">
+        <!-- Block 1: Make it happen -->
+        <div class="block" id="block-1">
+            <h1>Make it happen.</h1>
+        </div>
+
+        <!-- Block 2: Video -->
+        <div class="block" id="block-2">
+            <video id="hero-video"
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   disablepictureinpicture
+                   preload="metadata"
+                   poster="/images/home-poster.jpg">
+                <source src="/media/20230219_064535.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Block 3: Do it right -->
+        <div class="block" id="block-3">
+            <h1>Do it right.</h1>
+        </div>
+    </div>
+
+    <!-- Fall back to the poster image if autoplay is blocked (Low Power Mode, etc.) -->
+    <script>
+        (function () {
+            var v = document.getElementById('hero-video');
+            if (!v) return;
+            var p = v.play();
+            if (p && typeof p.catch === 'function') {
+                p.catch(function () { v.classList.add('autoplay-blocked'); });
+            }
+        })();
+    </script>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="/scripts/index.js"></script>
+</body>
+</html>

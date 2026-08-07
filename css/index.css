@@ -1,0 +1,77 @@
+/* Colour tokens, families and the full-height shell come from styles.css:
+   <body class="page-fill"> + <div class="content-container fill">.
+
+   The hero is the one deliberate exception to the type scale. Newsreader's
+   weight axis stops at 700, so this is as heavy as the family goes -- lighter
+   than the 900 that was here before, but real rather than a browser-faked
+   bold, which is what 900 was actually producing. Uppercase stays. */
+
+/* Main content container: takes the remaining height and centres the hero */
+.content-container {
+    color: var(--ink);
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;      /* vertically centre the three blocks */
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+
+/* General block styling */
+.block {
+    margin: 20px;
+    flex: 1 1 30%;
+}
+
+/* Block 1 - Make it happen */
+#block-1 h1 {
+    font-size: 5vw;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Block 2 - Video */
+#block-2 video {
+    display: block;           /* kills the inline-baseline gap under the video */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Block 3 - Do it right */
+#block-3 h1 {
+    font-size: 5vw;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* The inline fallback in index.html adds .autoplay-blocked when play() is
+   rejected (Low Power Mode and friends). Nothing styled it before, so the
+   class did nothing -- the video happened to sit on its poster frame anyway.
+   Making it explicit: show the poster as a still image, same shape as the
+   video it replaces. */
+#block-2 video.autoplay-blocked {
+    background: url("/images/home-poster.jpg") center / cover no-repeat;
+}
+
+/* Anyone who has asked their OS for less animation gets the poster instead */
+@media (prefers-reduced-motion: reduce) {
+    #block-2 video {
+        display: none;
+    }
+}
+
+/* Stack the hero on small screens instead of squeezing three columns */
+@media (max-width: 820px) {
+    .content-container { flex-direction: column; gap: 10px; }
+    #block-1 h1, #block-3 h1 { font-size: 2rem; }
+}

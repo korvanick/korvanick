@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional - Korvanick</title>
+    <!-- Theme before paint: dark is the stylesheet default, so this only has to
+         act when the visitor has chosen light. Inline and synchronous on purpose --
+         an external or deferred script runs after the first paint and would flash. -->
+    <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/professional.css">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <script src="/scripts/nav.js" defer></script>
+</head>
+<body>
+    <nav></nav>
+
+    <main class="pro-wrap">
+
+        <section class="pro-intro">
+            <h1>Nick Korhonen</h1>
+            <p>Electrical engineer, power systems. Currently based in Seattle.</p>
+            <p>Six years experience across transmission planning, real time operations, and industrial construction. Most of it involved interconnection, load growth, and renewable energy solutions. Generally interested in infrastructure, big and small.</p>
+            <p>The cheapest solution and the best solution are usually not the same one. That gap is the interesting part.</p>
+        </section>
+
+        <section class="pro-section">
+            <h2>Experience</h2>
+
+            <article class="pro-role">
+                <h3>Engineer, Project Manager</h3>
+                <p class="pro-meta">Saginaw Industrial Services &middot; 2025 &middot; Navarre, Florida, with site work in Brewton, Alabama</p>
+                <p class="pro-lede">Seven concurrent electrical capital projects at an operating pulp and paper mill, about $15M total, plus a fast track job replacing seventeen relays. My first long stretch on the construction side rather than the study side.</p>
+                <ul>
+                    <li>Built the field level project schedule from scratch in Microsoft Project and kept it aligned with the program schedule.</li>
+                    <li>Planned switching and lockout/tagout for a six day segmented outage, including about 36 hours of full de-energization. Mill operations ruled out de-energizing some equipment after the first review, so the plan was rebuilt under time pressure.</li>
+                    <li>Coordinated five contractor organizations and more than a hundred workers, without formal authority over any of them.</li>
+                    <li>Field work: grounding grid installation, switchgear verification from 480V through 12kV, SEL relay installation using Rogowski coils, modifications to over a hundred MCC buckets, concrete pour QA, fiber pulling.</li>
+                    <li>Supported twelve hour executive briefings during the outage and stood in as on-site proxy for an off-site client manager.</li>
+                </ul>
+            </article>
+
+            <article class="pro-role">
+                <h3>Power Systems Planning Engineer</h3>
+                <p class="pro-meta">Great River Energy &middot; 2022 to 2025 &middot; Maple Grove, Minnesota</p>
+                <p class="pro-lede">Generation and transmission cooperative serving 27 member cooperatives within MISO. I was the primary DER contact, which put me between developers, member cooperatives, internal departments, and the RTO.</p>
+                <ul>
+                    <li>Reviewed dozens of DER interconnection requests from 40 kW to 10 MW, and ran local impact studies where the size warranted it. Coordinated agreements, deposits, and results across as many as five parties.</li>
+                    <li>Wrote the company's first documented DER interconnection procedures. Most requests now resolve at the first screening step.</li>
+                    <li>Defined the objective, requirements, and study logic for automating the interconnection study process, and directed the data analyst who built it. My estimate is it cut turnaround by around 80 percent.</li>
+                    <li>Developed the proposal and lifecycle cost case for a 3 MW battery storage microgrid as a non-wires alternative in a rural, environmentally sensitive area. It became part of a successful DOE Grid Resilience and Innovation Partnerships award.</li>
+                    <li>Ran the non-wires alternative feasibility study for a 345kV expansion. The analysis showed the alternative was not viable and was used in the successful Certificate of Need filing.</li>
+                    <li>Key contributor to the North American Transmission Forum document <em>Distributed Energy Resources Modeling and Study Practices</em>.</li>
+                    <li>Presented at an EPRI conference in 2024 on improvements to the EVs2Scale GIS tool and its use in T&amp;D planning studies.</li>
+                    <li>Built and ran a SharePoint site for an integrated planning effort involving more than twenty engineers from outside companies.</li>
+                </ul>
+            </article>
+
+            <article class="pro-role">
+                <h3>Operations Engineer</h3>
+                <p class="pro-meta">Otter Tail Power &middot; 2020 to 2022 &middot; Fergus Falls, Minnesota</p>
+                <p class="pro-lede">Operations engineering was me and my manager. Real time support for a control room covering about 5,300 miles of transmission line, most of it 41.6 kV, across western Minnesota and the Dakotas.</p>
+                <ul>
+                    <li>Ran daily N-1 contingency analysis in Siemens ODMS and validated control room switching orders as the last technical check before execution.</li>
+                    <li>Developed and executed a coordinated transformer tap plan across 41.6 kV and 69 kV to mitigate regional voltage problems. Five transformers adjusted, and the plan is still in place as far as I know.</li>
+                    <li>Traced widespread low voltage and thermal overloads back to load control restoring demand higher than it otherwise would have been. Worked with the responsible team to change how and when it ran in the affected areas.</li>
+                    <li>Diagnosed voltage oscillations caused by a wind plant AVR and pursued the fix with the developer.</li>
+                    <li>Took over the sub-100kV network model and facility ratings database, and found a data entry quirk that had been suppressing a few ratings.</li>
+                    <li>Led technical troubleshooting on a CIM based ODMS upgrade, clearing data mapping errors that were blocking valid state estimation. Case convergence went from roughly 50 percent to about 90 percent.</li>
+                    <li>Supported the underfrequency and undervoltage load shedding programs under NERC PRC-006 and PRC-010, and contributed to the annual review of the regional black start plan.</li>
+                    <li>Reconstructed two operational switching errors in the power flow simulator for root cause review. Both became informal training on the monthly operator calls.</li>
+                </ul>
+            </article>
+
+            <p class="pro-earlier">Earlier: power electronics research at UMD in 2019 on an EV DC fast charging topology, and two years processing medical claims data at Xerox from 2015 to 2017. I also ran a small LLC from 2021 to 2025 alongside full time work, doing landscaping and running mining hardware.</p>
+        </section>
+
+        <section class="pro-section pro-community">
+            <h2>Community</h2>
+            <dl>
+                <dt>Habitat for Humanity</dt>
+                <dd>Builder. Framing, pouring concrete, and whatever else needed doing that day.</dd>
+
+                <dt>Bike Duluth Festival</dt>
+                <dd>Committee member, 2019 to 2020. Organized the kids bike activities.</dd>
+
+                <dt>Local trail organizations</dt>
+                <dd>Trail work and maintenance. Brush, drainage, moving rock. Wherever I end up, I try to be as good of a friend of the trails as they are to me.</dd>
+            </dl>
+        </section>
+
+        <section class="pro-section">
+            <h2>Outside of work</h2>
+            <div class="pro-cards">
+                <a class="pro-card" href="books">
+                    <strong>Books</strong>
+                    <span>Everything I have finished since 2020.</span>
+                </a>
+                <a class="pro-card" href="travel">
+                    <strong>Travel</strong>
+                    <span>Where I have been and where I want to go.</span>
+                </a>
+                <a class="pro-card" href="gallery">
+                    <strong>Gallery</strong>
+                    <span>Pictures from the adventure of life.</span>
+                </a>
+                <a class="pro-card" href="blog">
+                    <strong>Blog</strong>
+                    <span>Notes on life and whatnot.</span>
+                </a>
+            </div>
+            <p class="pro-note">I built this site using Claude and Gemini, and self-host everything on it. The photos are unedited and writing is predominantly my own.</p>
+        </section>
+
+        <section class="pro-section">
+            <h2>Toolkit</h2>
+            <dl class="pro-kit">
+                <dt>Modeling and analysis</dt>
+                <dd>PSS/E for steady state power flow, PSCAD for transients, TARA, DSA Tools, Siemens ODMS, Alstom and GE EMS platforms.</dd>
+
+                <dt>Project and documentation</dt>
+                <dd>Microsoft Project, Autodesk Build, SharePoint, Nextcloud, Microsoft 365, LibreOffice.</dd>
+
+                <dt>Standards worked under</dt>
+                <dd>IEEE 1547, NERC PRC-006 and PRC-010, MISO interconnection procedures, FERC and NERC reliability requirements.</dd>
+
+                <dt>Education</dt>
+                <dd>BS Electrical Engineering, University of Minnesota Duluth, 2020. Minor in Energy Engineering.</dd>
+
+                <dt>Certifications</dt>
+                <dd>Engineer in Training, Minnesota. NERC Reliability Coordinator certification, earned 2020 and renewed 2023.</dd>
+            </dl>
+        </section>
+
+        <div class="pro-close">
+            <p>Reach me at <a href="mailto:hello@korvanick.com">hello@korvanick.com</a>.</p>
+        </div>
+
+    </main>
+
+    <!-- Generate Button -->
+    <div class="button-container">
+        <button class="generate-button" id="generate-btn" type="button">Generate</button>
+        <p>(this button doesn't work yet, but when it does, it will be super cool!)</p>
+    </div>
+</body>
+</html>

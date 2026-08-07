@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Korvanick</title>
+    <!-- Theme before paint: dark is the stylesheet default, so this only has to
+         act when the visitor has chosen light. Inline and synchronous on purpose --
+         an external or deferred script runs after the first paint and would flash. -->
+    <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+    <script src="/scripts/nav.js" defer></script>
+</head>
+<body>
+    <nav></nav>
+
+    <div class="gallery-container" id="galleryContainer">
+        <!-- Images are injected by scripts/gallery.js -->
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+
+    <script src="/scripts/gallery.js"></script>
+</body>
+</html>

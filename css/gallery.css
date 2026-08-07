@@ -1,0 +1,287 @@
+/* Colour tokens, families and the base scale come from styles.css. No hex
+   values below, and no family outside --ui / --micro.
+
+   The gallery is where Plex Mono does its most visible work: the lightbox
+   plate, the year rules and the photo counts are all metadata sitting over or
+   beside pictures, which is exactly the job it was chosen for.
+   ------------------------------------------------------------------------ */
+
+/* Ensure the gallery is positioned below the navbar */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexibly handles 5-10 columns */
+    gap: 15px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Gallery image styles */
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for images */
+.gallery-image:hover {
+    transform: scale(1.1);
+}
+/* Modal styles for viewing images */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999; /* INCREASING THIS forces the modal over the nav bar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--scrim);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensures the caption stays neatly under the image */
+    text-align: center;
+}
+
+/* Modal content (image) */
+.modal-content {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    margin: auto;
+}
+
+/* Modal caption */
+/* --- lightbox loading ------------------------------------------------------
+   The spinner waits a moment before appearing: a cached photo is on screen in
+   well under that, and a spinner that flashes for one frame is worse than no
+   spinner at all.
+   -------------------------------------------------------------------------- */
+
+.modal-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0 -21px;
+    border: 3px solid var(--rule);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: modal-spin 0.8s linear infinite,
+               modal-fade-in 0.15s ease-in 0.15s both;
+}
+.modal.is-loading .modal-spinner { display: block; }
+
+@keyframes modal-spin { to { transform: rotate(360deg); } }
+@keyframes modal-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Nothing to look at while it loads, rather than the previous photo frozen. */
+.modal.is-loading .modal-content { visibility: hidden; }
+
+.modal.is-error::after {
+    content: "That photo could not be loaded.";
+    color: var(--ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-spinner { animation: modal-fade-in 0.15s ease-in 0.15s both; }
+}
+
+/* The plate under a full-size photo: location and date. Mono, sentence case,
+   sitting at ~70% of body size so it stays a label rather than a caption that
+   competes with the picture. */
+#caption {
+    font-family: var(--micro);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    background: var(--plate-bg);
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin-top: 12px;
+}
+
+/* Close button in modal */
+.close {
+    color: var(--ink);
+    font-size: 40px; /* Made slightly larger so it's easier to click */
+    font-weight: bold;
+    position: absolute;
+    top: 15px; /* Moved up closer to the top corner */
+    right: 35px;
+    cursor: pointer;
+    z-index: 10000; /* Ensures the X is always clickable and on top of everything */
+}
+
+/* Year headings: span the whole grid row so photos stay grouped by year */
+.gallery-year {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    margin: 25px 0 0 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--ui);
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.13em;
+    font-variant-numeric: tabular-nums;
+    text-align: left;
+}
+.gallery-year:first-child {
+    margin-top: 0;
+}
+
+/* Stop the page behind the lightbox from scrolling while it's open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Prev / next arrows inside the lightbox (created by gallery.js) */
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: var(--plate-bg);
+    color: var(--ink);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+.gallery-nav.prev { left: 20px; }
+.gallery-nav.next { right: 20px; }
+.gallery-nav:hover { background: var(--panel-2); color: var(--accent-hover); }
+.gallery-nav.disabled { opacity: 0.15; pointer-events: none; }
+
+@media (max-width: 600px) {
+    .gallery-nav { width: 40px; height: 40px; font-size: 20px; }
+    .gallery-nav.prev { left: 8px; }
+    .gallery-nav.next { right: 8px; }
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+    .gallery-container {
+        grid-template-columns: repeat(5, 1fr); /* 5 columns on wider screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .gallery-container {
+        grid-template-columns: repeat(6, 1fr); /* 6 columns on larger screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery-container {
+        grid-template-columns: repeat(7, 1fr); /* 7 columns on very large screens */
+    }
+}
+
+@media (min-width: 1500px) {
+    .gallery-container {
+        grid-template-columns: repeat(8, 1fr); /* 8 columns on extra-large screens */
+    }
+}
+
+/* --- city view header ------------------------------------------------------
+   Shown only when the grid is limited to one city, which is where a card on
+   the travel map sends you (/gallery#city=rome-italy). Built to sit with the
+   year headings rather than announce itself: same left edge, same rule
+   underneath, same muted letterspaced type. It is a label, not a control.
+   -------------------------------------------------------------------------- */
+
+.gallery-filter {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 24px 20px 8px;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--ui);
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+/* The city name itself is the one bit of content in an otherwise structural
+   line, so it steps out of Public Sans and back into Newsreader. */
+.gallery-filter strong {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: var(--display-weight);
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+}
+
+/* A count, so it's mono. */
+.gallery-filter-also {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--micro);
+    color: var(--ink-faint);
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    font-variant-numeric: tabular-nums;
+}
+
+/* A control, so it stays in Public Sans with the rest of the UI. */
+.gallery-filter-clear {
+    font-family: var(--ui);
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding-bottom: 2px;
+    box-shadow: inset 0 -1px 0 transparent;
+    transition: color 0.2s ease, box-shadow 0.2s ease;
+}
+.gallery-filter-clear:hover {
+    color: var(--ink);
+    box-shadow: inset 0 -2px 0 var(--accent);
+}
+.gallery-filter-clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* The grid's first year heading would otherwise double the rule under this. */
+.gallery-filter + .gallery-container .gallery-year:first-child {
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .gallery-filter {
+        padding: 18px 15px 8px;
+    }
+    .gallery-filter strong { font-size: 1.0625rem; }
+}

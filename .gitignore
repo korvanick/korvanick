@@ -1,0 +1,14 @@
+# large binaries — copies live in Proton, not versioned here
+images/gallery/
+media/
+
+# one-deep script backups, superseded by git
+*.bak
+
+# python
+__pycache__/
+*.pyc
+
+# editor/OS noise
+.DS_Store
+*.swp

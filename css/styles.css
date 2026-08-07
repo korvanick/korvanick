@@ -1,0 +1,308 @@
+/* ============================================================================
+   Global site styles: type system, colour tokens, light/dark theming, sticky
+   header with a mobile hamburger, and the full-height page shell.
+
+   Every page loads this file first, then its own single stylesheet. Page
+   stylesheets inherit from here -- they should not redeclare body, colours,
+   or fonts, and should never hardcode a hex value. scripts/nav.js renders the
+   header links and the theme switch into <nav></nav>.
+   ============================================================================ */
+
+/* ============================================================================
+   1. TYPE
+   Three families, each with exactly one job.
+
+     --display / --body   Newsreader     headings AND running prose
+     --ui                 Public Sans    nav, structural headings, controls
+     --micro              IBM Plex Mono  captions, dates, counts, plates
+
+   Plex Mono stays in its lane. If it turns up in a heading, a nav item, or a
+   body paragraph, the whole system stops reading as intentional.
+
+   Newsreader is variable on both weight and optical size, which is why it can
+   cover display and body from one file: let font-optical-sizing do the work
+   rather than hand-tuning weights per size.
+
+   The <link> for these lives in every page's <head>, alongside the theme
+   script. automation/build_blog.py carries the same block for generated posts.
+   ============================================================================ */
+
+:root {
+  --display: "Newsreader", Georgia, serif;
+  --body:    "Newsreader", Georgia, serif;
+  --ui:      "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --micro:   "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Kept as an alias so older page rules keep resolving. Prefer --body. */
+  --font-body: var(--body);
+}
+
+/* ============================================================================
+   2. COLOUR
+   Warm dark is the default: :root carries the dark values, so a visitor with
+   JavaScript off, or with the theme script blocked, still gets the site the
+   way it is meant to look. Light is opt-in via data-theme="light" on <html>.
+
+   All colour lives in this block. No hex values anywhere else in any
+   stylesheet -- if a page needs a new tone, add a token here.
+   ============================================================================ */
+
+:root {
+  color-scheme: dark;
+
+  --paper: #141311;
+  --panel: #1E1C19;
+  --panel-2: #262320;
+  --rule: #302D28;
+
+  --ink: #EDE9E1;
+  --ink-body: #DCD7CD;
+  --ink-soft: #B0A99E;
+  --ink-faint: #7C766C;
+
+  --accent: #6FA8BC;
+  --accent-hover: #8DBFD0;
+  --accent-bg: #1D2C33;
+
+  --plate-bg: rgba(20, 19, 17, 0.85);
+
+  /* Newsreader gains optical weight as light type on a dark ground, so the
+     dark theme sets its variable axis lower to compensate. Plex Mono is
+     static and cannot follow, which is why --ink-faint is tuned to a lower
+     contrast here instead. */
+  --body-weight: 380;
+  --display-weight: 560;
+
+  /* --- additions beyond the type spec, for things the site already had --- */
+  --nav-bg: rgba(20, 19, 17, 0.92);      /* translucent paper, behind the blur */
+  --scrim: rgba(0, 0, 0, 0.82);          /* lightbox and modal backdrops */
+  --shadow: rgba(0, 0, 0, 0.55);
+  --glow: rgba(111, 168, 188, 0.45);     /* accent at low alpha, for the map */
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --paper: #FBFAF8;
+  --panel: #F2F0EC;
+  --panel-2: #EAE7E1;
+  --rule: #E3E1DD;
+
+  --ink: #1A1A1A;
+  --ink-body: #2B2B2B;
+  --ink-soft: #575757;
+  --ink-faint: #8B8B8B;
+
+  --accent: #1F4E5F;
+  --accent-hover: #163B48;
+  --accent-bg: #E6EEF0;
+
+  --plate-bg: rgba(255, 255, 255, 0.93);
+
+  --body-weight: 400;
+  --display-weight: 600;
+
+  --nav-bg: rgba(251, 250, 248, 0.92);
+  --scrim: rgba(26, 26, 26, 0.88);
+  --shadow: rgba(0, 0, 0, 0.18);
+  --glow: rgba(31, 78, 95, 0.40);
+}
+
+/* Older token names, kept pointing at the new ones so page stylesheets written
+   against them keep working. New rules should use the tokens above directly. */
+:root {
+  --bg: var(--paper);
+  --text: var(--ink-body);
+  --muted: var(--ink-soft);
+  --line: var(--rule);
+}
+
+/* ============================================================================
+   3. BASE
+   ============================================================================ */
+
+* { box-sizing: border-box; }
+
+html {
+  font-optical-sizing: auto;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink-body);
+  font-family: var(--body);
+  font-weight: var(--body-weight);
+  font-size: 1.0625rem;   /* 17px against a 16px root */
+  line-height: 1.62;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: var(--display-weight);
+  color: var(--ink);
+}
+
+/* Every element gets an explicit line-height somewhere: three families means
+   three sets of vertical metrics, and the defaults drift apart. */
+h1 { font-size: 3rem;      line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: 2.125rem;  line-height: 1.13; letter-spacing: -0.015em; }
+h3 { font-size: 1.25rem;   line-height: 1.2; }
+h4 { font-size: 1.0625rem; line-height: 1.3; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+
+/* Newsreader's italic is genuinely good -- book titles, publication names and
+   foreign words should use it rather than a synthesised slant. */
+em, i, cite { font-style: italic; }
+
+/* --- reusable roles ------------------------------------------------------- */
+
+/* Structural label: nav-adjacent headings, row titles, section dividers. */
+.ui-heading {
+  font-family: var(--ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Micro: captions, dates, counts, plates. Sentence case on purpose -- the
+   mono is already doing the distinguishing work, and letterspaced caps on top
+   of it is one effect too many. Sits at ~70% of body size; larger and the
+   mono's personality starts competing with Newsreader. */
+.micro, figcaption, .tag, .date {
+  font-family: var(--micro);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--ink-faint);
+}
+
+/* Anything that should line up down a column. */
+.date, .tabular { font-variant-numeric: tabular-nums; }
+
+/* Running prose gets a measure. Applied per-container rather than to every <p>
+   on the site, because cards, map labels and the home hero are paragraphs too
+   and would be crushed by a global cap. */
+.prose { max-width: 62ch; line-height: 1.62; }
+
+/* --- Full-height pages ---------------------------------------------------
+   For pages whose main block should fill whatever the header leaves behind
+   (home, travel). Put .page-fill on <body> and .fill on the child that
+   should stretch. Using dvh rather than vh so mobile browser chrome doesn't
+   crop the bottom.
+   ------------------------------------------------------------------------- */
+body.page-fill {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+body.page-fill > .fill {
+  flex: 1 1 auto;
+  min-height: 0;   /* lets the child actually shrink inside the flex column */
+}
+
+/* ============================================================================
+   4. HEADER
+   Sticky and in normal flow, so it never covers content.
+   ============================================================================ */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centred links */
+  gap: 2px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 20px;
+}
+
+nav a {
+  font-family: var(--ui);
+  color: var(--ink-soft);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 18px 14px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.2s ease, box-shadow 0.2s ease;
+}
+nav a:hover { color: var(--ink); }
+nav a.active { color: var(--ink); box-shadow: inset 0 -2px 0 var(--accent); }   /* current section */
+nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Hamburger button -- created by nav.js, hidden until the mobile breakpoint */
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: 0;
+  color: var(--ink-body);
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 12px;
+  cursor: pointer;
+}
+.nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* --- theme switch --------------------------------------------------------
+   Absolutely positioned on desktop so the links stay genuinely centred: an
+   auto margin on a flex item eats the free space that justify-content:center
+   needs, and the whole row would shunt left.
+   ------------------------------------------------------------------------- */
+.theme-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.theme-toggle:hover { color: var(--ink); border-color: var(--rule); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.theme-toggle svg {
+  width: 17px; height: 17px;
+  fill: none; stroke: currentColor;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* --- Mobile: links collapse behind the hamburger --- */
+@media (max-width: 820px) {
+  nav { flex-wrap: wrap; justify-content: flex-start; padding: 0 12px; }
+  .nav-toggle { display: block; margin-left: 0; }
+
+  /* Back into the flow, pushed right, sitting just left of the hamburger. */
+  .theme-toggle { position: static; transform: none; margin-left: auto; }
+
+  nav.js-nav a { display: none; }
+  nav.js-nav.open a {
+    display: block;
+    flex-basis: 100%;                      /* each link on its own row */
+    text-align: center;
+    padding: 14px 12px;
+    border-top: 1px solid var(--rule);
+  }
+}

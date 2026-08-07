@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel - Korvanick</title>
+    <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- Theme before paint: dark is the stylesheet default, so this only has to
+         act when the visitor has chosen light. Inline and synchronous on purpose --
+         an external or deferred script runs after the first paint and would flash. -->
+    <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+
+    <!-- Leaflet's stylesheet FIRST: travel.css overrides its popup and tooltip
+         colours, and a later sheet would win those at equal specificity. -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/travel.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="" defer></script>
+
+    <script src="/scripts/nav.js" defer></script>
+    <script src="/scripts/travel.js" defer></script>
+</head>
+<body class="page-fill">
+    <nav></nav>
+
+    <div class="container fill">
+        <div class="map" id="map"></div>
+    </div>
+</body>
+</html>
