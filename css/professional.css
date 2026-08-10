@@ -9,17 +9,13 @@
      Public Sans   section headings, job titles, org names, the button
      Plex Mono     the date/company meta line under each role
 
+   This file adds no colour of its own -- every value is a token from
+   styles.css, so the page follows the theme without a page-level :root.
+
    Every block shares the .pro-wrap column, so the left and right
    edges line up all the way down the page. No element sets its own
    max-width; change the measure in one place below.
    ================================================================= */
-
-:root {
-    /* the only colour this page adds; everything else comes from styles.css.
-       Derived from --panel-2 so it follows the theme rather than assuming a
-       white overlay reads as a lift, which it does not on light paper. */
-    --pro-panel: var(--panel-2);
-}
 
 .pro-wrap {
     max-width: 680px;
@@ -69,9 +65,11 @@
 /* ---------- experience ---------- */
 
 .pro-role {
+    --role-gap: 44px;   /* the rail below reaches exactly this far, so the
+                           two can never drift apart by hand */
     position: relative;
     padding-left: 26px;
-    margin-bottom: 44px;
+    margin-bottom: var(--role-gap);
     line-height: 1.6;
 }
 
@@ -81,7 +79,7 @@
     position: absolute;
     left: 0;
     top: 9px;
-    bottom: -44px;
+    bottom: calc(var(--role-gap) * -1);
     width: 1px;
     background: var(--rule);
 }
@@ -187,7 +185,7 @@
 
 .pro-card {
     display: block;
-    background: var(--pro-panel);
+    background: var(--panel-2);
     border: 1px solid var(--rule);
     border-radius: 10px;
     padding: 18px;
@@ -231,6 +229,10 @@
     max-width: 62ch;
 }
 
+.pro-note a {
+    color: var(--accent);
+}
+
 /* ---------- toolkit ---------- */
 
 .pro-kit {
@@ -261,30 +263,18 @@
     max-width: 62ch;
 }
 
-/* ---------- closing ---------- */
+/* ---------- resume brief ---------- */
 
-.pro-close {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    line-height: 1.62;
-    max-width: 62ch;
-}
-
-.pro-close a {
-    color: var(--accent);
-}
-
-/* ---------- generate button ---------- */
-
+/* The original Generate button, back in its own shape -- accent fill, centred
+   in its own container with the caption underneath. Same rules as before, so
+   this is the button that was always here doing a job it can now actually do. */
 .button-container {
     text-align: center;
-    margin: 20px auto 60px;
+    margin: 26px auto 0;
     padding: 0 24px;
 }
 
-/* The button was a stock green that belonged to no part of the palette. It is
-   the accent now, which means it also follows the theme. */
+
 .generate-button {
     background-color: var(--accent);
     color: var(--paper);
@@ -314,8 +304,85 @@
     font-size: 0.9375rem;
     line-height: 1.55;
     color: var(--ink-soft);
-    margin-top: 10px;
+    margin: 10px auto 0;
+    max-width: 56ch;
     font-style: italic;   /* Newsreader italic, which is the good one */
+}
+
+/* professional.js writes here after a click. Height is reserved so the
+   caption below does not jump when the message appears. */
+.button-container p.pro-copy-status {
+    font-family: var(--micro);
+    font-size: 0.75rem;
+    font-style: normal;
+    color: var(--ink-faint);
+    min-height: 1.5em;
+}
+
+/* ---------- the brief itself ---------- */
+
+.pro-brief {
+    margin-top: 24px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--panel-2);
+}
+
+.pro-brief > summary {
+    font-family: var(--ui);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding: 16px 18px;
+    cursor: pointer;
+}
+
+.pro-brief > summary:hover {
+    color: var(--ink);
+}
+
+.pro-brief > summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    border-radius: 10px;
+}
+
+.pro-brief[open] > summary {
+    border-bottom: 1px solid var(--rule);
+}
+
+/* The document is written to a fixed measure in the HTML, so it keeps its
+   own line breaks and only wraps when the screen is narrower than they are.
+   Scrolls within its own box rather than making the page enormous. */
+#brief-text {
+    margin: 0;
+    padding: 18px;
+    max-height: 60vh;
+    overflow: auto;
+    font-family: var(--micro);
+    font-size: 0.8125rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- closing ---------- */
+
+.pro-close {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    line-height: 1.62;
+    max-width: 62ch;
+}
+
+.pro-close a {
+    color: var(--accent);
 }
 
 /* ---------- small screens ---------- */
@@ -342,5 +409,9 @@
     .pro-card:hover,
     .pro-card:focus-visible {
         transform: none;
+    }
+
+    .generate-button {
+        transition: none;
     }
 }

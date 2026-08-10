@@ -21,16 +21,18 @@
    this only draws the button and handles the click.
    ============================================================================ */
 (function () {
-  const LINKS = [
+const LINKS = [
     { href: "/",             label: "HOME"         },
     { href: "/professional", label: "PROFESSIONAL" },
-    { href: "/books",        label: "BOOKS"        },
+    { href: "/projects",     label: "PROJECTS"     },
     { href: "/travel",       label: "TRAVEL"       },
-    { href: "/gallery",      label: "GALLERY"      },
+    { href: "/gallery",      label: "PHOTOS"       },
+    { href: "/books",        label: "BOOKS"        },
     { href: "/blog",         label: "BLOG"         }
   ];
 
-  const nav = document.querySelector("nav");
+  const nav = document.querySelector("body > nav");   // the site header, never a
+                                                     // <nav> nested in content
   if (!nav) return;
   nav.textContent = "";          // drop anything static that was left behind
   nav.classList.add("js-nav");   // lets the CSS know the hamburger exists

@@ -5,15 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
   <title>Blog - Korvanick</title>
+  <meta name="description" content="Writing by Nick Korhonen: travel, engineering and whatever else is holding his attention.">
+  <link rel="canonical" href="https://korvanick.com/blog">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Korvanick">
+  <meta property="og:url" content="https://korvanick.com/blog">
+  <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Writing by Nick Korhonen: travel, engineering and whatever else is holding his attention.">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/blog.css">
   <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="alternate" type="application/atom+xml" title="Korvanick blog" href="/feed.xml">
   <script src="/scripts/nav.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog",
+    "url": "https://korvanick.com/blog",
+    "author": {
+      "@type": "Person",
+      "name": "Nick Korhonen",
+      "url": "https://korvanick.com/professional"
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Getting Off at Basel",
+        "datePublished": "2025-11-22",
+        "url": "https://korvanick.com/blog/getting-off-at-basel"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "The Nordics - Feels Like Home",
+        "datePublished": "2025-11-14",
+        "url": "https://korvanick.com/blog/the-nordics-feels-like-home"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "Earth Expedition",
+        "datePublished": "2025-08-24",
+        "url": "https://korvanick.com/blog/earth-expedition"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <nav></nav>
   <main class="blog-index">
-    <h1 class="blog-title">Blog</h1>
+    <!-- Hidden, like the headings on /books and /photos: a dated list of
+         titled pieces announces itself. The <h1> stays so the document has a
+         heading and a screen reader has somewhere to land. -->
+    <h1 class="visually-hidden">Blog</h1>
     <ul class="post-list">
     <li class="post-item">
       <a class="post-link" href="/blog/getting-off-at-basel">

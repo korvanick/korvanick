@@ -36,7 +36,7 @@ On the way to Prague I stopped in Dresden to visit a little creamery with unique
 
 What was really special about Prague was the Klementinum. I love me a good library, and this might be my favorite non-modern one I've visited. The tour also climbs the clock tower for a view over the city, which would have been worth it on its own. But you can't actually go inside the library. The tour walks you to the gallery and you look at it from there, which is probably for the best. 
 
-![The Klementinum Baroque Library Hall, viewed from the gallery](/images/gallery/thumbs/20251015_114902.jpg "Look but don't touch.")
+![The Klementinum Baroque Library Hall, viewed from the gallery](/images/gallery/20251015_114902.jpg "Look but don't touch.")
 
 The hostel crew here was a lot of fun too, though I think I started a separatist movement among those in my room. It was an alcohol-heavy hostel, and on the first night everyone joined in but me (I stuck with my water). On the second day though, I went to a classical music concert and walked around at dusk with a lovely French woman named Lena. After getting back to the hostel, we started playing a card game I didn't fully understand, and got a young Danish girl to join us, and another guy, and had a good game going. When the drinking started, we were having too much fun to stop and join the other group, so we kept doing our own thing. The hostel staff trying to sell drinks didn't seem to love this, but we had a great time. Not exchanging contact information with Lena or the Danish woman was a shame on my part, as they would have been great to keep in touch with for any future travel plans throughout Europe.
 

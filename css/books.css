@@ -6,6 +6,20 @@
      Public Sans   the shelf row headings, author lines, modal author
    ------------------------------------------------------------------------ */
 
+
+
+
+/* books.js writes this when /data/books.json cannot be read. It had no style
+   at all, so the one visible failure path on the page rendered as bare text. */
+.load-error {
+  max-width: 62ch;
+  margin: 24px auto;
+  padding: 0 20px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
 /* The Book Shelf: category rows stacked top-to-bottom (same order as the old columns) */
 .book-shelf {
   display: flex;
@@ -24,7 +38,7 @@
    titles, so they take the Public Sans section-heading treatment. This is a
    deliberate step down in size from the old 1.5em -- if it reads too quiet,
    font-size is the only line to change. */
-h2 {
+.column > h2 {
   font-family: var(--ui);
   font-size: 0.78rem;
   font-weight: 600;
@@ -207,19 +221,35 @@ h2 {
   box-shadow: 0 5px 30px var(--shadow);
 }
 
+/* Now a real <button>, which arrives carrying the user agent's own background,
+   border, padding and font. All of that is stripped back to the bare glyph the
+   <span> used to be, so nothing about the look changes.
+
+   The padding is new: it grows the hit area to roughly 40px without moving the
+   glyph, since top and right are reduced by the same 6px the padding adds. */
 .close-modal {
-  color: var(--ink-faint);
   position: absolute;
-  top: 15px;
-  right: 25px;
+  top: 9px;
+  right: 19px;
+  padding: 6px;
+  appearance: none;
+  background: none;
+  border: 0;
+  font-family: inherit;
   font-size: 28px;
   font-weight: bold;
+  line-height: 1;
+  color: var(--ink-faint);
   cursor: pointer;
 }
-.close-modal:hover,
-.close-modal:focus {
+.close-modal:hover {
   color: var(--ink);
-  text-decoration: none;
+}
+.close-modal:focus-visible {
+  color: var(--ink);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .modal-body {
@@ -268,7 +298,7 @@ h2 {
   max-width: 62ch;
 }
 
-hr {
+.modal-right hr {
   border: 0;
   height: 1px;
   background: var(--rule);
@@ -286,6 +316,23 @@ hr {
   margin-bottom: 10px;
 }
 
+/* A passage from the book, not a reaction to it. Set in Newsreader a step up
+   from body size with a rule down the left, so it reads as quoted material
+   without needing quotation marks around it. */
+.modal-quote {
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 18px;
+  border-left: 2px solid var(--rule);
+  font-family: var(--display);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 62ch;
+  white-space: pre-wrap;   /* keeps paragraph breaks inside a long passage */
+}
+
+[hidden] { display: none !important; }
+
 #modalNotes {
   color: var(--ink-body);
   font-size: 1.0625rem;
@@ -294,7 +341,9 @@ hr {
   white-space: pre-wrap;   /* preserve the line breaks stored in notes */
 }
 
-@media (max-width: 600px) {
+/* Same 640px line as the shelf above, so the card layout and the modal change
+   at the same moment rather than 40px apart. */
+@media (max-width: 640px) {
   .modal-body { flex-direction: column; }
   .modal-left img {
     width: 100%;

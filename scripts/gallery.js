@@ -62,8 +62,22 @@ Promise.all([
         openFromHash();
     })
     .catch(error => {
+        // A console message is no use to a visitor: the page just looked empty
+        // on purpose. Say what happened where they can see it.
         console.error("Error loading the gallery data:", error);
+        showEmpty("The photos could not be loaded. Reloading the page usually fixes it.");
     });
+
+// Message in place of the grid, for a failed load or a genuinely empty set.
+function showEmpty(message) {
+    const container = document.getElementById("galleryContainer");
+    if (!container) return;
+    container.innerHTML = "";
+    const note = document.createElement("p");
+    note.className = "gallery-empty";
+    note.textContent = message;
+    container.appendChild(note);
+}
 
 function kmApart(a, b) {
     const p1 = a[0] * Math.PI / 180, p2 = b[0] * Math.PI / 180;
@@ -89,8 +103,9 @@ function normalize(item) {
     const fileSlug = name.replace(/\.[^.]+$/, "");
     const slug = (typeof item === "object" && item.slug) || fileSlug;
     const location = (typeof item === "object" && item.location) || "";
+    const alt = (typeof item === "object" && item.alt) || "";
     return { src, thumb: THUMB_PREFIX + name, date, label: pretty(date),
-             slug, fileSlug, location };
+             slug, fileSlug, location, alt };
 }
 
 // /gallery#20260726_202749 -> open that photo
@@ -190,6 +205,11 @@ function buildGrid() {
     const container = document.getElementById("galleryContainer");
     container.innerHTML = "";
 
+    if (!photos.length) {
+        showEmpty("There are no photos here yet.");
+        return;
+    }
+
     const fragment = document.createDocumentFragment();
     let shownYear = null;
 
@@ -204,15 +224,28 @@ function buildGrid() {
             shownYear = year;
         }
 
+        // A bare <img> with a click handler is a control only a mouse can
+        // find. Wrapping it in a button costs one element and makes every
+        // photo reachable by Tab and openable with Enter or Space; the button
+        // takes its name from the image's alt text.
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "gallery-thumb";
+
         const img = document.createElement("img");
         img.src = encodeURI(photo.thumb);
-        img.alt = photo.label || "Photo";
+        // The description if we have one, the date if not. Never an empty or
+        // missing alt: an <img> with no alt attribute gets its filename read
+        // aloud, which is worse than a date.
+        img.alt = photo.alt || photo.label || "Photo";
         img.title = photo.label;
         img.className = "gallery-image";
         img.loading = "lazy";
         img.decoding = "async";
-        img.addEventListener("click", () => openModal(index));
-        fragment.appendChild(img);
+
+        button.appendChild(img);
+        button.addEventListener("click", () => openModal(index, button));
+        fragment.appendChild(button);
     });
 
     container.appendChild(fragment);
@@ -228,15 +261,18 @@ function modalParts() {
     };
 }
 
-function openModal(index) {
+function openModal(index, trigger) {
     const { modal, image, caption } = modalParts();
     if (index < 0 || index >= photos.length) return;
 
+    // Stepping to the next photo re-enters this function with the lightbox
+    // already up. Only a genuine open should touch focus.
+    const wasClosed = current === -1;
     current = index;
     const photo = photos[index];
 
     showPhoto(modal, image, photo);
-    image.alt = photo.label || "Photo";
+    image.alt = photo.alt || photo.label || "Photo";
     const parts = [photo.location, photo.label].filter(Boolean);
     parts.push(`${index + 1} of ${photos.length}`);
     caption.textContent = parts.join("   ·   ");
@@ -247,6 +283,15 @@ function openModal(index) {
     ensureNavButtons(modal);
     updateNavButtons();
     preloadNeighbours(index);
+
+    if (wasClosed) {
+        // Dialog semantics are in gallery.html; this moves focus in, keeps Tab
+        // inside, and puts the grid behind out of reach until it closes.
+        SiteModal.open(modal, {
+            initialFocus: modal.querySelector(".close"),
+            returnFocus: trigger
+        });
+    }
 }
 
 // Swapping the src leaves the OLD photo on screen until the new one arrives,
@@ -291,7 +336,8 @@ function step(delta) {
 
 function closeModal() {
     const { modal } = modalParts();
-    modal.style.display = "none";
+    SiteModal.close(modal);        // before hiding: focus can't leave a hidden
+    modal.style.display = "none";  // element cleanly
     document.body.classList.remove("modal-open");
     history.replaceState(null, "", location.pathname);
     current = -1;
@@ -331,8 +377,21 @@ function updateNavButtons() {
     const { modal } = modalParts();
     const prev = modal.querySelector(".gallery-nav.prev");
     const next = modal.querySelector(".gallery-nav.next");
-    if (prev) prev.classList.toggle("disabled", current <= 0);
-    if (next) next.classList.toggle("disabled", current >= photos.length - 1);
+    // The class only stops the mouse (pointer-events: none). The keyboard could
+    // still tab to a dead arrow, so set the real attribute too -- and hand
+    // focus on before disabling the button that is holding it.
+    setNavState(prev, current <= 0, next, modal);
+    setNavState(next, current >= photos.length - 1, prev, modal);
+}
+
+function setNavState(button, off, fallback, modal) {
+    if (!button) return;
+    if (off && document.activeElement === button) {
+        const target = (fallback && !fallback.disabled) ? fallback : modal.querySelector(".close");
+        if (target) target.focus();
+    }
+    button.classList.toggle("disabled", off);
+    button.disabled = off;
 }
 
 // ----------------------------------------------------------------------------- input
@@ -362,6 +421,11 @@ document.addEventListener("touchend", event => {
 });
 
 window.addEventListener("hashchange", () => { applyFilter(); openFromHash(); });
+
+// The close button used to carry an inline onclick in gallery.html, which was
+// the one thing on this page a Content-Security-Policy would have had to make
+// an exception for. It is a real button now, wired here.
+document.querySelector("#imageModal .close").addEventListener("click", closeModal);
 
 // Click the dark background (but not the photo itself) to close
 window.addEventListener("click", event => {

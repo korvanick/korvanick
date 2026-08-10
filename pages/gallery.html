@@ -3,32 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Korvanick</title>
+    <title>Photos - Korvanick</title>
+    <meta name="description" content="Unedited photographs by Nick Korhonen from the places he has been, newest first. Clicking a city on the travel map filters this page to that city.">
+    <link rel="canonical" href="https://korvanick.com/gallery">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Korvanick">
+    <meta property="og:url" content="https://korvanick.com/gallery">
+    <meta property="og:title" content="Photos">
+    <meta property="og:description" content="Unedited photographs from the places I have been.">
     <!-- Theme before paint: dark is the stylesheet default, so this only has to
          act when the visitor has chosen light. Inline and synchronous on purpose --
          an external or deferred script runs after the first paint and would flash. -->
     <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/gallery.css">
     <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
     <script src="/scripts/nav.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Photos",
+      "url": "https://korvanick.com/gallery",
+      "description": "Unedited photographs from the places Nick Korhonen has been.",
+      "author": { "@type": "Person", "name": "Nick Korhonen", "url": "https://korvanick.com/professional" }
+    }
+    </script>
 </head>
 <body>
     <nav></nav>
 
-    <div class="gallery-container" id="galleryContainer">
-        <!-- Images are injected by scripts/gallery.js -->
+    <main>
+        <!-- Visually hidden: the grid speaks for itself, but the year rules
+             below are <h2>s and need an <h1> above them. -->
+        <h1 class="visually-hidden">Photos</h1>
+
+        <div class="gallery-container" id="galleryContainer">
+            <!-- Images are injected by scripts/gallery.js -->
+        </div>
+    </main>
+
+    <!-- The close button is wired up in gallery.js rather than with an inline
+         onclick, so this page has no inline script for a CSP to allow.
+         The caption is a live region: stepping to the next photo leaves focus
+         on the arrow button, so the new caption has to announce itself. -->
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button type="button" class="close" aria-label="Close">&times;</button>
+        <img class="modal-content" id="modalImage" alt="">
+        <div id="caption" aria-live="polite"></div>
     </div>
 
-    <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="caption"></div>
-    </div>
-
+    <script src="/scripts/modal.js"></script>
     <script src="/scripts/gallery.js"></script>
 </body>
 </html>

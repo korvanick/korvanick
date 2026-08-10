@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
 """
-add_book.py -- interactively add or edit a book in your books.js
+add_book.py -- interactively add or edit a book in data/books.json
 
     python3 add_book.py                    # add new book(s)
     python3 add_book.py --edit             # find a book and change it
     python3 add_book.py --edit dune        # jump straight to matches for "dune"
-    python3 add_book.py --file /var/www/korvanick/scripts/books.js
+    python3 add_book.py --file /var/www/korvanick/data/books.json
 
-It finds books.js under the site root (the parent of this automation/ folder)
-automatically. A one-time backup (books.js.bak) is made before the first write
-of each run. The render engine and modal in books.js are never touched.
+The data lives in data/books.json, alongside gallery.json and travel.json.
+scripts/books.js fetches it at page load and is never touched by this script.
+A one-time backup (books.json.bak) is made before the first write of each run,
+and every write goes to a temp file first, so an interrupted run cannot leave a
+half-written array behind.
 
 Ordering: storage stays chronological (oldest -> newest) and the site flips
-recently-completed, currently-reading and hexaseptim-tbr to newest-first at
+recently-completed, currently-reading and to-be-read to newest-first at
 display time. So "move to the front of the row" just means "move to the end of
 the array" -- which is what the edit mode's move option (and "mark finished")
 does for you.
@@ -26,35 +28,45 @@ from pathlib import Path
 CATEGORIES = [
     ("recently-completed", "Recently completed (read)"),
     ("currently-reading",  "Currently reading"),
-    ("hexaseptim-tbr",     "To-read (hexaseptim-tbr)"),
+    ("to-be-read",         "To be read"),
     ("all-time-greats",    "All-time favorite"),
 ]
-FIELD_ORDER = ["title", "author", "cover", "summary", "tags", "notes", "year", "rank"]
 
-# This script lives in korvanick/automation/, so the site root is its parent
-# and cover images live under images/bookCovers/ alongside the rest of the site.
+# Canonical key order for every entry written back out. Keys not listed here are
+# preserved and appended, so an experimental field added by hand is never lost.
+FIELD_ORDER = ["title", "author", "year", "cover", "tags", "rank", "summary", "quote", "notes"]
+
+# Fields kept on every book even when empty, so books.js can test one way.
+# `year` and `rank` stay sparse: absent means "not recorded" / "not ranked".
+ALWAYS_PRESENT = ["title", "author", "cover", "tags", "summary", "notes"]
+
+# This script lives in korvanick/automation/, so the site root is its parent.
 SITE_ROOT = Path(__file__).resolve().parent.parent
 COVER_DIR = SITE_ROOT / "images" / "bookCovers"
+DEFAULT_DATA = SITE_ROOT / "data" / "books.json"
 
 
 # ----------------------------------------------------------------------------- locating the file
-def find_books_js(explicit):
+def find_books_json(explicit):
     if explicit:
         p = Path(explicit).expanduser().resolve()
         if not p.is_file():
             sys.exit(f"File not found: {p}")
         return p
-    env = os.environ.get("BOOKS_JS")
+    env = os.environ.get("BOOKS_JSON")
     if env and Path(env).expanduser().is_file():
         return Path(env).expanduser().resolve()
+    if DEFAULT_DATA.is_file():
+        return DEFAULT_DATA
 
-    hits = [p for p in SITE_ROOT.rglob("books.js")
+    hits = [p for p in SITE_ROOT.rglob("books.json")
             if "node_modules" not in p.parts and not p.name.endswith(".bak")]
     if len(hits) == 1:
         return hits[0]
     if not hits:
-        return Path(input("Path to books.js: ").strip()).expanduser().resolve()
-    print("Found several books.js files:")
+        sys.exit(f"No books.json found. Expected it at:\n    {DEFAULT_DATA}\n"
+                 f"Pass --file if it lives somewhere else.")
+    print("Found several books.json files:")
     for i, p in enumerate(hits, 1):
         print(f"  {i}) {p}")
     return hits[int(input("Choose one: ")) - 1]
@@ -69,7 +81,7 @@ def permission_help(path):
         f"    sudo chown -R $USER:www-data {SITE_ROOT}\n"
         f"    sudo find {SITE_ROOT} -type d -exec chmod 2775 {{}} +\n"
         f"    sudo find {SITE_ROOT} -type f -exec chmod 664 {{}} +\n\n"
-        "nginx only needs to read the files, so group-read is plenty.\n"
+        "Apache only needs to read the files, so group-read is plenty.\n"
     )
 
 
@@ -176,184 +188,80 @@ def slugify(title):
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
 
 
-# ----------------------------------------------------------------------------- reading the array
-def array_bounds(content):
-    """Offsets just inside the myBooks [ ... ] literal."""
-    key = content.find("const myBooks")
-    if key == -1:
-        sys.exit("Could not find 'const myBooks' in the file.")
-    open_idx = content.find("[", key)
-    if open_idx == -1:
-        sys.exit("Could not find the start of the myBooks array.")
-    m = re.search(r"^\];", content[key:], re.M)
-    if not m:
-        sys.exit("Could not find the end of the myBooks array (a line starting with '];').")
-    return open_idx + 1, key + m.start()
-
-
-def entry_spans(content):
-    """(start, end) offsets of every top-level { ... } inside myBooks."""
-    start, end = array_bounds(content)
-    spans, depth, obj_start = [], 0, None
-    in_str = esc = False
-    i = start
-    while i < end:
-        c = content[i]
-        if in_str:
-            if esc:
-                esc = False
-            elif c == "\\":
-                esc = True
-            elif c == '"':
-                in_str = False
-        elif c == '"':
-            in_str = True
-        elif c == "{":
-            if depth == 0:
-                obj_start = i
-            depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0 and obj_start is not None:
-                spans.append((obj_start, i + 1))
-                obj_start = None
-        i += 1
-    return spans
-
-
-def entry_to_dict(text):
-    """Turn one JS object literal into a dict, or None if it won't parse.
-
-    Walks the text so that bare keys get quoted but anything inside a string
-    value is left exactly as written.
-    """
-    out, i = [], 0
-    in_str = esc = False
-    while i < len(text):
-        c = text[i]
-        if in_str:
-            out.append(c)
-            if esc:
-                esc = False
-            elif c == "\\":
-                esc = True
-            elif c == '"':
-                in_str = False
-            i += 1
-            continue
-        if c == '"':
-            in_str = True
-            out.append(c)
-            i += 1
-            continue
-        m = re.match(r"[A-Za-z_][A-Za-z0-9_]*", text[i:])
-        if m:
-            ident = m.group(0)
-            j = i + len(ident)
-            k = j
-            while k < len(text) and text[k] in " \t":
-                k += 1
-            out.append(f'"{ident}"' if k < len(text) and text[k] == ":" else ident)
-            i = j
-            continue
-        out.append(c)
-        i += 1
-    cleaned = re.sub(r",(\s*[}\]])", r"\1", "".join(out))
+# ----------------------------------------------------------------------------- the data file
+def load_books(path):
     try:
-        parsed = json.loads(cleaned)
-        return parsed if isinstance(parsed, dict) else None
-    except json.JSONDecodeError:
-        return None
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        sys.exit(f"\n{path} is not valid JSON:\n  {e.msg} (line {e.lineno}, col {e.colno})\n"
+                 f"Fix it by hand, or restore it with:\n"
+                 f"    git checkout -- {path}\n")
+    if not isinstance(data, list):
+        sys.exit(f"{path} should contain a JSON array of books.")
+    return data
 
 
-def load_entries(content):
-    """[(span, dict_or_None, title_string)] for every book in the file."""
-    items = []
-    for span in entry_spans(content):
-        raw = content[span[0]:span[1]]
-        data = entry_to_dict(raw)
-        if data and "title" in data:
-            title = data["title"]
-        else:
-            m = re.search(r'title:\s*"((?:[^"\\]|\\.)*)"', raw)
-            title = m.group(1) if m else "(untitled)"
-        items.append((span, data, title))
-    return items
-
-
-def existing_titles(content):
-    return {t.lower() for _, _, t in load_entries(content)}
-
-
-# ----------------------------------------------------------------------------- writing the array
-def format_entry(entry):
-    parts = []
+def canonical(entry):
+    """Reorder keys and drop empty optional ones, keeping unknown fields."""
+    out = {}
     for f in FIELD_ORDER:
         if f in entry:
-            parts.append(f"        {f}: {json.dumps(entry[f], ensure_ascii=False)}")
-    for f, v in entry.items():                      # keep any field we don't know about
-        if f not in FIELD_ORDER:
-            parts.append(f"        {f}: {json.dumps(v, ensure_ascii=False)}")
-    return "    {\n" + ",\n".join(parts) + "\n    },"
+            val = entry[f]
+            if f in ("year", "rank") and (val is None or val == ""):
+                continue                      # sparse by design
+            out[f] = val
+    for f in ALWAYS_PRESENT:                  # one shape for books.js to test
+        out.setdefault(f, [] if f == "tags" else "")
+    for f, v in entry.items():                # never silently lose a field
+        out.setdefault(f, v)
+    return out
 
 
-def _span_with_comma(content, span):
-    """Extend a span over its trailing comma."""
-    s, e = span
-    j = e
-    while j < len(content) and content[j] in " \t":
-        j += 1
-    if j < len(content) and content[j] == ",":
-        e = j + 1
-    return s, e
+def dump_books(books):
+    return json.dumps([canonical(b) for b in books],
+                      indent=2, ensure_ascii=False) + "\n"
 
 
-def replace_entry(content, span, entry):
-    s, e = _span_with_comma(content, span)
-    return content[:s] + format_entry(entry).lstrip() + content[e:]
-
-
-def remove_entry(content, span):
-    s, e = _span_with_comma(content, span)
-    while e < len(content) and content[e] in " \t":
-        e += 1
-    if e < len(content) and content[e] == "\n":
-        e += 1
-    while s > 0 and content[s - 1] in " \t":
-        s -= 1
-    return content[:s] + content[e:]
-
-
-def append_entry(content, entry_text):
-    _, end = array_bounds(content)
-    before = content[:end].rstrip()
-    if not before.endswith(",") and not before.endswith("["):
-        before += ","                       # keep the previous entry comma-terminated
-    return before + "\n" + entry_text + "\n" + content[end:]
+def existing_titles(books):
+    return {str(b.get("title", "")).lower() for b in books}
 
 
 # ----------------------------------------------------------------------------- saving
 class Saver:
-    """Writes the file, backing it up once per run."""
+    """Writes the file atomically, backing it up once per run."""
 
     def __init__(self, path):
         self.path = path
         self.backed_up = False
 
-    def save(self, content, entry_text_on_failure=None):
+    def save(self, books, entry_on_failure=None):
         try:
             if not self.backed_up:
                 bak = self.path.with_name(self.path.name + ".bak")
                 shutil.copy2(self.path, bak)
                 print(f"Backup saved: {bak}")
                 self.backed_up = True
-            self.path.write_text(content, encoding="utf-8")
+
+            text = dump_books(books)
+            # Write beside the target so os.replace stays on one filesystem.
+            fd, tmp = tempfile.mkstemp(dir=self.path.parent, suffix=".tmp")
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as fh:
+                    fh.write(text)
+                    fh.flush()
+                    os.fsync(fh.fileno())
+                shutil.copymode(self.path, tmp)
+                os.replace(tmp, self.path)     # atomic: readers see old or new
+            except BaseException:
+                Path(tmp).unlink(missing_ok=True)
+                raise
             return True
         except PermissionError:
             print(permission_help(self.path))
-            if entry_text_on_failure:
+            if entry_on_failure is not None:
                 print("Your entry, so you can paste it in by hand:\n")
-                print(entry_text_on_failure + "\n")
+                print(json.dumps(canonical(entry_on_failure), indent=2,
+                                 ensure_ascii=False) + "\n")
             sys.exit(1)
 
 
@@ -389,49 +297,47 @@ def build_entry():
     return entry
 
 
-def add_mode(path, content, saver):
+def add_mode(books, saver):
     while True:
         entry = build_entry()
 
-        if entry["title"].lower() in existing_titles(content):
+        if entry["title"].lower() in existing_titles(books):
             if not ask(f'"{entry["title"]}" already exists. Add anyway '
                        f'(e.g. a re-read)? (y/n)', "n").lower().startswith("y"):
                 print("Skipped. Tip: use --edit to update the existing entry.\n")
                 if not ask("Add another? (y/n)", "n").lower().startswith("y"):
-                    return content
+                    return books
                 continue
 
-        entry_text = format_entry(entry)
-        print("\n" + entry_text + "\n")
+        print("\n" + json.dumps(canonical(entry), indent=2, ensure_ascii=False) + "\n")
 
         if ask("Add this book? (y/n)", "y").lower().startswith("y"):
-            content = append_entry(content, entry_text)
-            saver.save(content, entry_text)
-            print("Added.")
+            books.append(entry)               # end of array == front of the row
+            saver.save(books, entry)
+            print(f"Added. ({len(books)} books)")
             cover_reminder(entry)
             print()
         else:
             print("Discarded.\n")
 
         if not ask("Add another? (y/n)", "n").lower().startswith("y"):
-            return content
+            return books
 
 
 # ----------------------------------------------------------------------------- edit mode
-def pick_entry(content, query):
-    items = load_entries(content)
-    if not items:
+def pick_entry(books, query):
+    if not books:
         sys.exit("No books found in the array.")
 
     while True:
         q = (query or ask("Search by title or author (blank to list all)")).lower()
         query = None
         if q:
-            matches = [it for it in items
-                       if q in it[2].lower()
-                       or q in str((it[1] or {}).get("author", "")).lower()]
+            matches = [(i, b) for i, b in enumerate(books)
+                       if q in str(b.get("title", "")).lower()
+                       or q in str(b.get("author", "")).lower()]
         else:
-            matches = items
+            matches = list(enumerate(books))
         if not matches:
             print("  No matches.")
             continue
@@ -440,21 +346,17 @@ def pick_entry(content, query):
             continue
 
         print()
-        for i, (_, data, title) in enumerate(matches, 1):
-            tags = ", ".join((data or {}).get("tags", [])) or "?"
-            author = (data or {}).get("author", "")
-            print(f"  {i:>3}) {title}" + (f" -- {author}" if author else "") + f"   [{tags}]")
+        for n, (i, b) in enumerate(matches, 1):
+            tags = ", ".join(b.get("tags", [])) or "?"
+            author = b.get("author", "")
+            title = b.get("title", "(untitled)")
+            print(f"  {n:>3}) {title}" + (f" -- {author}" if author else "") + f"   [{tags}]")
         print()
         choice = ask("Choose a number (blank to search again)")
         if not choice:
             continue
         if choice.isdigit() and 1 <= int(choice) <= len(matches):
-            span, data, title = matches[int(choice) - 1]
-            if data is None:
-                print(f'\n"{title}" is written in a style this script cannot parse '
-                      f'safely.\nEdit that one by hand in books.js.\n')
-                continue
-            return span, data
+            return matches[int(choice) - 1]
 
 
 def show_entry(entry):
@@ -463,7 +365,7 @@ def show_entry(entry):
         if f not in entry:
             continue
         val = entry[f]
-        if f == "notes" and val:
+        if f in ("notes", "quote") and val:
             first = val.splitlines()[0]
             extra = len(val.splitlines()) - 1
             val = first + (f"  (+{extra} more line{'s' if extra != 1 else ''})" if extra else "")
@@ -473,10 +375,12 @@ def show_entry(entry):
     print()
 
 
-def edit_notes(entry):
-    current = entry.get("notes", "")
+def edit_notes(entry, field="notes", label="notes"):
+    """Free-form text on a book. Two fields use it: `notes` (my reaction) and
+    `quote` (a passage from the book itself)."""
+    current = entry.get(field, "")
     if current:
-        print("\nCurrent notes:\n" + "\n".join("  | " + l for l in current.splitlines()) + "\n")
+        print(f"\nCurrent {label}:\n" + "\n".join("  | " + l for l in current.splitlines()) + "\n")
         choice = ask("(e)ditor / (a)ppend / (r)etype / (c)lear / (k)eep", "e").lower()
     else:
         choice = ask("(e)ditor / (r)etype / (k)eep", "e").lower()
@@ -484,19 +388,19 @@ def edit_notes(entry):
     if choice.startswith("k"):
         return
     if choice.startswith("c"):
-        entry["notes"] = ""
+        entry.pop(field, None) if field == "quote" else entry.update({field: ""})
     elif choice.startswith("e"):
-        entry["notes"] = open_in_editor(current)
+        entry[field] = open_in_editor(current)
     elif choice.startswith("a"):
-        added = ask_multiline("Notes to append")
-        entry["notes"] = (current + "\n\n" + added).strip() if added else current
+        added = ask_multiline(f"{label.capitalize()} to append")
+        entry[field] = (current + "\n\n" + added).strip() if added else current
     else:
-        entry["notes"] = ask_multiline("Notes")
+        entry[field] = ask_multiline(label.capitalize())
 
 
 def mark_finished(entry):
     tags = [t for t in entry.get("tags", []) if t not in
-            ("currently-reading", "hexaseptim-tbr")]
+            ("currently-reading", "to-be-read")]
     if "recently-completed" not in tags:
         tags.insert(0, "recently-completed")
     entry["tags"] = tags
@@ -512,8 +416,9 @@ def mark_finished(entry):
     return True
 
 
-def edit_mode(path, content, saver, query):
-    span, entry = pick_entry(content, query)
+def edit_mode(books, saver, query):
+    index, entry = pick_entry(books, query)
+    entry = json.loads(json.dumps(entry))     # edit a copy; quit really means quit
     original = json.dumps(entry, sort_keys=True)
     move = False
 
@@ -521,8 +426,10 @@ def edit_mode(path, content, saver, query):
         show_entry(entry)
         print("  1) title    2) author   3) cover    4) summary")
         print("  5) tags     6) notes    7) year     8) rank")
+        print("  9) quote (a passage from the book, shown above the notes)")
         print("  f) mark finished (recently-completed + year + notes + move to front)")
         print(f"  m) move to front of its row(s)   [{'yes' if move else 'no'}]")
+        print("  d) delete this book")
         print("  s) save     q) quit without saving")
         choice = ask("Choose", "s").lower()
 
@@ -538,6 +445,8 @@ def edit_mode(path, content, saver, query):
             entry["tags"] = ask_tags(entry.get("tags", []))
         elif choice == "6":
             edit_notes(entry)
+        elif choice == "9":
+            edit_notes(entry, "quote", "quote")
         elif choice == "7":
             year = ask_int("Year read (blank to remove)", str(entry.get("year", "")))
             if year is None:
@@ -554,50 +463,57 @@ def edit_mode(path, content, saver, query):
             move = mark_finished(entry)
         elif choice == "m":
             move = not move
+        elif choice == "d":
+            if ask(f'Delete "{entry.get("title", "")}"? (y/n)', "n").lower().startswith("y"):
+                books.pop(index)
+                saver.save(books)
+                print(f"Deleted. ({len(books)} books)")
+                return books
+            print("  Kept.")
         elif choice == "q":
             print("Nothing written.")
-            return content
+            return books
         elif choice == "s":
             if json.dumps(entry, sort_keys=True) == original and not move:
                 print("No changes.")
-                return content
-            entry_text = format_entry(entry)
-            print("\n" + entry_text)
+                return books
+            print("\n" + json.dumps(canonical(entry), indent=2, ensure_ascii=False))
             print(f"\nMove to the end of the array (front of the row): "
                   f"{'yes' if move else 'no'}")
             if not ask("Save? (y/n)", "y").lower().startswith("y"):
                 print("Discarded.")
-                return content
+                return books
             if move:
-                content = append_entry(remove_entry(content, span), entry_text)
+                books.pop(index)
+                books.append(entry)
             else:
-                content = replace_entry(content, span, entry)
-            saver.save(content, entry_text)
+                books[index] = entry
+            saver.save(books, entry)
             print("Saved.")
             cover_reminder(entry)
-            return content
+            return books
         else:
             print("  ?")
 
 
 # ----------------------------------------------------------------------------- main
 def main():
-    ap = argparse.ArgumentParser(description="Add or edit a book in books.js")
-    ap.add_argument("--file", help="path to books.js (otherwise auto-detected)")
+    ap = argparse.ArgumentParser(description="Add or edit a book in data/books.json")
+    ap.add_argument("--file", help="path to books.json (otherwise auto-detected)")
     ap.add_argument("-e", "--edit", nargs="?", const="", metavar="QUERY",
                     help="edit an existing book instead of adding one")
     args = ap.parse_args()
 
-    path = find_books_js(args.file)
+    path = find_books_json(args.file)
     check_writable(path)
-    content = path.read_text(encoding="utf-8")
-    print(f"\nEditing: {path}\n")
+    books = load_books(path)
+    print(f"\nEditing: {path}  ({len(books)} books)\n")
 
     saver = Saver(path)
     if args.edit is not None:
-        edit_mode(path, content, saver, args.edit)
+        edit_mode(books, saver, args.edit)
     else:
-        add_mode(path, content, saver)
+        add_mode(books, saver)
         print("Tip: python3 add_book.py --edit <title> updates a book you've finished.")
 
     print("Done.")

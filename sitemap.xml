@@ -2,27 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://korvanick.com/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-09</lastmod>
   </url>
   <url>
     <loc>https://korvanick.com/blog</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://korvanick.com/books</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-09</lastmod>
   </url>
   <url>
     <loc>https://korvanick.com/gallery</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-09</lastmod>
   </url>
   <url>
     <loc>https://korvanick.com/professional</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-09</lastmod>
+  </url>
+  <url>
+    <loc>https://korvanick.com/projects</loc>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://korvanick.com/travel</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-09</lastmod>
   </url>
   <url>
     <loc>https://korvanick.com/blog/earth-expedition</loc>
@@ -35,5 +39,25 @@
   <url>
     <loc>https://korvanick.com/blog/the-nordics-feels-like-home</loc>
     <lastmod>2025-11-14</lastmod>
+  </url>
+  <url>
+    <loc>https://korvanick.com/projects/barn-brain</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://korvanick.com/projects/family-stories</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://korvanick.com/projects/fraud-bot</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://korvanick.com/projects/herb-money</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://korvanick.com/projects/korvanick</loc>
+    <lastmod>2026-08-10</lastmod>
   </url>
 </urlset>

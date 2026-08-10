@@ -1,0 +1,30 @@
+# Rewrites sitemap.xml from whatever pages are on disk.
+#
+#   sudo cp automation/systemd/korvanick-sitemap.* /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now korvanick-sitemap.timer
+#
+# Check on it with:
+#   systemctl list-timers korvanick-sitemap.timer
+#   journalctl -u korvanick-sitemap.service -n 20
+#
+# Type=oneshot: it runs, writes, exits. Nothing stays resident.
+
+[Unit]
+Description=Rebuild korvanick.com sitemap.xml
+Documentation=file:///var/www/korvanick/automation/auto_sitemap.py
+After=network.target
+
+[Service]
+Type=oneshot
+User=nick
+Group=www-data
+WorkingDirectory=/var/www/korvanick
+ExecStart=/usr/bin/python3 /var/www/korvanick/automation/auto_sitemap.py
+
+# It only ever writes one file, so say so and lock the rest down.
+ProtectSystem=strict
+ReadWritePaths=/var/www/korvanick
+ProtectHome=read-only
+PrivateTmp=true
+NoNewPrivileges=true

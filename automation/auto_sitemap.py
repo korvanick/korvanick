@@ -1,18 +1,31 @@
 #!/usr/bin/env python3
-"""Generate sitemap.xml for korvanick.com.
+"""auto_sitemap.py -- keep sitemap.xml in step with the pages on disk.
 
 Walks the built HTML and writes <project>/sitemap.xml using the site's clean
 URLs:
 
-    index.html            ->  /
-    pages/<name>.html     ->  /<name>
-    pages/blog/<slug>.html->  /blog/<slug>
+    index.html               ->  /
+    pages/<name>.html        ->  /<name>
+    pages/<dir>/<name>.html  ->  /<dir>/<name>
 
-Zero dependencies. Run by hand, or let build_blog.py call build() after it
-regenerates the blog.
+ANY subdirectory of pages/ is picked up, so adding a section never means
+editing this file. The old version named blog/ specifically, which is why the
+five project pages were invisible to it.
 
-    python3 automation/build_sitemap.py
-    python3 automation/build_sitemap.py --dry-run
+Zero dependencies, and idempotent, so it is safe to run from anywhere:
+
+    python3 automation/auto_sitemap.py             by hand
+    python3 automation/auto_sitemap.py --dry-run   show the diff, write nothing
+
+publish.py calls build() at the end of a run, so a new post or project
+reaches the sitemap the moment its page exists. A daily systemd timer catches
+the other case -- a page edited by hand, which no build step knows about. See
+the systemd/ folder next to this script.
+
+A caveat about lastmod: for everything except blog posts it comes from the
+file's modification time. The working tree is the live document root, so a
+`git checkout` or `reset --hard` rewrites those timestamps and every page will
+claim it changed today. Harmless, but do not read the dates as history.
 """
 
 import argparse
@@ -38,7 +51,7 @@ def mtime_date(path: Path) -> date:
 def post_date(slug: str, posts_dir: Path, html: Path) -> date:
     """Published date from the source .md front matter; mtime as a fallback.
 
-    build_blog.py rewrites every post's HTML on each run, so the generated
+    publish.py rewrites every post's HTML on each run, so the generated
     file's mtime is always "today" and is useless as a lastmod.
     """
     src = posts_dir / f"{slug}.md"
@@ -68,14 +81,22 @@ def collect(site_dir: Path, posts_dir: Path):
             continue
         entries.append((f"/{stem}", mtime_date(html)))
 
-    blog_dir = site_dir / "blog"
-    if blog_dir.is_dir():
-        for html in sorted(blog_dir.glob("*.html")):
+    # Every subdirectory of pages/, not just blog/. The five project pages were
+    # invisible to the old version for exactly this reason: it named the one
+    # section that existed when it was written.
+    for section in sorted(p for p in site_dir.iterdir() if p.is_dir()):
+        if section.name.startswith((".", "_")) or section.name in EXCLUDE:
+            continue
+        for html in sorted(section.glob("*.html")):
             stem = html.stem
-            # blog/index.html is a stale artifact build_blog.py already flags.
+            # <section>/index.html is a stale artifact publish.py flags.
             if stem.startswith("_") or stem in EXCLUDE or stem == "index":
                 continue
-            entries.append((f"/blog/{stem}", post_date(stem, posts_dir, html)))
+            # Blog posts carry a real published date in their front matter;
+            # anything else falls back to when the file last changed.
+            when = (post_date(stem, posts_dir, html) if section.name == "blog"
+                    else mtime_date(html))
+            entries.append((f"/{section.name}/{stem}", when))
 
     return entries
 

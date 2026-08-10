@@ -35,11 +35,12 @@ const INITIAL_VIEW = { center: [47.6062, -122.3321], zoom: 12 };
 // has actually happened.
 const TYPES = ['been', 'future'];
 
-// A city whose message is longer than this gets a bigger dot: 76% of visited
-// cities have SOME text, so mere presence marks nearly everything and says
-// nothing. Length is the honest proxy for "there is a story here" -- at 90 it
-// picks out about a third of them. Lower it to mark more.
-const NOTE_MIN_CHARS = 90;
+// A city with anything written about it gets the bigger dot. There used to be
+// a 90-character floor here, because back when 76% of visited cities carried
+// some text, mere presence marked nearly everything and said nothing. The text
+// has since been cut back to the places actually worth reading about -- 103 of
+// 361 -- so presence is now the honest signal and length is not needed as a
+// proxy. To mark fewer again, put a length test back on hasNote below.
 const TYPE_NAMES = { been: "Places I've been", future: 'Future Adventures' };
 
 const WORLD = L.latLngBounds([-85, -180], [85, 180]);
@@ -68,7 +69,7 @@ function basemapUrl() {
 const basemap = L.tileLayer(basemapUrl(), {
     subdomains: 'abcd',
     maxZoom: 20,
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 }).addTo(map);
 
 // Watch <html> rather than listening to the header button: the theme can also
@@ -500,6 +501,54 @@ function openFromHash() {
     }
 }
 
+// ------------------------------------------------------------------ dot & popup a11y
+//
+//  Leaflet already makes every marker keyboard-reachable: it puts tabindex="0"
+//  and role="button" on the icon element. Two things it cannot do for us:
+//
+//  1. NAME THEM. Leaflet copies its `alt` option onto the icon only when the
+//     icon is an <img>. These are divIcons, so all ~350 dots reach a screen
+//     reader as an unnamed button. aria-label is set here instead.
+//
+//  2. HAND OVER FOCUS. Opening a popup leaves focus on the dot, so the card
+//     that just appeared is not where the next Tab goes and a screen reader
+//     never learns it opened. Focus moves in below, and comes back to the dot
+//     when the popup closes.
+//
+//  A popup is NOT given aria-modal and its focus is not trapped: the map stays
+//  live underneath and a click anywhere outside dismisses it, so calling it
+//  modal would describe something that isn't true. role="dialog" alone is the
+//  honest label -- it says "this is a box that opened", nothing more.
+
+function nameTheDot(marker, name) {
+    const icon = marker.getElement();
+    if (icon) icon.setAttribute('aria-label', name);
+}
+
+function describePopup(entry) {
+    const popup = entry.marker.getPopup();
+    const el = popup && popup.getElement();
+    if (!el) return;
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-label', entry.name);
+    // Leaflet's own close control is an <a role="button"> and comes first in
+    // the popup, so it is the natural landing point.
+    const close = el.querySelector('.leaflet-popup-close-button');
+    if (close) close.focus({ preventScroll: true });
+}
+
+function returnFocusToDot(entry) {
+    // Only if the popup still had focus. Leaflet also closes popups on the way
+    // out of a click that is going somewhere else, and yanking focus back to a
+    // dot then would fight whatever the visitor was actually doing.
+    const active = document.activeElement;
+    const popupEl = entry.marker.getPopup() && entry.marker.getPopup().getElement();
+    if (!active || active === document.body || (popupEl && popupEl.contains(active))) {
+        const icon = entry.marker.getElement();
+        if (icon) icon.focus({ preventScroll: true });
+    }
+}
+
 // --------------------------------------------------------------------------- lightbox
 //
 //  Clicking a card's thumbnail shows the full-size photo over the map rather
@@ -508,10 +557,16 @@ function openFromHash() {
 
 let lightbox = null;
 
-function openLightbox(src, caption) {
+// `trigger` is the thumbnail that was clicked. It is passed in rather than read
+// from document.activeElement because the card lives inside a Leaflet popup,
+// and where focus sits after a click on one of those is not worth trusting.
+function openLightbox(src, caption, trigger) {
     if (!lightbox) {
         lightbox = document.createElement('div');
         lightbox.className = 'travel-lightbox';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Photo');
         lightbox.innerHTML =
             '<button class="lightbox-close" type="button" aria-label="Close">&#10005;</button>' +
             '<figure><img alt=""><figcaption></figcaption></figure>';
@@ -522,11 +577,23 @@ function openLightbox(src, caption) {
     }
     lightbox.querySelector('img').src = src;
     lightbox.querySelector('figcaption').textContent = caption || '';
+    // The caption is the only description of the photo there is, so it names
+    // the dialog too -- "Tbilisi, Georgia" rather than "Photo".
+    lightbox.setAttribute('aria-label', caption || 'Photo');
     lightbox.classList.add('is-open');
+
+    // Focus in, Tab held inside, the map behind put out of reach; on close,
+    // focus goes back to the thumbnail. See scripts/modal.js.
+    SiteModal.open(lightbox, {
+        initialFocus: lightbox.querySelector('.lightbox-close'),
+        returnFocus: trigger
+    });
 }
 
 function closeLightbox() {
-    if (lightbox) lightbox.classList.remove('is-open');
+    if (!lightbox) return;
+    SiteModal.close(lightbox);
+    lightbox.classList.remove('is-open');
 }
 
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
@@ -558,7 +625,7 @@ function wireCardPhotos() {
         if (!link) return;
         e.preventDefault();
         e.stopPropagation();
-        openLightbox(link.dataset.full, link.dataset.caption);
+        openLightbox(link.dataset.full, link.dataset.caption, link);
     });
 }
 
@@ -605,7 +672,7 @@ Promise.all([
                 // then cities with something written about them. Overlapping
                 // dots are within a few pixels of each other, so 1000 is more
                 // than enough to outrank the position they'd otherwise get.
-                const hasNote = (loc.message || '').trim().length >= NOTE_MIN_CHARS;
+                const hasNote = (loc.message || '').trim() !== '';
                 const marker = L.marker(loc.coords, {
                     icon: dotIcon(type, loc.highlight, hasNote),
                     zIndexOffset: loc.highlight ? 2000 : (hasNote ? 1000 : 0),
@@ -662,6 +729,7 @@ Promise.all([
                     popupOpen = entry;
                     if (peeking === entry) peeking = null;
                     layoutLabels();
+                    describePopup(entry);
                 });
                 marker.on('popupclose', () => {
                     // Only clear the hash this popup put there. Leaflet closes
@@ -675,9 +743,11 @@ Promise.all([
                     // A tap never sends mouseout, so a stale peek would linger.
                     peeking = null;
                     layoutLabels();
+                    returnFocusToDot(entry);
                 });
 
                 marker.addTo(layers[type]);
+                nameTheDot(marker, loc.name);
                 entries.push(entry);
             });
         });

@@ -6,17 +6,44 @@
    beside pictures, which is exactly the job it was chosen for.
    ------------------------------------------------------------------------ */
 
-/* Ensure the gallery is positioned below the navbar */
+/* One rule for every width. There used to be five: an auto-fill base plus
+   fixed column counts at 600, 900, 1200 and 1500. Fixed counts do not survive
+   a change of width -- crossing 600px went from 3 columns of 176px to 5 of
+   100px, so widening the window made every thumbnail suddenly smaller. Letting
+   auto-fill choose the count, with the minimum growing on larger screens,
+   holds the cell between about 150 and 240px everywhere instead. */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Flexibly handles 5-10 columns */
+    grid-template-columns: repeat(auto-fill, minmax(clamp(140px, 14vw, 220px), 1fr));
     gap: 15px;
     padding: 20px;
     justify-items: center;
 }
 
+/* Each thumbnail is a button wrapping the image, so the grid can be walked with
+   Tab and a photo opened with Enter. The button is the grid item now; it is
+   stripped to nothing so the picture is still the only thing you see. No
+   overflow clipping here on purpose -- the hover scale is meant to spill over
+   its neighbours, and hiding it would change the look. */
+.gallery-thumb {
+    display: block;
+    width: 100%;
+    padding: 0;
+    appearance: none;
+    background: none;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font: inherit;
+}
+.gallery-thumb:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 /* Gallery image styles */
 .gallery-image {
+    display: block;
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -26,7 +53,8 @@
 }
 
 /* Hover effect for images */
-.gallery-image:hover {
+.gallery-image:hover,
+.gallery-thumb:focus-visible .gallery-image {
     transform: scale(1.1);
 }
 /* Modal styles for viewing images */
@@ -91,6 +119,15 @@
 
 @media (prefers-reduced-motion: reduce) {
     .modal-spinner { animation: modal-fade-in 0.15s ease-in 0.15s both; }
+
+    /* The thumbnail zoom was never covered by this block. It is the largest
+       movement on the page, so it is the one that most needed to be. */
+    .gallery-image { transition: none; }
+    .gallery-image:hover,
+    .gallery-thumb:focus-visible .gallery-image { transform: none; }
+
+    .gallery-nav { transition: none; }
+    .gallery-filter-clear { transition: none; }
 }
 
 /* The plate under a full-size photo: location and date. Mono, sentence case,
@@ -110,16 +147,31 @@
     margin-top: 12px;
 }
 
-/* Close button in modal */
+/* Close button in modal. A real <button> now rather than a <span>, so the
+   user agent's own chrome and font are stripped back to the bare glyph. Top
+   and right drop by the 6px the padding adds, so the glyph does not move while
+   the hit area grows. */
 .close {
-    color: var(--ink);
+    position: absolute;
+    top: 9px;
+    right: 29px;
+    padding: 6px;
+    appearance: none;
+    background: none;
+    border: 0;
+    font-family: inherit;
     font-size: 40px; /* Made slightly larger so it's easier to click */
     font-weight: bold;
-    position: absolute;
-    top: 15px; /* Moved up closer to the top corner */
-    right: 35px;
+    line-height: 1;
+    color: var(--ink);
     cursor: pointer;
     z-index: 10000; /* Ensures the X is always clickable and on top of everything */
+}
+.close:hover { color: var(--accent-hover); }
+.close:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 /* Year headings: span the whole grid row so photos stay grouped by year */
@@ -178,29 +230,19 @@ body.modal-open {
     .gallery-nav.next { right: 8px; }
 }
 
-/* Responsive adjustments */
-@media (min-width: 600px) {
-    .gallery-container {
-        grid-template-columns: repeat(5, 1fr); /* 5 columns on wider screens */
-    }
-}
 
-@media (min-width: 900px) {
-    .gallery-container {
-        grid-template-columns: repeat(6, 1fr); /* 6 columns on larger screens */
-    }
-}
 
-@media (min-width: 1200px) {
-    .gallery-container {
-        grid-template-columns: repeat(7, 1fr); /* 7 columns on very large screens */
-    }
-}
 
-@media (min-width: 1500px) {
-    .gallery-container {
-        grid-template-columns: repeat(8, 1fr); /* 8 columns on extra-large screens */
-    }
+
+/* Shown by gallery.js when the data cannot be read. Without it a failed fetch
+   left a page that looked deliberately blank. */
+.gallery-empty {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    padding: 40px 0;
+    text-align: left;
+    color: var(--ink-soft);
+    line-height: 1.62;
 }
 
 /* --- city view header ------------------------------------------------------

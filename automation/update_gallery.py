@@ -448,6 +448,46 @@ def write_review(review, dry_run):
     REVIEW_OUT.write_text(header + "\n".join(rows) + "\n", encoding="utf-8")
 
 
+def prompt_alt(entries, known, ask_all=False):
+    """Ask for alt text, one photo at a time, skipping is one keystroke.
+
+    Only new photos are asked about by default -- a run that adds three photos
+    asks three questions, not three hundred. --alt widens it to every photo
+    that still has none, for working through a backlog in sittings.
+
+    Alt text is not in OWNED, so once written it is carried through every
+    future run like any other hand-added field.
+    """
+    if not sys.stdin.isatty():
+        return 0                      # cron, a pipe, or called from a script
+
+    todo = [e for e in entries
+            if not e.get("alt") and (ask_all or e["src"] not in known)]
+    if not todo:
+        return 0
+
+    print(f"\n{len(todo)} photo{'' if len(todo) == 1 else 's'} without alt text.")
+    print("Describe what is in the picture for someone who cannot see it.")
+    print("Enter on its own skips one photo.  'stop' stops asking.\n")
+
+    written = 0
+    for entry in todo:
+        name = entry["src"].rsplit("/", 1)[-1]
+        where = entry.get("location") or "no location"
+        print(f"  {name}   {pretty(entry.get('date', ''))}   {where}")
+        try:
+            answer = input("  alt: ").strip()
+        except EOFError:
+            break
+        if answer.lower() in ("stop", "q", "quit"):
+            print("  Stopped. The rest keep no alt text; they will be offered again.")
+            break
+        if answer:
+            entry["alt"] = answer
+            written += 1
+    return written
+
+
 def write_json(entries, dry_run):
     """Write via a temp file so a failed run can never leave a half-written list."""
     if dry_run:
@@ -519,6 +559,10 @@ def main():
                     help="re-read EXIF for photos already located, and re-match them")
     ap.add_argument("--reslug", action="store_true",
                     help="mint every slug again -- changes /gallery#<slug> links")
+    ap.add_argument("--alt", action="store_true",
+                    help="ask about every photo missing alt text, not just new ones")
+    ap.add_argument("--no-alt", action="store_true",
+                    help="do not ask for alt text at all")
     args = ap.parse_args()
     MATCH_KM = args.radius
 
@@ -550,6 +594,11 @@ def main():
                                                       args.radius, args.relocate, args.reslug)
     if review and args.name_unmatched:
         name_unmatched(review)
+
+    alt_written = 0
+    if not args.dry_run and not args.no_alt:
+        alt_written = prompt_alt(entries, existing_entries(), args.alt)
+
     write_json(entries, args.dry_run)
     write_review(review, args.dry_run)
     fix_read_bits(args.dry_run)
@@ -563,6 +612,11 @@ def main():
     if pruned:
         print(f"  orphans removed   : {len(pruned)}")
     print(f"  located from EXIF : {located}")
+    if alt_written:
+        print(f"  alt text written  : {alt_written}")
+    missing_alt = sum(1 for e in entries if not e.get("alt"))
+    if missing_alt:
+        print(f"  still without alt : {missing_alt}   (--alt to work through them)")
     print(f"  no location       : {unlocated}")
     if review:
         print(f"  NEEDS REVIEW      : {len(review)}  ->  {REVIEW_OUT}")

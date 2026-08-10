@@ -3,2041 +3,2954 @@
     "src": "/images/gallery/20260726_202749.jpg",
     "date": "2026-07-26",
     "location": "Seattle, Washington",
-    "slug": "seattle-washington-6"
+    "slug": "seattle-washington-15",
+    "alt": "The Space Needle stands above Seattle’s skyline with surrounding skyscrapers and a pink-lit Ferris wheel in the distance.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260724_111455.jpg",
     "date": "2026-07-24",
     "location": "Seattle, Washington",
-    "slug": "seattle-washington-5"
+    "slug": "seattle-washington-14",
+    "alt": "A butterfly with dark wings featuring eye spots and a blue torn edge rests on a green leaf.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260724_082958.jpg",
     "date": "2026-07-24",
     "location": "Seattle, Washington",
-    "slug": "seattle-washington-4"
+    "slug": "seattle-washington-13",
+    "alt": "The Space Needle rises above green trees under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260724_082951.jpg",
     "date": "2026-07-24",
     "location": "Seattle, Washington",
-    "slug": "seattle-washington-3"
+    "slug": "seattle-washington-12",
+    "alt": "The Alweg Monorail sign with red neon letters above a white canopy, surrounded by tall green trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260722_164053.jpg",
     "date": "2026-07-22",
-    "slug": "calm-dock"
+    "location": "East Glacier Park, Montana",
+    "slug": "east-glacier-park-montana",
+    "alt": "A mountain rises above evergreen forests with snow-dusted peaks visible through hazy skies.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260713_194652.jpg",
     "date": "2026-07-13",
     "location": "London, United Kingdom",
-    "slug": "london-united-kingdom-4"
+    "slug": "london-united-kingdom-4",
+    "alt": "A blue classic convertible is parked on a street in front of a white building with black railings and a dark.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260713_111240.jpg",
     "date": "2026-07-13",
     "location": "London, United Kingdom",
-    "slug": "london-united-kingdom-3"
+    "slug": "london-united-kingdom-3",
+    "alt": "A glowing \"THE VAULTS\" sign beneath a ceiling covered in black-and-white graffiti.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260713_091511.jpg",
     "date": "2026-07-13",
     "location": "London, United Kingdom",
-    "slug": "london-united-kingdom-2"
+    "slug": "london-united-kingdom-2",
+    "alt": "A red double-decker bus passes the Bank of England with its classical columns and a statue of a rider on horseback in front.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260712_162950.jpg",
     "date": "2026-07-12",
     "location": "London, United Kingdom",
-    "slug": "london-united-kingdom"
+    "slug": "london-united-kingdom",
+    "alt": "A tabby cat with a white collar rests on a stone wall, facing left, with pastel-colored townhouses and green trees in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260709_150733.jpg",
     "date": "2026-07-09",
     "location": "Antwerp, Belgium",
-    "slug": "antwerp-belgium-3"
+    "slug": "antwerp-belgium-3",
+    "alt": "Wooden printing presses and worktables fill a room with tall leaded windows and exposed beams at the Plantin-Moretus Museum.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260709_135300.jpg",
     "date": "2026-07-09",
     "location": "Antwerp, Belgium",
-    "slug": "antwerp-belgium-2"
+    "slug": "antwerp-belgium-2",
+    "alt": "A woman in a black top and patterned skirt poses with one hand on a stone archway, wearing bright yellow boots on a cobblestone path.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260709_093901.jpg",
     "date": "2026-07-09",
     "location": "Antwerp, Belgium",
-    "slug": "antwerp-belgium"
+    "slug": "antwerp-belgium",
+    "alt": "A black French bulldog lies on a blue sofa in front of a wooden wall, with a glass coffee table holding books.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260708_120517.jpg",
     "date": "2026-07-08",
     "location": "Brussels, Belgium",
-    "slug": "brussels-belgium-4"
+    "slug": "brussels-belgium-4",
+    "alt": "The Atomium stands against a partly cloudy sky with its nine interconnected silver spheres and white tubes.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260707_160008.jpg",
     "date": "2026-07-07",
     "location": "Ostende, Belgium",
-    "slug": "ostende-belgium-2"
+    "slug": "ostende-belgium-2",
+    "alt": "A man stands outside Leonidas Maître Chocolatier - 1913 holding a chocolate bar, with the shop’s blue awning and glass entrance visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260707_140058.jpg",
     "date": "2026-07-07",
     "location": "Ostende, Belgium",
-    "slug": "ostende-belgium"
+    "slug": "ostende-belgium",
+    "alt": "A large mural covers a building facade featuring a woman’s face, a bird with outstretched wings, and pink and yellow flowers.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260706_212402.jpg",
     "date": "2026-07-06",
     "location": "Bruges, Belgium",
-    "slug": "bruges-belgium-4"
+    "slug": "bruges-belgium-4",
+    "alt": "A historic brick building rises above surroundings with dark slate roofs and ornate gables under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260702_182753.jpg",
     "date": "2026-07-02",
     "location": "Hamburg, Germany",
-    "slug": "hamburg-germany"
+    "slug": "hamburg-germany",
+    "alt": "The St. Pauli Bunker in Hamburg, its concrete flak tower topped with five terraced storeys of greenery.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260701_120001.jpg",
     "date": "2026-07-01",
     "location": "Odense, Denmark",
-    "slug": "odense-denmark"
+    "slug": "odense-denmark",
+    "alt": "\"At rejse er at leve.\" - H.C. Andersen and 'To travel is to live.' - Hans Christian Andersen written in black text on a beige wall.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260630_220025.jpg",
     "date": "2026-06-30",
     "location": "Copenhagen, Denmark",
-    "slug": "copenhagen-denmark-3"
+    "slug": "copenhagen-denmark-3",
+    "alt": "Wooden boats with blue covers moor along a calm canal beside multi-story buildings with dark roofs and green trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260625_165450.jpg",
     "date": "2026-06-25",
     "location": "Luleå, Sweden",
-    "slug": "lulea-sweden"
+    "slug": "lulea-sweden",
+    "alt": "Black swivel chairs sit on wooden flooring inside a modern building with floor-to-ceiling windows overlooking a river and trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260622_081045(0).jpg",
     "date": "2026-06-22",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland-7"
+    "slug": "virranniemi-finland-7",
+    "alt": "Two reindeer with collars stand on a stone path beside a white building with a sign reading \"OULANGAN LUONTOKESKUS\" and a small white calf.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260620_010421.jpg",
     "date": "2026-06-20",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland-6"
+    "slug": "virranniemi-finland-6",
+    "alt": "A calm lake reflects a golden sunset sky with silhouetted trees and reeds along the shoreline.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260615_105304.jpg",
     "date": "2026-06-15",
-    "slug": "calm-view"
+    "location": "Outokumpu, Finland",
+    "slug": "outokumpu-finland",
+    "alt": "A large green industrial control panel with multiple switches and gauges beneath a wall diagram showing red, blue, yellow.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260614-WA0015.jpg",
     "date": "2026-06-14",
-    "slug": "gentle-cliff"
+    "location": "Koli, Finland",
+    "slug": "koli-finland",
+    "alt": "A man with a beard and beige cap sits on a rocky outcrop, smiling toward the camera, with a lake dotted with islands and evergreen trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260613_123123.jpg",
     "date": "2026-06-13",
     "location": "Vuonisjärvi, Finland",
-    "slug": "vuonisjarvi-finland"
+    "slug": "vuonisjarvi-finland",
+    "alt": "A black and white circular dartboard with numbered rings mounted on wood shavings, with four darts stuck in it.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260611_171719.jpg",
     "date": "2026-06-11",
     "location": "Tampere, Finland",
-    "slug": "tampere-finland"
+    "slug": "tampere-finland-2",
+    "alt": "A man wearing a beige cap and dark t-shirt stands beside a woman with long brown hair and a black choker.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260611-WA0007.jpg",
     "date": "2026-06-11",
-    "slug": "late-point"
+    "location": "Tampere, Finland",
+    "slug": "tampere-finland",
+    "alt": "A man wearing a beige cap and gray long-sleeve shirt holds a glass jar with a light brown beverage to his mouth.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260610_174115(0).jpg",
     "date": "2026-06-10",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-9"
+    "slug": "helsinki-finland-9",
+    "alt": "A woman with long brown hair lies among white lilac blossoms, wearing a black t-shirt with a white graphic and text reading \"stop making drama\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260610_173821.jpg",
     "date": "2026-06-10",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-8"
+    "slug": "helsinki-finland-8",
+    "alt": "A woman with sunglasses on her head smiles beneath purple lilac blossoms, wearing a black leather jacket and a shirt with a white graphic.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260609_133006.jpg",
     "date": "2026-06-09",
     "location": "Tallinn, Estonia",
-    "slug": "tallinn-estonia-3"
+    "slug": "tallinn-estonia-4",
+    "alt": "The word \"TALLINN\" in large black letters sits atop a light stone building with narrow windows and overhead wires.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260609-WA0118.jpg",
     "date": "2026-06-09",
-    "slug": "rough-pier"
+    "location": "Tallinn, Estonia",
+    "slug": "tallinn-estonia-3",
+    "alt": "A man in a hooded jacket stands before a stone archway with a statue of a hooded figure.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260608_104541.jpg",
     "date": "2026-06-08",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-7"
+    "slug": "helsinki-finland-7",
+    "alt": "A person wearing black and white cow-print pants and a beige backpack stands on a wooden floor beside a glass wall with a grid pattern.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260606-WA0001.jpg",
     "date": "2026-06-06",
-    "slug": "narrow-terrace"
+    "location": "Turku, Finland",
+    "slug": "turku-finland-3",
+    "alt": "A bald man with a beard smiles while holding small spoons over a cheese board at a wooden counter under a circular sign reading \"JUSTOPUOTI\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260528_162158.jpg",
     "date": "2026-05-28",
     "location": "Mariehamn, Åland",
-    "slug": "mariehamn-aland"
+    "slug": "mariehamn-aland",
+    "alt": "The Swedish flag, the Finnish flag, and the Åland Islands flag wave on poles against a blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260528_074243.jpg",
     "date": "2026-05-28",
     "location": "Turku, Finland",
-    "slug": "turku-finland-2"
+    "slug": "turku-finland-2",
+    "alt": "A pink-frosted donut on a white plate sits beside a dark mug of coffee on a black tray atop a wooden table.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260405_142115.jpg",
     "date": "2026-04-05",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-15"
+    "slug": "duluth-minnesota-17",
+    "alt": "A black dog with white paw pads sleeps curled on a green pillow and patterned blankets.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260314_190134.jpg",
     "date": "2026-03-14",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-14"
+    "slug": "duluth-minnesota-16",
+    "alt": "A bald man with a beard wearing a dark plaid blazer and black pants stands smiling in front of a wooden wall; behind him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260226_031951.jpg",
     "date": "2026-02-26",
-    "slug": "near-canal"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-11",
+    "alt": "A woman with blonde hair, a tongue piercing, and a nose ring smiles at the camera while sitting next to a man with a bald head.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260225_125209.jpg",
     "date": "2026-02-25",
     "location": "Tokyo, Japan",
-    "slug": "tokyo-japan-5"
+    "slug": "tokyo-japan-5",
+    "alt": "A bald man in a black jacket and jeans smiles while holding a black backpack with a white cross patch.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260223_174517(0).jpg",
     "date": "2026-02-23",
     "location": "Tokyo, Japan",
-    "slug": "tokyo-japan-4"
+    "slug": "tokyo-japan-4",
+    "alt": "The Tokyo Skytree rises behind cherry blossoms with colorful lights on its spire against a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260223_094842.jpg",
     "date": "2026-02-23",
     "location": "Tokyo, Japan",
-    "slug": "tokyo-japan-3"
+    "slug": "tokyo-japan-3",
+    "alt": "A silver monorail travels on an elevated track past a building with modern glass structures.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260222_135937(0).jpg",
     "date": "2026-02-22",
     "location": "Tokyo, Japan",
-    "slug": "tokyo-japan-2"
+    "slug": "tokyo-japan-2",
+    "alt": "A man with red hair and a cap smiles in front of Tokyo Tower, a tall red-and-white lattice tower surrounded by green trees under a clear.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260220_115924.jpg",
     "date": "2026-02-20",
     "location": "Tokyo, Japan",
-    "slug": "tokyo-japan"
+    "slug": "tokyo-japan",
+    "alt": "The Nijubashi Bridge spans a calm moat with stone arches and ornate lampposts, leading toward the Imperial Palace’s white walls.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260219_090647.jpg",
     "date": "2026-02-19",
     "location": "Osaka, Japan",
-    "slug": "osaka-japan"
-  },
-  {
-    "src": "/images/gallery/20260219-WA0001.jpg",
-    "date": "2026-02-19",
-    "slug": "small-dock"
+    "slug": "osaka-japan",
+    "alt": "A canal runs between multi-story buildings with colorful signage including \"Dotonbori\" and a large yellow structure featuring cartoon.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260215_123816(0).jpg",
     "date": "2026-02-15",
     "location": "Fukuoka, Japan",
-    "slug": "fukuoka-japan-3"
+    "slug": "fukuoka-japan-3",
+    "alt": "A white airplane flies beneath a large industrial structure with cylindrical tanks and metal walkways against a cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260214_190511.jpg",
     "date": "2026-02-14",
     "location": "Fukuoka, Japan",
-    "slug": "fukuoka-japan-2"
+    "slug": "fukuoka-japan-2",
+    "alt": "A river at night reflects neon signs including \"SUPER DRY\" and a large red sign with \"森島\" in green circle.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260213_104729.jpg",
     "date": "2026-02-13",
     "location": "Fukuoka, Japan",
-    "slug": "fukuoka-japan"
+    "slug": "fukuoka-japan",
+    "alt": "A white arched bridge spans a calm body of water bordered by trees with buildings visible beyond.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260210_090838.jpg",
     "date": "2026-02-10",
     "location": "Busan, South Korea",
-    "slug": "busan-south-korea"
+    "slug": "busan-south-korea",
+    "alt": "A man with a beard and brown knit beanie smiles at the camera on Haeundae Beach, with the Busan skyline including the Lotte World Tower.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260205_120044.jpg",
     "date": "2026-02-05",
     "location": "Seoul, South Korea",
-    "slug": "seoul-south-korea"
+    "slug": "seoul-south-korea",
+    "alt": "The N Seoul Tower stands atop a hill behind modern glass skyscrapers and dense residential buildings under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260201_181015.jpg",
     "date": "2026-02-01",
     "location": "Taipei, Taiwan",
-    "slug": "taipei-taiwan-3"
+    "slug": "taipei-taiwan-3",
+    "alt": "The Raohe St. Night Market archway glows with red and gold lights above crowds holding umbrellas under wet pavement.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260201_164651.jpg",
     "date": "2026-02-01",
     "location": "Taipei, Taiwan",
-    "slug": "taipei-taiwan-2"
+    "slug": "taipei-taiwan-2",
+    "alt": "Two tall metal electricity transmission towers with multiple cables stand beside an elevated roadway and buildings under a gray sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260201_112927.jpg",
     "date": "2026-02-01",
     "location": "Taipei, Taiwan",
-    "slug": "taipei-taiwan"
+    "slug": "taipei-taiwan",
+    "alt": "The golden sphere of the Taipei 101 observation deck hangs suspended by cables and metal supports inside the building.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260126_115649.jpg",
     "date": "2026-01-26",
     "location": "Tainan, Taiwan",
-    "slug": "tainan-taiwan"
+    "slug": "tainan-taiwan",
+    "alt": "A person sits in a folding chair under a covered sidewalk beside a sign reading \"HUA COFFEE\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260124_171713.jpg",
     "date": "2026-01-24",
     "location": "Kaohsiung, Taiwan",
-    "slug": "kaohsiung-taiwan-2"
+    "slug": "kaohsiung-taiwan-2",
+    "alt": "A tall beige building with a sign reading \"中華電信\" and an arrow pointing right stands beside a street lined with trees and pink flowering.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260124_171044.jpg",
     "date": "2026-01-24",
     "location": "Kaohsiung, Taiwan",
-    "slug": "kaohsiung-taiwan"
+    "slug": "kaohsiung-taiwan",
+    "alt": "Pink bougainvillea bushes line a riverbank beneath weathered multi-story buildings with green awnings and visible signage including \"海山行\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260121_083313.jpg",
     "date": "2026-01-21",
     "location": "Hanoi, Vietnam",
-    "slug": "hanoi-vietnam-3"
+    "slug": "hanoi-vietnam-3",
+    "alt": "A street scene with motorbikes and a cyclist passing a blue storefront with a sign reading \"KIM KHÍ - ĐIỆN MÁY\" and \"KHÓA - CẦN CÁC LOẠI\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260120_191333.jpg",
     "date": "2026-01-20",
     "location": "Hanoi, Vietnam",
-    "slug": "hanoi-vietnam-2"
+    "slug": "hanoi-vietnam-2",
+    "alt": "A bald man smiles on a narrow street lined with glowing pink and yellow lights above outdoor seating areas.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260120_180052(0).jpg",
     "date": "2026-01-20",
     "location": "Hanoi, Vietnam",
-    "slug": "hanoi-vietnam"
+    "slug": "hanoi-vietnam",
+    "alt": "Motorcycles travel down Phố Hàng Rươi at night, flanked by stalls selling red lanterns and decorations under leafy trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260119_145113.jpg",
     "date": "2026-01-19",
     "location": "Hong Kong, China",
-    "slug": "hong-kong-china-2"
+    "slug": "hong-kong-china-2",
+    "alt": "A man in a suit sits on a bench facing a pond lined with red poinsettias and green shrubs.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260115_185848.jpg",
     "date": "2026-01-15",
     "location": "Hong Kong, China",
-    "slug": "hong-kong-china"
+    "slug": "hong-kong-china",
+    "alt": "The International Commerce Centre stands tall with a lit dome, flanked by the Bank of China Tower and other illuminated skyscrapers.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260114_123834.jpg",
     "date": "2026-01-14",
     "location": "Beijing, China",
-    "slug": "beijing-china-4"
+    "slug": "beijing-china-4",
+    "alt": "A male mandarin duck with a red beak and colorful plumage swims on calm water, its reflection visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260112_113539.jpg",
     "date": "2026-01-12",
     "location": "Beijing, China",
-    "slug": "beijing-china-3"
+    "slug": "beijing-china-3",
+    "alt": "A man with a red beard and brown beanie smiles in front of a frozen moat with a multi-tiered red and gold pavilion on a stone wall.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260112_102719.jpg",
     "date": "2026-01-12",
     "location": "Beijing, China",
-    "slug": "beijing-china-2"
+    "slug": "beijing-china-2",
+    "alt": "A blue-lit sign displays a red cow logo and the text \"北京市牛奶公司 BEIJING MILK COMPANY\" above potted plants and a red banner reading \"奶瓶已消毒\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260112_095326.jpg",
     "date": "2026-01-12",
     "location": "Beijing, China",
-    "slug": "beijing-china"
+    "slug": "beijing-china",
+    "alt": "The Bell Tower stands behind people flying red and yellow kites shaped like dragons on a paved plaza.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260109_113603.jpg",
     "date": "2026-01-09",
     "location": "Ulaanbaatar, Mongolia",
-    "slug": "ulaanbaatar-mongolia-4"
+    "slug": "ulaanbaatar-mongolia-5",
+    "alt": "A man stands on wide stone steps before a large building with white columns and gold accents; a bronze statue of Chinggis Khaan is visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260108_173143.jpg",
     "date": "2026-01-08",
     "location": "Ulaanbaatar, Mongolia",
-    "slug": "ulaanbaatar-mongolia-3"
+    "slug": "ulaanbaatar-mongolia-4",
+    "alt": "A man with a red beard and brown knit beanie smiles at the camera.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260108_115323.jpg",
     "date": "2026-01-08",
     "location": "Ulaanbaatar, Mongolia",
-    "slug": "ulaanbaatar-mongolia-2"
+    "slug": "ulaanbaatar-mongolia-3",
+    "alt": "A tall smokestack with red and white bands rises behind a power substation with yellow Cyrillic letters spelling \"ДЦС 4 ТӨХК\" on metal.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260107_093041.jpg",
     "date": "2026-01-07",
     "location": "Ulaanbaatar, Mongolia",
-    "slug": "ulaanbaatar-mongolia"
+    "slug": "ulaanbaatar-mongolia-2",
+    "alt": "Ice forming on the eyelashes above a fox-print buff, only the eyes visible under a hood. A man wears a navy hooded jacket, a gray cap with \"Run | Bike | Ski\" and \"TUSCOBIA\" printed on it.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260106_160711.jpg",
     "date": "2026-01-06",
-    "slug": "high-harbour"
+    "location": "Ulaanbaatar, Mongolia",
+    "slug": "ulaanbaatar-mongolia",
+    "alt": "An airplane wing with a red tip and golden emblem flies over snow-covered mountains under a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260105_142615.jpg",
     "date": "2026-01-05",
     "location": "Almaty, Kazakhstan",
-    "slug": "almaty-kazakhstan-2"
+    "slug": "almaty-kazakhstan-2",
+    "alt": "A large yellow pipe with graffiti spans a concrete-lined river channel bordered by black metal railings and bare trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20260104_125332.jpg",
     "date": "2026-01-04",
     "location": "Almaty, Kazakhstan",
-    "slug": "almaty-kazakhstan"
+    "slug": "almaty-kazakhstan",
+    "alt": "The Orthodox Cathedral of the Ascension with its golden onion dome and colorful tiled facade stands against a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251231_122647.jpg",
     "date": "2025-12-31",
     "location": "Tbilisi, Georgia",
-    "slug": "tbilisi-georgia-4"
+    "slug": "tbilisi-georgia-4",
+    "alt": "A bakery storefront with red Georgian script \"ვარსკვლავი პატარა\" above glass display cases filled with pastries and cakes.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251230_195932.jpg",
     "date": "2025-12-30",
     "location": "Tbilisi, Georgia",
-    "slug": "tbilisi-georgia-3"
+    "slug": "tbilisi-georgia-3",
+    "alt": "The Freedom Square monument with golden lion and sword, illuminated by white lights and signs for Christmas.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251229_123011.jpg",
     "date": "2025-12-29",
     "location": "Tbilisi, Georgia",
-    "slug": "tbilisi-georgia-2"
+    "slug": "tbilisi-georgia-2",
+    "alt": "Five dark-furred puppies with matted coats sit and stand on a concrete surface beside a weathered wall.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251227_103617.jpg",
     "date": "2025-12-27",
     "location": "Tbilisi, Georgia",
-    "slug": "tbilisi-georgia"
+    "slug": "tbilisi-georgia",
+    "alt": "A large reflective silver hippopotamus sculpture stands on a white curved base with cutout birds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251225_170816.jpg",
     "date": "2025-12-25",
     "location": "Batumi, Georgia",
-    "slug": "batumi-georgia-2"
+    "slug": "batumi-georgia-2",
+    "alt": "A white paddle boat floats on calm water reflecting buildings and trees along a city shoreline.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251222_232744.jpg",
     "date": "2025-12-22",
     "location": "Batumi, Georgia",
-    "slug": "batumi-georgia"
+    "slug": "batumi-georgia",
+    "alt": "The Batumi Port at night with illuminated ships on the water and city lights reflecting on the sea surface.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251221_110405.jpg",
     "date": "2025-12-21",
     "location": "Ordu, Turkey",
-    "slug": "ordu-turkey"
+    "slug": "ordu-turkey",
+    "alt": "A man in a cap and dark jacket smiles while taking a selfie in front of a wall with \"Welcome to ORDU\" illuminated in blue letters.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251214_085532.jpg",
     "date": "2025-12-14",
     "location": "Istanbul, Turkey",
-    "slug": "istanbul-turkey"
+    "slug": "istanbul-turkey",
+    "alt": "The Grand Bazaar’s arched corridor with black-and-white striped vaults lines both sides with shops displaying goods under Turkish flags.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251210_201020.jpg",
     "date": "2025-12-10",
     "location": "Plovdiv, Bulgaria",
-    "slug": "plovdiv-bulgaria"
+    "slug": "plovdiv-bulgaria",
+    "alt": "The Plovdiv City Hall with its illuminated tower stands behind a large crowd gathered at night near the Monument to the Soviet Army.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251209_192711(0).jpg",
     "date": "2025-12-09",
     "location": "Sofia, Bulgaria",
-    "slug": "sofia-bulgaria"
+    "slug": "sofia-bulgaria",
+    "alt": "The National Assembly building with \"НАРОДНО СЪБРАНИЕ\" inscribed above its columns stands illuminated at night beside a paved plaza.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20251208.jpg",
+    "date": "2025-12-08",
+    "location": "Skopje, North Macedonia",
+    "slug": "skopje-north-macedonia-5",
+    "alt": "A framed jigsaw puzzle depicting a vintage world map with two large hemispheres, celestial diagrams, and mythological figures.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251207_094748(0).jpg",
     "date": "2025-12-07",
     "location": "Skopje, North Macedonia",
-    "slug": "skopje-north-macedonia-4"
+    "slug": "skopje-north-macedonia-4",
+    "alt": "A man with a red beard and gray cap smiles in front of the stone and brick arches of an ancient aqueduct.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251207_094159.jpg",
     "date": "2025-12-07",
     "location": "Skopje, North Macedonia",
-    "slug": "skopje-north-macedonia-3"
+    "slug": "skopje-north-macedonia-3",
+    "alt": "The Vardar River Aqueduct stretches across a grassy field under an overcast sky with a barbed wire fence in the foreground.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251201_202651.jpg",
     "date": "2025-12-01",
     "location": "Skopje, North Macedonia",
-    "slug": "skopje-north-macedonia-2"
+    "slug": "skopje-north-macedonia-2",
+    "alt": "The Macedonian National Theatre with its colonnaded facade and dome stands beside a river at night, illuminated in pink light.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251201_153639.jpg",
     "date": "2025-12-01",
     "location": "Skopje, North Macedonia",
-    "slug": "skopje-north-macedonia"
+    "slug": "skopje-north-macedonia",
+    "alt": "A man with a red beard and gray cap holds a drink with a pink straw, smiling in front of the round white building with columns and dome.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251121_162445.jpg",
     "date": "2025-11-21",
     "location": "Shkodër, Albania",
-    "slug": "shkoder-albania"
+    "slug": "shkoder-albania",
+    "alt": "A wet cobblestone plaza at dusk with a yellow building featuring red awnings and outdoor seating, people walking, and string lights.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251120_105631.jpg",
     "date": "2025-11-20",
     "location": "Podgorica, Montenegro",
-    "slug": "podgorica-montenegro-3"
+    "slug": "podgorica-montenegro-3",
+    "alt": "A small scruffy light-brown dog with a black collar lies on beige tiles next to a wet concrete edge under a dark metal chair leg.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251120_105411.jpg",
     "date": "2025-11-20",
     "location": "Podgorica, Montenegro",
-    "slug": "podgorica-montenegro-2"
+    "slug": "podgorica-montenegro-2",
+    "alt": "A black and white dog with wet fur stands on a tiled floor beside a glass door, looking up.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251119_110918.jpg",
     "date": "2025-11-19",
     "location": "Podgorica, Montenegro",
-    "slug": "podgorica-montenegro"
+    "slug": "podgorica-montenegro",
+    "alt": "A man with a red beard wearing a black rain jacket with hood stands on a wet paved path lined with stone walls and trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251117_085250.jpg",
     "date": "2025-11-17",
     "location": "Sarajevo, Bosnia and Herzegovina",
-    "slug": "sarajevo-bosnia-and-herzegovina"
+    "slug": "sarajevo-bosnia-and-herzegovina",
+    "alt": "The Miljacka River flows past stone embankments lined with multi-story buildings under a cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251116_154554.jpg",
     "date": "2025-11-16",
-    "slug": "dusty-pier"
+    "location": "Belgrade, Serbia",
+    "slug": "belgrade-serbia-3",
+    "alt": "The Autobuska Stanica building with a covered platform and parked vehicles under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251114_081555.jpg",
     "date": "2025-11-14",
     "location": "Belgrade, Serbia",
-    "slug": "belgrade-serbia-2"
+    "slug": "belgrade-serbia-2",
+    "alt": "A white origami crane with grid lines rests on an open palm.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251113_204243.jpg",
     "date": "2025-11-13",
     "location": "Belgrade, Serbia",
-    "slug": "belgrade-serbia"
+    "slug": "belgrade-serbia",
+    "alt": "The Beograd Tower stands illuminated on the right side of the Sava River with city buildings reflecting in the water at night.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251112_090957.jpg",
     "date": "2025-11-12",
     "location": "Ljubljana, Slovenia",
-    "slug": "ljubljana-slovenia"
+    "slug": "ljubljana-slovenia",
+    "alt": "The Triple Bridge spans the Ljubljanica River, with stone buildings featuring arched windows lining the riverbank under heavy fog.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251108_154416.jpg",
     "date": "2025-11-08",
     "location": "Trenčín, Slovakia",
-    "slug": "trencin-slovakia"
+    "slug": "trencin-slovakia",
+    "alt": "A football match plays on a green pitch under stadium lights with red and white seats; Trenčín Castle rises on a hill in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251106_193305.jpg",
     "date": "2025-11-06",
     "location": "Budapest, Hungary",
-    "slug": "budapest-hungary-2"
+    "slug": "budapest-hungary-2",
+    "alt": "The Hungarian Parliament Building glows gold at night across the Danube River.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251106_105144.jpg",
     "date": "2025-11-06",
     "location": "Budapest, Hungary",
-    "slug": "budapest-hungary"
+    "slug": "budapest-hungary",
+    "alt": "The Central Market Hall features an arched iron-and-glass roof above rows of stalls and tiled walkways.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251104_095359.jpg",
     "date": "2025-11-04",
     "location": "Pompei, Italy",
-    "slug": "pompei-italy"
+    "slug": "pompei-italy",
+    "alt": "A covered walkway with stone columns and a terracotta-tiled roof extends across a grassy area beside ancient stone walls.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251103_113850.jpg",
     "date": "2025-11-03",
     "location": "Naples, Italy",
-    "slug": "naples-italy"
+    "slug": "naples-italy",
+    "alt": "A white banner reading \"VITA PIÙ TOSSEVOLI TUTTO IN UN POTE\" hangs above a narrow street lined with shops and parked vehicles.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251102_143921.jpg",
     "date": "2025-11-02",
     "location": "Rome, Italy",
-    "slug": "rome-italy-9"
+    "slug": "rome-italy-9",
+    "alt": "A man with a beard and cap smiles at the camera, wearing a gray t-shirt and backpack, with the Vittoriano monument visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251102_143748.jpg",
     "date": "2025-11-02",
     "location": "Rome, Italy",
-    "slug": "rome-italy-8"
+    "slug": "rome-italy-8",
+    "alt": "A woman with glasses and curly hair smiles while leaning against a stone wall, wearing a light blue shirt and a teal crossbody bag.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251102_114657.jpg",
     "date": "2025-11-02",
     "location": "Rome, Italy",
-    "slug": "rome-italy-7"
+    "slug": "rome-italy-7",
+    "alt": "Two tall metal electricity pylons stand in a field of dry grass under a partly cloudy sky with scattered trees nearby.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251102_102847(0).jpg",
     "date": "2025-11-02",
     "location": "Rome, Italy",
-    "slug": "rome-italy-6"
+    "slug": "rome-italy-6",
+    "alt": "A man in a blue shirt and jeans stands on a cobblestone path holding a bicycle, with trees and a stone wall behind him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251102_084042.jpg",
     "date": "2025-11-02",
     "location": "Rome, Italy",
-    "slug": "rome-italy-5"
+    "slug": "rome-italy-5",
+    "alt": "The Trevi Fountain features a central statue of Oceanus flanked by figures and horses.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251031_141153.jpg",
     "date": "2025-10-31",
     "location": "Rome, Italy",
-    "slug": "rome-italy-4"
+    "slug": "rome-italy-4",
+    "alt": "A man sits on stone steps beside large marble columns.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251031_132211.jpg",
     "date": "2025-10-31",
     "location": "Rome, Italy",
-    "slug": "rome-italy-3"
+    "slug": "rome-italy-3",
+    "alt": "The Pantheon’s portico with Corinthian columns and pediment inscribed \"M·AGRIPPA·L·F·COSTERTIVM·FECIT\" under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251031_113612.jpg",
     "date": "2025-10-31",
     "location": "Rome, Italy",
-    "slug": "rome-italy-2"
+    "slug": "rome-italy-2",
+    "alt": "The Colosseum’s curved stone facade with tiered arches and columns rises against a blue sky with scattered clouds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251031_105834.jpg",
     "date": "2025-10-31",
     "location": "Rome, Italy",
-    "slug": "rome-italy"
+    "slug": "rome-italy",
+    "alt": "A man with a beard smiles at the camera with the Colosseum behind him under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251030_131715(0).jpg",
     "date": "2025-10-30",
-    "slug": "slow-meadow"
+    "location": "Rapolano Terme, Italy",
+    "slug": "rapolano-terme-italy",
+    "alt": "A woman in a pink hooded jacket and jeans stands on a wet pavement holding a black bag, with trees, buildings.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251029_162843.jpg",
     "date": "2025-10-29",
     "location": "Florence, Italy",
-    "slug": "florence-italy-5"
+    "slug": "florence-italy-5",
+    "alt": "Michelangelo’s David stands nude with one hand raised and foot resting on a stone block.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251029_113626.jpg",
     "date": "2025-10-29",
     "location": "Florence, Italy",
-    "slug": "florence-italy-4"
+    "slug": "florence-italy-4",
+    "alt": "The Ponte Vecchio spans the Arno River with buildings lining its length, reflecting in the water beneath a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251029_111043.jpg",
     "date": "2025-10-29",
     "location": "Florence, Italy",
-    "slug": "florence-italy-3"
+    "slug": "florence-italy-3",
+    "alt": "Two officers in dark blue uniforms with \"POLIZIA MUNICIPALE\" and \"POLIZIA LOCALE\" on their backs stand on a stone-paved square.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251028_135425.jpg",
     "date": "2025-10-28",
     "location": "Pisa, Italy",
-    "slug": "pisa-italy"
+    "slug": "pisa-italy",
+    "alt": "The Leaning Tower of Pisa tilts against a blue sky with white clouds, its stone arches and columns visible, people gathered nearby on grass.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251027_163459.jpg",
     "date": "2025-10-27",
     "location": "Florence, Italy",
-    "slug": "florence-italy-2"
+    "slug": "florence-italy-2",
+    "alt": "The Piazzale Michelangelo overlooks Florence with terracotta-roofed buildings below and hills covered in trees beyond under a cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251027_163119.jpg",
     "date": "2025-10-27",
     "location": "Florence, Italy",
-    "slug": "florence-italy"
+    "slug": "florence-italy",
+    "alt": "The dome of the Florence Cathedral rises above terracotta rooftops under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251026_122408.jpg",
     "date": "2025-10-26",
     "location": "Venice, Italy",
-    "slug": "venice-italy"
+    "slug": "venice-italy",
+    "alt": "The Rialto Bridge arches over the Grand Canal with wooden boats and a gondola below, people on its stone balustrade.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251025_181746.jpg",
     "date": "2025-10-25",
     "location": "Verona, Italy",
-    "slug": "verona-italy"
+    "slug": "verona-italy",
+    "alt": "The Ponte Pietra arches over a river with visible stone piers and reflections in the water.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251025_135759.jpg",
     "date": "2025-10-25",
     "location": "Bolzano, Italy",
-    "slug": "bolzano-italy"
+    "slug": "bolzano-italy",
+    "alt": "The Dolomites rise above vineyards and a valley village under a blue sky with scattered clouds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251024_145311.jpg",
     "date": "2025-10-24",
     "location": "Innsbruck, Austria",
-    "slug": "innsbruck-austria-4"
+    "slug": "innsbruck-austria-4",
+    "alt": "A man with a red beard wearing a dark hooded jacket and cap smiles in snowy weather atop a rocky outcrop.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251024_143736(0).jpg",
     "date": "2025-10-24",
     "location": "Innsbruck, Austria",
-    "slug": "innsbruck-austria-3"
+    "slug": "innsbruck-austria-3",
+    "alt": "Two people pose beside a stone wall with a sign reading \"TOP OF INNSBRUCK\" in snow-covered terrain under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251024_092616.jpg",
     "date": "2025-10-24",
     "location": "Innsbruck, Austria",
-    "slug": "innsbruck-austria-2"
+    "slug": "innsbruck-austria-2",
+    "alt": "The Church of St. Nikolaus with its tall spire stands among buildings with snow-capped mountains in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251024_091950.jpg",
     "date": "2025-10-24",
     "location": "Innsbruck, Austria",
-    "slug": "innsbruck-austria"
+    "slug": "innsbruck-austria",
+    "alt": "The Church of St. Nikolaus with its tall spire stands among buildings and trees under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251022_101014.jpg",
     "date": "2025-10-22",
     "location": "Salzburg, Austria",
-    "slug": "salzburg-austria-2"
+    "slug": "salzburg-austria-2",
+    "alt": "Hohensalzburg Fortress perches atop a hill with white stone walls, towers, and dark roofs surrounded by trees under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251021_182607.jpg",
     "date": "2025-10-21",
     "location": "Salzburg, Austria",
-    "slug": "salzburg-austria"
+    "slug": "salzburg-austria",
+    "alt": "Hohensalzburg Fortress overlooks a plaza with manicured lawns, flowerbeds, and people walking near a fountain and twin green-domed towers.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251019_123550.jpg",
     "date": "2025-10-19",
     "location": "Munich, Germany",
-    "slug": "munich-germany"
+    "slug": "munich-germany",
+    "alt": "The Munich Residence's vaulted ceiling features frescoes with mythological figures, floral motifs.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251017_134639.jpg",
     "date": "2025-10-17",
     "location": "Vaduz, Liechtenstein",
-    "slug": "vaduz-liechtenstein-2"
+    "slug": "vaduz-liechtenstein-2",
+    "alt": "Vaduz Castle stands atop a grassy hill beside a winding road with vehicles and horses below, surrounded by trees under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251017_123240.jpg",
     "date": "2025-10-17",
     "location": "Vaduz, Liechtenstein",
-    "slug": "vaduz-liechtenstein"
+    "slug": "vaduz-liechtenstein",
+    "alt": "A gold astronaut visor reflects the street corner behind, with the photographer at its center.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251017_094224.jpg",
     "date": "2025-10-17",
     "location": "Zürich, Switzerland",
-    "slug": "zurich-switzerland"
+    "slug": "zurich-switzerland",
+    "alt": "The St. Peter Church tower with its clock faces rises above buildings along a riverbank.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251016_102703.jpg",
     "date": "2025-10-16",
     "location": "Basel, Switzerland",
-    "slug": "basel-switzerland-2"
+    "slug": "basel-switzerland-2",
+    "alt": "A glass barrier reflects stacked shipping containers with \"Hapag-Lloyd\" and \"MAERSK\" logos, graffiti-covered walls, a lifebuoy.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251016_072811(0).jpg",
     "date": "2025-10-16",
     "location": "Basel, Switzerland",
-    "slug": "basel-switzerland"
+    "slug": "basel-switzerland",
+    "alt": "A green tram stops under a curved glass canopy with purple lighting.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251015_114902.jpg",
     "date": "2025-10-15",
     "location": "Prague, Czechia",
-    "slug": "prague-czechia-2"
+    "slug": "prague-czechia-2",
+    "alt": "The Klementinum's Long Hall features tall wooden bookshelves, ornate spiral columns.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251014_184555.jpg",
     "date": "2025-10-14",
     "location": "Prague, Czechia",
-    "slug": "prague-czechia"
+    "slug": "prague-czechia",
+    "alt": "The Charles Bridge spans the Vltava River with illuminated stone arches, reflecting in the water beside lit buildings and a tall spired.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251012_132249.jpg",
     "date": "2025-10-12",
     "location": "Berlin, Germany",
-    "slug": "berlin-germany-4"
+    "slug": "berlin-germany-4",
+    "alt": "A mustard-yellow Trabant and a pink Trabant drive on a wet street past storefronts.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251012_124043.jpg",
     "date": "2025-10-12",
     "location": "Berlin, Germany",
-    "slug": "berlin-germany-3"
+    "slug": "berlin-germany-3",
+    "alt": "A man stands on cobblestones before the modern glass and concrete structure of the Museum Island complex with a canal and boats behind him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251012_113446.jpg",
     "date": "2025-10-12",
     "location": "Berlin, Germany",
-    "slug": "berlin-germany-2"
+    "slug": "berlin-germany-2",
+    "alt": "A man with a red beard and hooded jacket stands before a weathered concrete wall with exposed rebar and faded graffiti.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251011_200748.jpg",
     "date": "2025-10-11",
     "location": "Berlin, Germany",
-    "slug": "berlin-germany"
+    "slug": "berlin-germany",
+    "alt": "People play chess at tables on a cobblestone street beside a shop with a neon \"Open\" sign and an ice cream display.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251008_194152.jpg",
     "date": "2025-10-08",
     "location": "Katowice, Poland",
-    "slug": "katowice-poland"
+    "slug": "katowice-poland",
+    "alt": "A neon sign spells \"KATOWICE\" in colorful letters with a rainbow pixelated design between \"TO\" and \"WICE\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251006_153826.jpg",
     "date": "2025-10-06",
     "location": "Warsaw, Poland",
-    "slug": "warsaw-poland"
+    "slug": "warsaw-poland",
+    "alt": "The Royal Castle with its red brick facade and green-topped towers stands across a wet cobblestone square from the Column of Sigismund III.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251004_115518.jpg",
     "date": "2025-10-04",
     "location": "Kaunas, Lithuania",
-    "slug": "kaunas-lithuania"
+    "slug": "kaunas-lithuania",
+    "alt": "The Mickevičiaus g. tiltas stands tall with its arched metal framework, flanked by lampposts bearing pink flower baskets and stone steps leading.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20251001_154030.jpg",
     "date": "2025-10-01",
     "location": "Riga, Latvia",
-    "slug": "riga-latvia-2"
+    "slug": "riga-latvia-2",
+    "alt": "A large market building stands beside a river with arched train station buildings and a metal truss bridge in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250930_144801.jpg",
     "date": "2025-09-30",
     "location": "Riga, Latvia",
-    "slug": "riga-latvia"
+    "slug": "riga-latvia",
+    "alt": "A white van with its rear doors open sits on a street beside a weathered wooden building with a metal roof; two workers in orange.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250927_212227.jpg",
     "date": "2025-09-27",
     "location": "Jyväskylä, Finland",
-    "slug": "jyvaskyla-finland"
+    "slug": "jyvaskyla-finland",
+    "alt": "A man in a blue and white plaid shirt laughs while holding a photograph at a wooden dining table with glasses and a placemat.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250926_180521.jpg",
     "date": "2025-09-26",
     "location": "Kalajoki, Finland",
-    "slug": "kalajoki-finland"
+    "slug": "kalajoki-finland",
+    "alt": "A man in a black jacket and cap stands in a grassy field with wind turbines in the distance behind him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250921_154635.jpg",
     "date": "2025-09-21",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland-5"
+    "slug": "virranniemi-finland-5",
+    "alt": "A man wearing a black hooded jacket and life vest smiles while standing on a boat, with autumn trees and water visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250920_115141.jpg",
     "date": "2025-09-20",
     "location": "Kuusamo, Finland",
-    "slug": "kuusamo-finland"
+    "slug": "kuusamo-finland-2",
+    "alt": "Two older men wearing caps and glasses sit asleep in the front seats of a car, one with a \"JOHN DEERE\" cap.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250920_083640.jpg",
     "date": "2025-09-20",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland-4"
+    "slug": "virranniemi-finland-4",
+    "alt": "A man wearing a grey cap and black life vest holds a small fish on a fishing line while sitting in a boat on calm water.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250915_160437.jpg",
     "date": "2025-09-15",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-6"
+    "slug": "helsinki-finland-6",
+    "alt": "A dry dock with several boats on wooden supports, surrounded by stone walls and industrial buildings under a cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250913_211334.jpg",
     "date": "2025-09-13",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-5"
+    "slug": "helsinki-finland-5",
+    "alt": "A man in a red shirt smiles at the camera with the Helsinki Cathedral illuminated behind him at night.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250908_135554.jpg",
     "date": "2025-09-08",
     "location": "Stockholm, Sweden",
-    "slug": "stockholm-sweden-2"
+    "slug": "stockholm-sweden-2",
+    "alt": "The Tyska kyrkan with its green spire rises above red and beige buildings behind a line of trees under a pale blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250908_090850.jpg",
     "date": "2025-09-08",
     "location": "Stockholm, Sweden",
-    "slug": "stockholm-sweden"
+    "slug": "stockholm-sweden",
+    "alt": "A painted deer with a yellow crown on plywood.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250901_161341.jpg",
     "date": "2025-09-01",
     "location": "Copenhagen, Denmark",
-    "slug": "copenhagen-denmark-2"
+    "slug": "copenhagen-denmark-2",
+    "alt": "A weathered green street sign reading \"TOILET\" covered in stickers, mounted on an ornate black lamppost.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250831_171453(0).jpg",
     "date": "2025-08-31",
     "location": "Malmö, Sweden",
-    "slug": "malmo-sweden"
+    "slug": "malmo-sweden",
+    "alt": "A woman sits on stone steps smiling, holding a phone, with the red-brick and gray-stone Malmö City Hall behind her.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250830_101837_1.jpg",
     "date": "2025-08-30",
     "location": "Copenhagen, Denmark",
-    "slug": "copenhagen-denmark"
+    "slug": "copenhagen-denmark",
+    "alt": "The Danish University Library building features a long arched corridor with wooden bookshelves, ornate columns.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250828_124835.jpg",
     "date": "2025-08-28",
     "location": "Víkurfjara Black Sand Beach, Iceland",
-    "slug": "vikurfjara-black-sand-beach-iceland-2"
+    "slug": "vikurfjara-black-sand-beach-iceland-2",
+    "alt": "A man in a white jacket and black shorts stands beside a light-colored horse on a paved path.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250828_113053.jpg",
     "date": "2025-08-28",
     "location": "Víkurfjara Black Sand Beach, Iceland",
-    "slug": "vikurfjara-black-sand-beach-iceland"
+    "slug": "vikurfjara-black-sand-beach-iceland",
+    "alt": "The black sand beach with waves breaking along shore and sea stacks offshore under overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250828_093114.jpg",
     "date": "2025-08-28",
     "location": "Skógar, Iceland",
-    "slug": "skogar-iceland"
+    "slug": "skogar-iceland",
+    "alt": "Three Icelandic horses graze near a shallow water pool with green hills and snow-dusted mountains in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250827_143637.jpg",
     "date": "2025-08-27",
     "location": "Arnarstapi, Iceland",
-    "slug": "arnarstapi-iceland"
+    "slug": "arnarstapi-iceland",
+    "alt": "A white house with a red roof sits on grassy terrain beside a rocky mountain under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250826_191917.jpg",
     "date": "2025-08-26",
     "location": "Gullfoss",
-    "slug": "gullfoss"
+    "slug": "gullfoss",
+    "alt": "A man in a white hooded jacket and black shorts stands on a gravel path beside a rope railing.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250826_181129.jpg",
     "date": "2025-08-26",
     "location": "Geysir",
-    "slug": "geysir"
+    "slug": "geysir",
+    "alt": "Two sheep with thick white wool stand in tall grass near leafy trees, with rolling green hills in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250824_060348_1.jpg",
     "date": "2025-08-24",
-    "slug": "dusty-path"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-10",
+    "alt": "A weathered sign reading \"江山公司 GIFT SHOP IMPORTS\" hangs above a street corner with parked cars and a restaurant under a red awning.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250824_025631_1.jpg",
     "date": "2025-08-24",
-    "slug": "soft-road"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-17",
+    "alt": "A man with a beard wearing a navy t-shirt, gray shorts, and black shoes stands on gravel with a black backpack, smiling.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250728_143312.jpg",
     "date": "2025-07-28",
     "location": "Bellingham, Washington",
-    "slug": "bellingham-washington-6"
+    "slug": "bellingham-washington-6",
+    "alt": "A black dog with white paws and a blue harness sits on a paved path beside a concrete wall with orange flowers.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250403_150130.jpg",
     "date": "2025-04-03",
     "location": "Brewton, Alabama",
-    "slug": "brewton-alabama-2"
+    "slug": "brewton-alabama-3",
+    "alt": "A weathered concrete pillar with blue stenciled text reading \"ASBESTOS FREE\" stands beside rusted metal pipes and corrugated siding.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250321_172322(0).jpg",
     "date": "2025-03-21",
     "location": "Navarre, Florida",
-    "slug": "navarre-florida-4"
+    "slug": "navarre-florida-4",
+    "alt": "A Tesla Cybertruck is parked on a dirt shoulder beside a paved road.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250318_185607.jpg",
     "date": "2025-03-18",
     "location": "Navarre, Florida",
-    "slug": "navarre-florida-3"
+    "slug": "navarre-florida-3",
+    "alt": "The Navarre Beach Pier extends into the Gulf of Mexico at sunset with people walking on the sand and sitting in beach chairs nearby.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250318_185557.jpg",
     "date": "2025-03-18",
     "location": "Navarre, Florida",
-    "slug": "navarre-florida-2"
+    "slug": "navarre-florida-2",
+    "alt": "A man with a red beard and a tan cap smiles at the camera on a white sand beach while another man behind him makes peace signs.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250302_152742.jpg",
     "date": "2025-03-02",
     "location": "Navarre, Florida",
-    "slug": "navarre-florida"
+    "slug": "navarre-florida",
+    "alt": "A long shadow of a person walking a dog stretches across orange sand with tire tracks nearby.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250210_122238.jpg",
     "date": "2025-02-10",
-    "slug": "open-cliff"
+    "location": "Fergus Falls, Minnesota",
+    "slug": "fergus-falls-minnesota-21",
+    "alt": "A black dog with a colorful ribbon collar lies on a textured carpet, mouth open and tongue out, near a blue striped couch.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250124_220856.jpg",
     "date": "2025-01-24",
-    "slug": "quiet-bay"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-9",
+    "alt": "A silhouetted figure stands on a stage under a bright spotlight, surrounded by smoke and musical equipment.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250124_153924.jpg",
     "date": "2025-01-24",
-    "slug": "slow-coast"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-8",
+    "alt": "The Space Needle rises against a clear blue sky, framed by bare tree branches and modern buildings with satellite dishes.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250124_082938.jpg",
     "date": "2025-01-24",
-    "slug": "soft-canal"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-7",
+    "alt": "A weathered white wooden gate with \"NO PARKING\" and \"MERLINO CONSTRUCTION\" signs lies on a log beside pine branches and mulch.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250124_062820(0)_1.jpg",
     "date": "2025-01-24",
-    "slug": "frozen-stair"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-6",
+    "alt": "A man with a beard wearing an orange cap and white jacket takes a mirror selfie on a train.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20250120_113315.jpg",
     "date": "2025-01-20",
-    "slug": "soft-summit"
+    "location": "Fergus Falls, Minnesota",
+    "slug": "fergus-falls-minnesota-20",
+    "alt": "A black dog with white-tipped paws lies on a beige carpet, its head peeking through cream-colored curtains with its mouth open and tongue.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20241017_143622.jpg",
     "date": "2024-10-17",
     "location": "Cedar Springs, Georgia",
-    "slug": "cedar-springs-georgia"
+    "slug": "cedar-springs-georgia",
+    "alt": "Two white signs with red \"EXIT\" letters and arrows point down and up on a corrugated metal wall beside pipes and beams.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240920_071233.jpg",
     "date": "2024-09-20",
     "location": "Bellevue, Washington",
-    "slug": "bellevue-washington-2"
+    "slug": "bellevue-washington-2",
+    "alt": "A wet brick sidewalk lines a street with a pink building on the left and storefronts.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240920_070519.jpg",
     "date": "2024-09-20",
     "location": "Bellevue, Washington",
-    "slug": "bellevue-washington"
+    "slug": "bellevue-washington",
+    "alt": "The Bellevue Tower under construction rises through fog with cranes above evergreen trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240915_110329.jpg",
     "date": "2024-09-15",
-    "slug": "narrow-grove"
+    "slug": "narrow-grove",
+    "alt": "Aerial view of hills with winding roads and scattered clearings.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240726_173746.jpg",
     "date": "2024-07-26",
     "location": "St. Petersburg, Florida",
-    "slug": "st-petersburg-florida"
+    "slug": "st-petersburg-florida",
+    "alt": "A geometric metal framework with triangular patterns and illuminated beams viewed from below through dark window frames.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240615_183256.jpg",
     "date": "2024-06-15",
     "location": "Le Mans, France",
-    "slug": "le-mans-france-3"
+    "slug": "le-mans-france-3",
+    "alt": "A man with red beard and white hooded jacket smiles at the camera near a tall silver structure displaying \"24h LE MANS\" and the Audi logo.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240615_155831.jpg",
     "date": "2024-06-15",
     "location": "Le Mans, France",
-    "slug": "le-mans-france-2"
+    "slug": "le-mans-france-2",
+    "alt": "A crowd watches a large screen displaying white race cars on a track with \"24h LE MANS\" visible, under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240615_114817.jpg",
     "date": "2024-06-15",
     "location": "Le Mans, France",
-    "slug": "le-mans-france"
+    "slug": "le-mans-france",
+    "alt": "A mural on a building facade shows a child floating above concentric rainbow circles with a rabbit toy at the center.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240614_182356.jpg",
     "date": "2024-06-14",
     "location": "Paris, France",
-    "slug": "paris-france-2"
+    "slug": "paris-france-2",
+    "alt": "A man with a red beard smiles and makes a peace sign in front of the Louvre Pyramid under construction.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240612_112539.jpg",
     "date": "2024-06-12",
     "location": "Paris, France",
-    "slug": "paris-france"
+    "slug": "paris-france",
+    "alt": "Tall metal electricity pylons stand among green bushes under a blue sky with white clouds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240611_190855.jpg",
     "date": "2024-06-11",
     "location": "Brussels, Belgium",
-    "slug": "brussels-belgium-3"
+    "slug": "brussels-belgium-3",
+    "alt": "A large crowd gathers in a city square holding signs including \"YOU MESSED UP WITH THE WRONG GENERATION\" and \"AMOUR POUR CEUX QUI SE\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240610_202149.jpg",
     "date": "2024-06-10",
     "location": "Brussels, Belgium",
-    "slug": "brussels-belgium-2"
+    "slug": "brussels-belgium-2",
+    "alt": "The dome-topped tower of the Palais de Justice rises above trees under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240610_170003.jpg",
     "date": "2024-06-10",
     "location": "Brussels, Belgium",
-    "slug": "brussels-belgium"
+    "slug": "brussels-belgium",
+    "alt": "A man with reddish hair and beard wearing a white shirt sits on a train, holding a phone, with overhead luggage racks visible above him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240610_121725.jpg",
     "date": "2024-06-10",
     "location": "Ghent, Belgium",
-    "slug": "ghent-belgium"
+    "slug": "ghent-belgium",
+    "alt": "Cyclists cross a wet street in front of the black lattice structure of De Krook building under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240610_095254.jpg",
     "date": "2024-06-10",
     "location": "Bruges, Belgium",
-    "slug": "bruges-belgium-3"
+    "slug": "bruges-belgium-3",
+    "alt": "A silver train with a circular \"B\" logo on its side is stationed at a platform with gray tiled walls and overhead shelter.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240610_095226.jpg",
     "date": "2024-06-10",
     "location": "Bruges, Belgium",
-    "slug": "bruges-belgium-2"
+    "slug": "bruges-belgium-2",
+    "alt": "A digital train departure board shows \"Gent-St-P\" and \"Genk IC\" with time \"10:08\", next to a round analog clock under an overhang.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240609_175818.jpg",
     "date": "2024-06-09",
     "location": "Bruges, Belgium",
-    "slug": "bruges-belgium"
+    "slug": "bruges-belgium",
+    "alt": "A stage with illuminated letters spelling \"POLE POLE\" in front of tropical plants and spotlights under a clear sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240607_193351.jpg",
     "date": "2024-06-07",
     "location": "Rotterdam, Netherlands",
-    "slug": "rotterdam-netherlands-6"
+    "slug": "rotterdam-netherlands-6",
+    "alt": "A man with a red beard wearing a gray t-shirt sits up in bed under white sheets, smiling at the camera.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240607_165809.jpg",
     "date": "2024-06-07",
     "location": "Rotterdam, Netherlands",
-    "slug": "rotterdam-netherlands-5"
+    "slug": "rotterdam-netherlands-5",
+    "alt": "The Markthal’s curved glass facade reflects surrounding buildings and a domed structure as people walk.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240607_134558(0).jpg",
     "date": "2024-06-07",
     "location": "Rotterdam, Netherlands",
-    "slug": "rotterdam-netherlands-4"
+    "slug": "rotterdam-netherlands-4",
+    "alt": "The Library of Rotterdam features tall bookshelves lining both sides of a central aisle with study desks and computers under exposed.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240607_115341.jpg",
     "date": "2024-06-07",
     "location": "Rotterdam, Netherlands",
-    "slug": "rotterdam-netherlands-3"
+    "slug": "rotterdam-netherlands-3",
+    "alt": "A man in a white jacket stands on a gray brick plaza beside tall grasses, with a white van parked nearby and bicycles locked.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240606_222828.jpg",
     "date": "2024-06-06",
     "location": "Rotterdam, Netherlands",
-    "slug": "rotterdam-netherlands-2"
+    "slug": "rotterdam-netherlands-2",
+    "alt": "A man with a red beard wearing an orange and white scarf smiles in front of a football match at De Kuip stadium.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240606_215249.jpg",
     "date": "2024-06-06",
     "location": "Rotterdam, Netherlands",
-    "slug": "rotterdam-netherlands"
+    "slug": "rotterdam-netherlands",
+    "alt": "Soccer players in blue and white-red kits compete on a green field under stadium lights with an official in orange nearby.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240605_161646.jpg",
     "date": "2024-06-05",
     "location": "The Hague, Netherlands",
-    "slug": "the-hague-netherlands-3"
+    "slug": "the-hague-netherlands-3",
+    "alt": "A large bronze sculpture of a face with closed eyes emerges from green grass under a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240605_154238.jpg",
     "date": "2024-06-05",
     "location": "The Hague, Netherlands",
-    "slug": "the-hague-netherlands-2"
+    "slug": "the-hague-netherlands-2",
+    "alt": "Two concrete cubes filled with stacked records sit on a tiled plaza beside a textured wall.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240605_142925.jpg",
     "date": "2024-06-05",
     "location": "The Hague, Netherlands",
-    "slug": "the-hague-netherlands"
+    "slug": "the-hague-netherlands",
+    "alt": "A man with a red beard and a beige cap smiles at the camera with waves and sand behind him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240604_150016.jpg",
     "date": "2024-06-04",
     "location": "Leiden, Netherlands",
-    "slug": "leiden-netherlands"
+    "slug": "leiden-netherlands",
+    "alt": "De Valk windmill stands tall with dark sails against a cloudy sky, framed by green trees and pink flowers in the foreground.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240602_161919.jpg",
     "date": "2024-06-02",
     "location": "Amsterdam, Netherlands",
-    "slug": "amsterdam-netherlands-2"
+    "slug": "amsterdam-netherlands-2",
+    "alt": "A grey pigeon with black and white wing markings perches on a bright yellow surface beside a row of bicycles.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240601_095456.jpg",
     "date": "2024-06-01",
     "location": "Amsterdam, Netherlands",
-    "slug": "amsterdam-netherlands"
+    "slug": "amsterdam-netherlands",
+    "alt": "A glass of iced coffee with a red-and-yellow striped straw sits beside a croissant on a wooden table.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240526_123303.jpg",
     "date": "2024-05-26",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-15"
+    "slug": "fergus-falls-minnesota-19",
+    "alt": "A black dog with amber eyes rests on a gray fuzzy blanket, one paw extended forward.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240523_162324.jpg",
     "date": "2024-05-23",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-14"
+    "slug": "fergus-falls-minnesota-18",
+    "alt": "Rows of solar panels on metal frames stand in a grassy field under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240413_080808.jpg",
     "date": "2024-04-13",
     "location": "Chicago, Illinois",
-    "slug": "chicago-illinois-3"
+    "slug": "chicago-illinois-3",
+    "alt": "A man with a red beard wearing sunglasses and a cap smiles beside The Bean and an orange traffic cone.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240412_144824.jpg",
     "date": "2024-04-12",
     "location": "Chicago, Illinois",
-    "slug": "chicago-illinois-2"
+    "slug": "chicago-illinois-2",
+    "alt": "A man with a red beard and gray hoodie smiles at the camera, with a glass pyramid behind him on a grassy.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240412_143141.jpg",
     "date": "2024-04-12",
     "location": "Chicago, Illinois",
-    "slug": "chicago-illinois"
+    "slug": "chicago-illinois",
+    "alt": "The Willis Tower stands on the left of a dense cluster of skyscrapers along Lake Michigan under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240408_141658.jpg",
     "date": "2024-04-08",
     "location": "Crystal, Minnesota",
-    "slug": "crystal-minnesota-2"
+    "slug": "crystal-minnesota-2",
+    "alt": "A man with red beard and white jacket smiles beside a black dog wearing a purple collar, with bare trees and evergreens in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240408_073058.jpg",
     "date": "2024-04-08",
     "location": "Maple Grove, Minnesota",
-    "slug": "maple-grove-minnesota-2"
+    "slug": "maple-grove-minnesota-2",
+    "alt": "A white Kobo e-reader displays text from \"Sustainable Hedonism\" next to a mug with \"let the adventure begin\" and latte art on a wooden.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240406_195258(0).jpg",
     "date": "2024-04-06",
     "location": "Minneapolis, Minnesota",
-    "slug": "minneapolis-minnesota-4"
+    "slug": "minneapolis-minnesota-5",
+    "alt": "A concert stage flanked by large video screens showing a musician in a hat.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240406_173507.jpg",
     "date": "2024-04-06",
     "location": "Minneapolis, Minnesota",
-    "slug": "minneapolis-minnesota-3"
+    "slug": "minneapolis-minnesota-4",
+    "alt": "Two men stand on an upper level of U.S. Bank Stadium, with purple seats and a glass roof visible behind them.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240406_173425.jpg",
     "date": "2024-04-06",
     "location": "Minneapolis, Minnesota",
-    "slug": "minneapolis-minnesota-2"
+    "slug": "minneapolis-minnesota-3",
+    "alt": "A man and woman wearing cowboy hats smile at the camera inside U.S. Bank Stadium with purple seats visible in the background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240322_202304.jpg",
     "date": "2024-03-22",
     "location": "Miami, Florida",
-    "slug": "miami-florida-4"
+    "slug": "miami-florida-4",
+    "alt": "A man with red facial hair wears a white Columbia Titanium rain jacket with hood up, standing against a gray wall.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240322_200232.jpg",
     "date": "2024-03-22",
     "location": "Miami, Florida",
-    "slug": "miami-florida-3"
+    "slug": "miami-florida-3",
+    "alt": "Palm fronds sway beside a sandy path lined with wooden posts and coiled rope fencing under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240321_181812.jpg",
     "date": "2024-03-21",
     "location": "Miami, Florida",
-    "slug": "miami-florida-2"
+    "slug": "miami-florida-2",
+    "alt": "A man with red hair and aviator sunglasses smiles beside green foliage, palm trees, and blue water under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240321_124248.jpg",
     "date": "2024-03-21",
     "location": "Miami, Florida",
-    "slug": "miami-florida"
+    "slug": "miami-florida",
+    "alt": "A bald man with a red beard smiles broadly, wearing a dark blue t-shirt against a plain light background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240319_192147.jpg",
     "date": "2024-03-19",
     "location": "Tampa, Florida",
-    "slug": "tampa-florida-2"
+    "slug": "tampa-florida-2",
+    "alt": "A yellow and blue streetcar with \"YBOR CITY\" and \"Coors Light 428\" on its front travels along a cobblestone street lined with brick.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240319_182656(0).jpg",
     "date": "2024-03-19",
     "location": "Tampa, Florida",
-    "slug": "tampa-florida"
+    "slug": "tampa-florida",
+    "alt": "A rooster with red comb and orange-brown feathers stands on a concrete surface scattered with dried leaves.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20240224_111747.jpg",
     "date": "2024-02-24",
     "location": "Crystal, Minnesota",
-    "slug": "crystal-minnesota"
+    "slug": "crystal-minnesota",
+    "alt": "A Minecraft scene shows a calm water surface reflecting blocky trees and clouds, with a wooden boat visible in the foreground.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231217_171342.jpg",
     "date": "2023-12-17",
     "location": "Seattle, Washington",
-    "slug": "seattle-washington-2"
+    "slug": "seattle-washington-5",
+    "alt": "A spiral-bound notebook with handwritten notes and a white pen lies next to a silver rectangular device on a marble table.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231216_184331.jpg",
     "date": "2023-12-16",
     "location": "Seattle, Washington",
-    "slug": "seattle-washington"
+    "slug": "seattle-washington-4",
+    "alt": "The Public Market sign glows red above a brick walkway with red trucks and a lit Christmas tree.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231216_001354.jpg",
     "date": "2023-12-16",
     "location": "Lake Forest Park, Washington",
-    "slug": "lake-forest-park-washington"
+    "slug": "lake-forest-park-washington",
+    "alt": "A sprawling cityscape at night with dense clusters of lights and dark waterways.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231023_183643.jpg",
     "date": "2023-10-23",
-    "slug": "grey-cliff"
+    "location": "Austin, Texas",
+    "slug": "austin-texas-4",
+    "alt": "A man with red hair and beard wearing a light gray McLaren cap sits in an airplane seat with white overhead panels and window controls visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231022_185746.jpg",
     "date": "2023-10-22",
     "location": "Austin, Texas",
-    "slug": "austin-texas-3"
+    "slug": "austin-texas-3",
+    "alt": "A large mural of an astronaut in a white spacesuit covers a concrete wall, with \"AGRICULTURAL EDUCATION FORD TEXAS FFA LEADERSHIP CENTER\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231021_114923.jpg",
     "date": "2023-10-21",
     "location": "Austin, Texas",
-    "slug": "austin-texas-2"
+    "slug": "austin-texas-2",
+    "alt": "A railroad bridge spans Lady Bird Lake with graffiti.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231019_211825.jpg",
     "date": "2023-10-19",
     "location": "Austin, Texas",
-    "slug": "austin-texas"
+    "slug": "austin-texas",
+    "alt": "Two men sit at a wooden table outdoors at night; one holds a cup, the other smiles, with a lit van and trees behind them.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20231011_133032.jpg",
     "date": "2023-10-11",
     "location": "Brewton, Alabama",
-    "slug": "brewton-alabama"
+    "slug": "brewton-alabama-2",
+    "alt": "A white hard hat with a blue \"Brewton Mill Annual Outage\" sticker and a red Milwaukee headlamp rests on papers beside neon green gloves.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230924_153555.jpg",
     "date": "2023-09-24",
     "location": "Washington, D.C.",
-    "slug": "washington-d-c-5"
+    "slug": "washington-d-c-6",
+    "alt": "A black-and-white mural features bold white text including \"IF YOU THINK TECHNOLOGY WILL SOLVE YOUR PROBLEMS THEN YOU DON'T UNDERSTAND TECHNOLOGY\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230924_134729.jpg",
     "date": "2023-09-24",
     "location": "Washington, D.C.",
-    "slug": "washington-d-c-4"
+    "slug": "washington-d-c-5",
+    "alt": "A large yellow pumpkin sculpture with black polka dots sits on a grassy lawn beside trimmed hedges and trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230923_120824.jpg",
     "date": "2023-09-23",
     "location": "Washington, D.C.",
-    "slug": "washington-d-c-3"
+    "slug": "washington-d-c-4",
+    "alt": "A bronze statue of a draped female figure holding a torch stands atop a marble column beneath a vaulted ceiling with painted panels.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230914_102045.jpg",
     "date": "2023-09-14",
     "location": "Indianapolis, Indiana",
-    "slug": "indianapolis-indiana-5"
+    "slug": "indianapolis-indiana-5",
+    "alt": "A large globe hangs above a black metal shelving unit displaying ceramic mugs and pitchers with \"BREW\" and \"COFFEE\" signs visible.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230913_194952.jpg",
     "date": "2023-09-13",
     "location": "Indianapolis, Indiana",
-    "slug": "indianapolis-indiana-4"
+    "slug": "indianapolis-indiana-4",
+    "alt": "A slice of chocolate tart with a graham cracker crust sits on a white plate, garnished with blackberries, whipped cream, mint leaves.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230913_190527.jpg",
     "date": "2023-09-13",
     "location": "Indianapolis, Indiana",
-    "slug": "indianapolis-indiana-3"
+    "slug": "indianapolis-indiana-3",
+    "alt": "A white plate holds seared fish topped with crispy orange strands beside yellow risotto and green broccoli.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230913_184629.jpg",
     "date": "2023-09-13",
     "location": "Indianapolis, Indiana",
-    "slug": "indianapolis-indiana-2"
+    "slug": "indianapolis-indiana-2",
+    "alt": "A partially eaten plate of pulled pork with avocado, lime wedge, and sauce, with a fork and knife on a white dish.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230913_183950.jpg",
     "date": "2023-09-13",
     "location": "Indianapolis, Indiana",
-    "slug": "indianapolis-indiana"
+    "slug": "indianapolis-indiana",
+    "alt": "A glass of amber-colored iced drink with a dried orange slice garnish sits on a dark wooden table.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230825_090611.jpg",
     "date": "2023-08-25",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-4"
+    "slug": "helsinki-finland-4",
+    "alt": "A person walks along a paved street beside green trams under a cloudy sky, with a brick building and overhead wires.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230823_111459.jpg",
     "date": "2023-08-23",
-    "slug": "grey-coast"
+    "location": "Kuusamo, Finland",
+    "slug": "kuusamo-finland",
+    "alt": "A blue wooden building with a sign reading \"KUUSAMON TULLI JA RAJA-ASEMA\" under a cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230823_083359.jpg",
     "date": "2023-08-23",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland-3"
+    "slug": "virranniemi-finland-3",
+    "alt": "A red wooden building with two yellow doors and a dark roof stands on a grassy lawn under a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230822_200507.jpg",
     "date": "2023-08-22",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland-2"
+    "slug": "virranniemi-finland-2",
+    "alt": "Three people wearing life vests sit in a motorboat on a lake with a forested shoreline under a pale sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230822_162507.jpg",
     "date": "2023-08-22",
     "location": "Virranniemi, Finland",
-    "slug": "virranniemi-finland"
+    "slug": "virranniemi-finland",
+    "alt": "A reindeer with antlers and a bell collar stands on a gravel path between pine trees in a forest.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230820_165619.jpg",
     "date": "2023-08-20",
-    "slug": "winter-dock"
+    "location": "Vaasa, Finland",
+    "slug": "vaasa-finland",
+    "alt": "A weathered wooden shed with a sloped metal roof stands alone in a harvested field under a blue sky with scattered clouds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230820_125626.jpg",
     "date": "2023-08-20",
     "location": "Turku, Finland",
-    "slug": "turku-finland"
+    "slug": "turku-finland",
+    "alt": "A man stands on cobblestones in front of Turku Castle’s white and stone walls under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230819_153225.jpg",
     "date": "2023-08-19",
     "location": "Espoo, Finland",
-    "slug": "espoo-finland-2"
+    "slug": "espoo-finland-2",
+    "alt": "A gravel path curves beside a forested area with tall pine trees and wooden utility poles supporting overhead wires.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230819_140621.jpg",
     "date": "2023-08-19",
     "location": "Espoo, Finland",
-    "slug": "espoo-finland"
+    "slug": "espoo-finland",
+    "alt": "A man in a gray hooded jacket smiles at the camera while standing on a road with another person in a white hoodie holding a blue water.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230818_212345.jpg",
     "date": "2023-08-18",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-3"
+    "slug": "helsinki-finland-3",
+    "alt": "A red building with \"CAFE\" in white letters sits beside a calm river under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230818_113853.jpg",
     "date": "2023-08-18",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland-2"
+    "slug": "helsinki-finland-2",
+    "alt": "Three people sit on red armchairs and a sofa around a wooden table in a room lined with tall bookshelves filled with books; exposed pipes.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230817_141454.jpg",
     "date": "2023-08-17",
     "location": "Tallinn, Estonia",
-    "slug": "tallinn-estonia-2"
+    "slug": "tallinn-estonia-2",
+    "alt": "A man in a blue t-shirt and green shorts leans on a stone wall by the water with a cruise ship visible across the bay.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230817_101903.jpg",
     "date": "2023-08-17",
     "location": "Tallinn, Estonia",
-    "slug": "tallinn-estonia"
+    "slug": "tallinn-estonia",
+    "alt": "A cobblestone street lined with outdoor seating and flower boxes leads to a gabled building with a clock tower under a blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230814_155052.jpg",
     "date": "2023-08-14",
     "location": "Helsinki, Finland",
-    "slug": "helsinki-finland"
+    "slug": "helsinki-finland",
+    "alt": "A person with a backpack and rolling suitcase walks across a paved plaza toward a large white sign reading \"Helsinki\" under a blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230813_200716.jpg",
     "date": "2023-08-13",
-    "slug": "low-well"
+    "location": "Minneapolis, Minnesota",
+    "slug": "minneapolis-minnesota-2",
+    "alt": "A yellow airplane engine extends into a sky with scattered clouds and a band of sunlight along the horizon.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230729_141345.jpg",
     "date": "2023-07-29",
     "location": "Golden Valley, Minnesota",
-    "slug": "golden-valley-minnesota"
+    "slug": "golden-valley-minnesota",
+    "alt": "A man in a coral jacket and yellow tie-dye shirt poses inside a giant pink Barbie box with \"Barbie\" logo and \"She’s Having The BEST DAY!\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230618_144415.jpg",
     "date": "2023-06-18",
     "location": "Trenton, New Jersey",
-    "slug": "trenton-new-jersey"
+    "slug": "trenton-new-jersey",
+    "alt": "A bronze statue of a man with long hair and a mustache wearing a suit and red tie holds a vintage camera to his eye.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230607_132604.jpg",
     "date": "2023-06-07",
     "location": "Bellingham, Washington",
-    "slug": "bellingham-washington-5"
+    "slug": "bellingham-washington-5",
+    "alt": "A white sailboat with a tall mast floats on calm water with distant tree-covered hills and mountains under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230606_064129.jpg",
     "date": "2023-06-06",
     "location": "Bellingham, Washington",
-    "slug": "bellingham-washington-4"
+    "slug": "bellingham-washington-4",
+    "alt": "A tablet displaying a book cover rests on a blue and white checkered blanket beside a wooden dock overlooking calm water reflecting.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230603_174223.jpg",
     "date": "2023-06-03",
     "location": "Bellingham, Washington",
-    "slug": "bellingham-washington-3"
+    "slug": "bellingham-washington-3",
+    "alt": "A wooden chess set with light and dark pieces sits on a glass table, overlooking a calm lake surrounded by trees through large windows.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230603_055710.jpg",
     "date": "2023-06-03",
     "location": "Bellingham, Washington",
-    "slug": "bellingham-washington-2"
+    "slug": "bellingham-washington-2",
+    "alt": "A light gray Polestar 2 electric vehicle with Oregon license plate is parked on a gravel driveway surrounded by evergreen trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230602_210216.jpg",
     "date": "2023-06-02",
     "location": "Bellingham, Washington",
-    "slug": "bellingham-washington"
+    "slug": "bellingham-washington",
+    "alt": "A two-lane road stretches toward a line of tall steel transmission towers under a pale blue sky with a full moon visible between them.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230501.jpg",
     "date": "2023-05-01",
-    "slug": "shaded-path"
+    "location": "Brewton, Alabama",
+    "slug": "brewton-alabama",
+    "alt": "A man wearing a white hard hat and yellow safety vest sits inside an equipment compartment with exposed wiring and machinery.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230411_201525.jpg",
     "date": "2023-04-11",
     "location": "Minneapolis, Minnesota",
-    "slug": "minneapolis-minnesota"
+    "slug": "minneapolis-minnesota",
+    "alt": "Target Field baseball stadium at night with players on the field and the Minneapolis skyline.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230323_232829.jpg",
     "date": "2023-03-23",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-13"
+    "slug": "fergus-falls-minnesota-17",
+    "alt": "Green aurora lights streak across a starry night sky above snow-covered ground with evergreen trees and a wooden utility pole.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230323_232619.jpg",
     "date": "2023-03-23",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-12"
+    "slug": "fergus-falls-minnesota-16",
+    "alt": "A silhouetted figure stands against a foggy, illuminated wall with faint green and yellow light.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230217_131654.jpg",
     "date": "2023-02-17",
     "location": "Great Smoky Mountains, Tennessee",
-    "slug": "great-smoky-mountains-tennessee-2"
+    "slug": "great-smoky-mountains-tennessee-2",
+    "alt": "Appalachian Trail sign nailed to a tree shows distances: Indian Gap 17, Mt. Collins Shelter 59, Clingmans Dome 79.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230217_131527.jpg",
     "date": "2023-02-17",
     "location": "Great Smoky Mountains, Tennessee",
-    "slug": "great-smoky-mountains-tennessee"
+    "slug": "great-smoky-mountains-tennessee",
+    "alt": "A man with short brown hair and a beard smiles at the camera, wearing a gray hoodie over a red shirt, with foggy evergreen trees behind him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20230216_060819.jpg",
     "date": "2023-02-16",
     "location": "Asheville, North Carolina",
-    "slug": "asheville-north-carolina"
+    "slug": "asheville-north-carolina",
+    "alt": "The Mountaineer Inn sign glows green with a neon cowboy figure above a two-story stone building at night.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20221111_204949.jpg",
     "date": "2022-11-11",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-11"
+    "slug": "fergus-falls-minnesota-15",
+    "alt": "A man and woman smile closely together; the man wears a yellow and maroon shirt.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20221105_150716.jpg",
     "date": "2022-11-05",
     "location": "Palm Beach, Florida",
-    "slug": "palm-beach-florida"
+    "slug": "palm-beach-florida",
+    "alt": "A brick-paved pedestrian walkway lined with trees and outdoor seating under umbrellas.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220911_003729400_iOS.jpg",
     "date": "2022-09-11",
-    "slug": "open-gate"
+    "location": "Fergus Falls, Minnesota",
+    "slug": "fergus-falls-minnesota-14",
+    "alt": "A man stands beside a red Cockshutt 30 tractor with yellow wheels at an outdoor gathering under a pink sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220903_181958.jpg",
     "date": "2022-09-03",
-    "slug": "frozen-marsh"
+    "slug": "frozen-marsh",
+    "alt": "A body of water stretches to the horizon under a partly cloudy sky, with power lines and transmission towers visible along the shoreline.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220902.jpg",
     "date": "2022-09-02",
-    "slug": "mellow-mill"
+    "location": "Washington, D.C.",
+    "slug": "washington-d-c-3",
+    "alt": "A man with arms crossed smiles at a wooden table with a phone and glass of water in front of him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220901_155845.jpg",
     "date": "2022-09-01",
     "location": "Alexandria, Virginia",
-    "slug": "alexandria-virginia"
+    "slug": "alexandria-virginia",
+    "alt": "A black Honda S2000 convertible parks on a brick-lined street lined with row houses and flowering shrubs.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220831_103830.jpg",
     "date": "2022-08-31",
     "location": "Washington, D.C.",
-    "slug": "washington-d-c-2"
+    "slug": "washington-d-c-2",
+    "alt": "A large tree with spreading roots shades a person sitting near the edge of the reflecting pool at the National Mall.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220831_101934.jpg",
     "date": "2022-08-31",
     "location": "Washington, D.C.",
-    "slug": "washington-d-c"
+    "slug": "washington-d-c",
+    "alt": "The United States Capitol Building with white columns and a portico stands behind green lawns and trees under a blue sky with scattered.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220829_131516.jpg",
     "date": "2022-08-29",
     "location": "New York, New York",
-    "slug": "new-york-new-york-3"
+    "slug": "new-york-new-york-3",
+    "alt": "The Statue of Liberty stands on a stone pedestal with her torch raised and tablet held high against a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220829_114706.jpg",
     "date": "2022-08-29",
     "location": "New York, New York",
-    "slug": "new-york-new-york-2"
+    "slug": "new-york-new-york-2",
+    "alt": "People sit on stone benches under trees reflected in glass panels near a blue-roofed kiosk.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220828_142016.jpg",
     "date": "2022-08-28",
     "location": "New York, New York",
-    "slug": "new-york-new-york"
+    "slug": "new-york-new-york",
+    "alt": "A man smiles at the camera with a view of surrounding skyscrapers behind him under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220818_063708.jpg",
     "date": "2022-08-18",
     "location": "Maple Grove, Minnesota",
-    "slug": "maple-grove-minnesota"
+    "slug": "maple-grove-minnesota",
+    "alt": "A wind turbine stands behind a glass building with a covered parking area and parked cars under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220721_220818.jpg",
     "date": "2022-07-21",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-10"
+    "slug": "fergus-falls-minnesota-13",
+    "alt": "A food stand with illuminated signs reading \"SHAVED ICE,\" \"FRESH HOT MINI DONUTS,\" and \"COLD DRINKS\" serves customers at night outside.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220616_161919.jpg",
     "date": "2022-06-16",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-9"
+    "slug": "fergus-falls-minnesota-12",
+    "alt": "Two black dogs play tug-of-war with a purple rope toy on beige carpet in a living room with lamps and a TV showing a man driving.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220526_153527.jpg",
     "date": "2022-05-26",
-    "slug": "crisp-marsh"
+    "location": "Merricourt, North Dakota",
+    "slug": "merricourt-north-dakota-2",
+    "alt": "A person in a hard hat stands beside a large white wind turbine tower marked \"T21\" under a blue sky with scattered clouds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220526_150850.jpg",
     "date": "2022-05-26",
-    "slug": "idle-bay"
+    "location": "Merricourt, North Dakota",
+    "slug": "merricourt-north-dakota",
+    "alt": "A man wearing a white hard hat stands on gravel near wind turbines and electrical equipment under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220419_142721.jpg",
     "date": "2022-04-19",
     "location": "Brule, Wisconsin",
-    "slug": "brule-wisconsin-2"
+    "slug": "brule-wisconsin-16",
+    "alt": "Two men work on the wooden frame of a house under construction against a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20220223_195139.jpg",
     "date": "2022-02-23",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-8"
+    "slug": "fergus-falls-minnesota-11",
+    "alt": "A black dog with amber eyes rests its head on a beige shaggy blanket beside plaid fabric.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20211115_181712.jpg",
     "date": "2021-11-15",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-7"
+    "slug": "fergus-falls-minnesota-10",
+    "alt": "A black and white dog with a purple collar lies on its back on beige carpet, partially covered by a red knitted blanket, while being petted.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20211024_175310.jpg",
     "date": "2021-10-24",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-6"
+    "slug": "fergus-falls-minnesota-9",
+    "alt": "A black computer case without a side panel reveals internal components including an RTX 3090 GPU.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20210927_173659.jpg",
     "date": "2021-09-27",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-5"
+    "slug": "fergus-falls-minnesota-8",
+    "alt": "A black dog with a purple collar rests its head on a blue shirt inside a plaid-covered vehicle interior.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20210617_192701_remastered.jpg",
     "date": "2021-06-17",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-4"
+    "slug": "fergus-falls-minnesota-7",
+    "alt": "A white single-story house has a beige SUV and black SUV parked in the driveway under large leafy trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20210519_202712.jpg",
     "date": "2021-05-19",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-3"
+    "slug": "fergus-falls-minnesota-6",
+    "alt": "A black dog with white paws and a purple collar runs on grass, holding a long stick in its mouth while attached to a leash.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20201207_120556.jpg",
     "date": "2020-12-07",
-    "slug": "thin-bluff"
+    "location": "Fergus Falls, Minnesota",
+    "slug": "fergus-falls-minnesota-5",
+    "alt": "Frost-covered trees and reeds line a frozen river under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20200926_124137.jpg",
     "date": "2020-09-26",
-    "slug": "lone-spring"
+    "location": "Fergus Falls, Minnesota",
+    "slug": "fergus-falls-minnesota-4",
+    "alt": "A calm river reflects a cloudy sky and autumn trees with orange, red, and yellow leaves along both banks.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20200730_125436_1.jpg",
     "date": "2020-07-30",
-    "slug": "still-gorge"
+    "location": "Fergus Falls, Minnesota",
+    "slug": "fergus-falls-minnesota-3",
+    "alt": "University of Minnesota diploma conferring Bachelor of Science in Electrical Engineering upon Nickolas John Korhonen, dated May 8, 2020.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20200408_132709.jpg",
     "date": "2020-04-08",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota-2"
+    "slug": "fergus-falls-minnesota-2",
+    "alt": "A dark gray bird with a pink beak stands on gravel and small stones.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20200405_122736.jpg",
     "date": "2020-04-05",
     "location": "Cuyuna, Minnesota",
-    "slug": "cuyuna-minnesota"
+    "slug": "cuyuna-minnesota",
+    "alt": "A black dog with white chest markings and a purple collar lies on a towel in a car seat, looking toward the camera.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20200402_210859.jpg",
     "date": "2020-04-02",
     "location": "Fergus Falls, Minnesota",
-    "slug": "fergus-falls-minnesota"
+    "slug": "fergus-falls-minnesota",
+    "alt": "A framed photograph of a tree-lined dirt path hangs on a wall beside a lit table lamp.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20191203_212511.jpg",
     "date": "2019-12-03",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-13"
+    "slug": "duluth-minnesota-15",
+    "alt": "A man with brown hair, a mustache, and glasses wears a blue patterned shirt and carries a gray backpack strap over his shoulder.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20191129_161049.jpg",
     "date": "2019-11-29",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-12"
+    "slug": "duluth-minnesota-14",
+    "alt": "A digital oscilloscope screen displays four channels of square wave signals with labels for channel voltages.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20191115_215450.jpg",
     "date": "2019-11-15",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-11"
+    "slug": "duluth-minnesota-13",
+    "alt": "Five people in athletic wear pose on a gym floor, one holding an orange basketball.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190805_165538.jpg",
     "date": "2019-08-05",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-10"
+    "slug": "duluth-minnesota-12",
+    "alt": "Four colored waveforms on an oscilloscope display with grid lines and measurements including \"C1 Ampl 3.28 V\", \"C1 Freq 5.0081MHz\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190728_140230.jpg",
     "date": "2019-07-28",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-9"
+    "slug": "duluth-minnesota-11",
+    "alt": "A man wearing a red and black Giro helmet, blue shirt, and red hydration vest lies on grass next to a bicycle with green foliage around him.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190610_192031.jpg",
     "date": "2019-06-10",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-8"
+    "slug": "duluth-minnesota-10",
+    "alt": "A pink phone on a dark surface with sunlight reflecting off its cover, showing trees and a window frame.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190516_204427.jpg",
     "date": "2019-05-16",
     "location": "Finland, Minnesota",
-    "slug": "finland-minnesota"
+    "slug": "finland-minnesota",
+    "alt": "Calm water stretches to the horizon under a pale sky with soft pink and blue hues.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190508_174026.jpg",
     "date": "2019-05-08",
     "location": "Superior, Wisconsin",
-    "slug": "superior-wisconsin"
+    "slug": "superior-wisconsin-2",
+    "alt": "A person wearing a white beanie and a green face covering stands in snow-covered woods with bare trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190318_165336.jpg",
     "date": "2019-03-18",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-7"
+    "slug": "duluth-minnesota-9",
+    "alt": "A red and black road bicycle with a yellow water bottle stands on a frozen lake under a blue sky with scattered clouds.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190203_151349.jpg",
     "date": "2019-02-03",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-6"
+    "slug": "duluth-minnesota-8",
+    "alt": "Snow-covered trees with frost-laden branches stand densely under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190127_102142.jpg",
     "date": "2019-01-27",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-5"
+    "slug": "duluth-minnesota-7",
+    "alt": "A man with frost on his face and red beard wears a black and red Giro helmet and goggles under a blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190124_070302.jpg",
     "date": "2019-01-24",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-4"
+    "slug": "duluth-minnesota-6",
+    "alt": "A row of race bibs lies on a wooden table, with the front one reading \"ARAVAIPA RUNNING 346 Trail and Endurance Runs\" in bold red and black.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20190113_135431.jpg",
     "date": "2019-01-13",
     "location": "Grand Canyon National Park",
-    "slug": "grand-canyon-national-park"
+    "slug": "grand-canyon-national-park-2",
+    "alt": "A man wearing a yellow shirt, green neck gaiter, and gray cap with \"GET HIGH\" printed on it smiles while standing on a rocky trail.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20181104_170316.jpg",
     "date": "2018-11-04",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-3"
+    "slug": "duluth-minnesota-5",
+    "alt": "A man wearing a black and neon green cap with \"Continental\" written on it smiles while sitting in a car seat.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20181020_153042.jpg",
     "date": "2018-10-20",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota-2"
+    "slug": "duluth-minnesota-4",
+    "alt": "A man wearing a \"10th Anniversary Wild Duluth\" shirt and race bib number 213 smiles while holding a white cup.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20180623_150848.jpg",
+    "date": "2018-06-23",
+    "location": "Lutsen, Minnesota",
+    "slug": "lutsen-minnesota-3",
+    "alt": "A man in a red and yellow jersey with a helmet and goggles sticks his tongue out under an \"MTB NINETYNINER RACE\" banner at Lutsen.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20180608_194517.jpg",
+    "date": "2018-06-08",
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-14",
+    "alt": "A yellow water bottle with \"CORBA KIDS\" logos sits between two feet in patterned socks on a rock ledge overlooking.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20180127_075230.jpg",
+    "date": "2018-01-27",
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-13",
+    "alt": "A man wearing a Patagonia jacket and a cap with \"RUN STEEP GET HIGH\" gives a thumbs-up near a frozen river at sunset.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20171231.jpg",
     "date": "2017-12-31",
-    "slug": "gentle-lane"
+    "location": "Rice Lake, Wisconsin",
+    "slug": "rice-lake-wisconsin",
+    "alt": "A man wearing a red beanie and black jacket with \"UMD Electrical Engineering\" stands on a snowy road holding ski poles.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20171201.jpg",
     "date": "2017-12-01",
-    "slug": "far-ledge"
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-12",
+    "alt": "A man wearing a green shirt and brown shorts stands on snowshoes in a snowy wooded area, holding a water bottle and smiling.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20171029_081917.jpg",
     "date": "2017-10-29",
-    "slug": "idle-terrace"
+    "location": "Copper Harbor, Michigan",
+    "slug": "copper-harbor-michigan-2",
+    "alt": "A dark green Ford F-150 pickup with a red and white camper shell sits on snow-dusted ground beside a trailer loaded with bicycles.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20171027_132039.jpg",
     "date": "2017-10-27",
-    "slug": "dusty-stone"
+    "location": "Copper Harbor, Michigan",
+    "slug": "copper-harbor-michigan",
+    "alt": "Raindrops cover a car window looking out onto a wet road with yellow center lines and trees lining the side under an overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170921.jpg",
     "date": "2017-09-21",
-    "slug": "wide-road"
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-11",
+    "alt": "A man wearing a helmet and glasses rides a mountain bike with race number \"18\" on a dirt trail surrounded by trees and ferns.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170827_132700.jpg",
     "date": "2017-08-27",
     "location": "Two Harbors, Minnesota",
-    "slug": "two-harbors-minnesota"
+    "slug": "two-harbors-minnesota",
+    "alt": "A red and black gravel bike with a yellow water bottle stands on a sandy beach near Lake Superior.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20170816_211144.jpg",
+    "date": "2017-08-16",
+    "location": "Duluth, Minnesota",
+    "slug": "duluth-minnesota-3",
+    "alt": "A man wearing a black hoodie with \"FLOWER POWER\" and a gray cap with \"RUN SLEEP GET HIGH\" stands in a store aisle with red bins and shelves.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170804_215816_811.jpg",
     "date": "2017-08-04",
     "location": "Eau Claire, Wisconsin",
-    "slug": "eau-claire-wisconsin-6"
+    "slug": "eau-claire-wisconsin-10",
+    "alt": "A red and black bicycle leans against a post near a green street sign reading \"Hemlock Dr\" with two brown address signs.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170801.jpg",
     "date": "2017-08-01",
-    "slug": "bright-market"
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-9",
+    "alt": "A man wearing a gray bicycle helmet and a lime green \"Mesquite Canyon\" t-shirt holds two white frosted donuts in front of leafy green trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170715_220829.jpg",
     "date": "2017-07-15",
     "location": "Eau Claire, Wisconsin",
-    "slug": "eau-claire-wisconsin-5"
+    "slug": "eau-claire-wisconsin-8",
+    "alt": "A man wearing a black t-shirt with a graphic, black shorts, and a baseball cap takes a mirror selfie while holding a phone.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170629.jpg",
     "date": "2017-06-29",
-    "slug": "plain-view"
+    "location": "Duluth, Minnesota",
+    "slug": "duluth-minnesota-2",
+    "alt": "A runner wearing bib number 344 and a blue \"CORBA KIDS\" shirt navigates a moss-covered rock trail in a wooded area.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170624_162736.jpg",
     "date": "2017-06-24",
     "location": "Lutsen, Minnesota",
-    "slug": "lutsen-minnesota-2"
+    "slug": "lutsen-minnesota-2",
+    "alt": "A muddy cyclist wearing a helmet and green shirt holds a red mountain bike with race number 363; behind them.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170610_085012.jpg",
     "date": "2017-06-10",
     "location": "Eau Claire, Wisconsin",
-    "slug": "eau-claire-wisconsin-4"
+    "slug": "eau-claire-wisconsin-7",
+    "alt": "A rainbow-colored iridescent patch glows beneath dry brown leaves scattered on forest ground.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170529_162308.jpg",
     "date": "2017-05-29",
     "location": "Menomonie, Wisconsin",
-    "slug": "menomonie-wisconsin"
+    "slug": "menomonie-wisconsin",
+    "alt": "A wooden walkway runs alongside a black steel truss bridge spanning a river under a cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170506_052946.jpg",
     "date": "2017-05-06",
     "location": "Brule, Wisconsin",
-    "slug": "brule-wisconsin"
+    "slug": "brule-wisconsin-15",
+    "alt": "A black bicycle with panniers rests on the shoulder of a two-lane road curving into fog, flanked by evergreen trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170503_061851.jpg",
     "date": "2017-05-03",
     "location": "Chippewa Falls, Wisconsin",
-    "slug": "chippewa-falls-wisconsin-2"
+    "slug": "chippewa-falls-wisconsin-2",
+    "alt": "The sun sets over a calm lake reflecting scattered clouds, with silhouetted trees and a pier extending into the water.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20170503_061827.jpg",
     "date": "2017-05-03",
     "location": "Chippewa Falls, Wisconsin",
-    "slug": "chippewa-falls-wisconsin"
+    "slug": "chippewa-falls-wisconsin",
+    "alt": "A wooden railing with horizontal slats overlooks a concrete surface under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20161015_182910.jpg",
     "date": "2016-10-15",
     "location": "Duluth, Minnesota",
-    "slug": "duluth-minnesota"
+    "slug": "duluth-minnesota",
+    "alt": "Two men stand smiling under a brown arched sign reading \"BAYFRONT FESTIVAL\" with stars and autumn trees behind them on a brick walkway.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160808_195409.jpg",
     "date": "2016-08-08",
     "location": "Eau Claire, Wisconsin",
-    "slug": "eau-claire-wisconsin-3"
+    "slug": "eau-claire-wisconsin-6",
+    "alt": "A man with curly red hair smiles while holding up his arm, which has a drawn smiley face and two red marks resembling wounds; he wears.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160701.jpg",
     "date": "2016-07-01",
-    "slug": "early-summit"
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-5",
+    "alt": "A person wearing a bicycle helmet and glasses smiles while standing in a wooded area with a red bra attached to their backpack straps.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160629.jpg",
     "date": "2016-06-29",
-    "slug": "small-dune"
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin-4",
+    "alt": "A man wearing a green shirt, a black helmet rides a mountain bike on a forest trail; number 59 is displayed.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160625_140210.jpg",
     "date": "2016-06-25",
     "location": "Lutsen, Minnesota",
-    "slug": "lutsen-minnesota"
+    "slug": "lutsen-minnesota",
+    "alt": "A cyclist in a lime green shirt and helmet holds a muddy mountain bike with race number \"919\" at an outdoor event surrounded by other.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160313_135420.jpg",
     "date": "2016-03-13",
     "location": "Sedona, Arizona",
-    "slug": "sedona-arizona"
+    "slug": "sedona-arizona",
+    "alt": "The Cathedral Rock formation rises above a forested valley with red rock cliffs under a partly cloudy sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160312_091927.jpg",
     "date": "2016-03-12",
-    "slug": "warm-shore"
+    "location": "Waddell, Arizona",
+    "slug": "waddell-arizona-2",
+    "alt": "A man wearing a gray cap with \"RUN SHEEP GET HIGH\" and a blue sheep graphic leans against a blue vehicle under a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160310_092425.jpg",
     "date": "2016-03-10",
-    "slug": "tall-road"
+    "location": "Grand Canyon National Park",
+    "slug": "grand-canyon-national-park",
+    "alt": "A man stands beside a warning sign with an illustration of a person falling, holding the sign’s frame; the sign reads \"Warning\".",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160304_164814.jpg",
     "date": "2016-03-04",
     "location": "Eau Claire, Wisconsin",
-    "slug": "eau-claire-wisconsin-2"
+    "slug": "eau-claire-wisconsin-3",
+    "alt": "A snow-covered path winds through a forest with bare trees laden with snow, footprints visible on the trail.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160213_130424.jpg",
     "date": "2016-02-13",
     "location": "Eau Claire, Wisconsin",
-    "slug": "eau-claire-wisconsin"
+    "slug": "eau-claire-wisconsin-2",
+    "alt": "A black Xbox controller with two analog sticks and a D-pad rests on a wooden surface.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160202.jpg",
     "date": "2016-02-02",
-    "slug": "plain-grove"
+    "location": "Eau Claire, Wisconsin",
+    "slug": "eau-claire-wisconsin",
+    "alt": "A man wearing a red shirt with \"WILD DULUTH\" and race number \"622\" gives two thumbs up while snowshoeing on a snowy trail lined with bare trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20160101.jpg",
     "date": "2016-01-01",
-    "slug": "empty-garden"
+    "location": "Waddell, Arizona",
+    "slug": "waddell-arizona",
+    "alt": "A young man wearing a black cap and hoodie sits inside a car, holding a phone with his mouth slightly open.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150615.jpg",
     "date": "2015-06-15",
-    "slug": "slow-bay"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-14",
+    "alt": "A Rubik’s Cube with red, orange, yellow, green, and blue squares sits on a wooden surface against a blue fabric background.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150601.jpg",
     "date": "2015-06-01",
-    "slug": "gentle-view"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-13",
+    "alt": "A brown and white dog with floppy ears lies on a stone path, looking up at the camera.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150519.jpg",
     "date": "2015-05-19",
-    "slug": "amber-arch"
+    "slug": "amber-arch",
+    "alt": "A stone archway leads to a lit corridor with red banners; on the right wall, \"PRESS A TO START\" appears above greenery.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150502_19_33_03_Pro.jpg",
     "date": "2015-05-02",
-    "slug": "silent-market"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-12",
+    "alt": "A black and white dog with floppy ears sits on a forest trail holding a stick in its mouth.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150324_16_16_25_Pro (2).jpg",
     "date": "2015-03-24",
-    "slug": "amber-bend"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-11",
+    "alt": "A young man with light brown hair and green eyes smiles slightly while wearing a yellow hoodie indoors.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20150309_021.jpg",
+    "date": "2015-03-09",
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-3",
+    "alt": "Radio towers rise above a dense urban landscape with residential buildings and three tall radio towers under a clear blue sky.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20150309_012.jpg",
+    "date": "2015-03-09",
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington-2",
+    "alt": "Seattle’s skyline with Mount Rainier visible in the distance under a clear blue sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150308_146.jpg",
     "date": "2015-03-08",
-    "slug": "far-hill"
+    "location": "Olympic National Park",
+    "slug": "olympic-national-park-4",
+    "alt": "A calm lake reflects forested mountains under a partly cloudy sky with bare branches in the foreground.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20150308_077.jpg",
+    "date": "2015-03-08",
+    "location": "Olympic National Park",
+    "slug": "olympic-national-park-3",
+    "alt": "Animal paw prints lead across dark sand toward a rocky shoreline under overcast sky.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150308_070.jpg",
     "date": "2015-03-08",
-    "slug": "idle-road"
+    "location": "Olympic National Park",
+    "slug": "olympic-national-park-2",
+    "alt": "White pebbles arranged in a heart shape on a bed of dark gray smooth stones.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20150308_037.jpg",
+    "date": "2015-03-08",
+    "location": "Olympic National Park",
+    "slug": "olympic-national-park",
+    "alt": "A person wearing a yellow hoodie with \"FFA\" in blue letters leans against a large moss-covered tree trunk in a forest.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20150305_039.jpg",
     "date": "2015-03-05",
-    "slug": "brisk-summit"
+    "location": "Seattle, Washington",
+    "slug": "seattle-washington",
+    "alt": "Mount Rainier rises above evergreens under broken cloud.",
+    "alt_status": "ok"
   },
   {
-    "src": "/images/gallery/2012.jpg",
-    "date": "2012",
-    "slug": "golden-terrace"
+    "src": "/images/gallery/20141005.jpg",
+    "date": "2014-10-05",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-10",
+    "alt": "A brown and white adult dog with floppy ears rests on straw beside a black and white puppy.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20140610_019.jpg",
+    "date": "2014-06-10",
+    "location": "Maple, Wisconsin",
+    "slug": "maple-wisconsin-3",
+    "alt": "A red van’s rear windows display white chalk writing reading \"#FFASwag\" with starburst drawings.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20140605.jpg",
+    "date": "2014-06-05",
+    "slug": "faded-harbour",
+    "alt": "Dead Space title screen shows credits for EA Redwood Shores with Achievement unlocked: 150G - Epic Tier 3 Engineer.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20140525_002.jpg",
+    "date": "2014-05-25",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-9",
+    "alt": "A brown and white puppy lies on its back in a green metal garden cart with mouth open and tongue out.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20140521_001.jpg",
+    "date": "2014-05-21",
+    "location": "Maple, Wisconsin",
+    "slug": "maple-wisconsin-2",
+    "alt": "A young man with brown hair wearing a blue hoodie stands indoors with a poster behind him showing a baseball player.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20140503_013.jpg",
+    "date": "2014-05-03",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-8",
+    "alt": "Seven black and white puppies stand on grass and straw near a small white doghouse with green trim.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20140331_092757.jpg",
+    "date": "2014-03-31",
+    "slug": "clear-shore",
+    "alt": "A Minecraft landscape featuring a large white bridge with tall towers spanning blue water, surrounded by blocky buildings, trees.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20131031.jpg",
+    "date": "2013-10-31",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-7",
+    "alt": "A smiling person holds a camera with a large lens, facing forward; bright overexposure obscures background details.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20130927.jpg",
+    "date": "2013-09-27",
+    "location": "Maple, Wisconsin",
+    "slug": "maple-wisconsin",
+    "alt": "A fuzzy caterpillar with black and orange segments clings to a thin branch against green foliage.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20130518.jpg",
+    "date": "2013-05-18",
+    "location": "Superior, Wisconsin",
+    "slug": "superior-wisconsin",
+    "alt": "A young man with brown hair wearing a blue Nike hoodie smiles at the camera inside a diner with large windows and a hanging light fixture.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20121114.jpg",
+    "date": "2012-11-14",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-6",
+    "alt": "A boy in a gray hoodie with \"NIKE\" in green letters holds a phone while sitting on a school bus near an emergency door sign.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20120501.jpg",
+    "date": "2012-05-01",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-5",
+    "alt": "A brown and white dog with floppy ears sits on a concrete path near a silver truck and farm equipment.",
+    "alt_status": "ok"
+  },
+  {
+    "src": "/images/gallery/20120401.jpg",
+    "date": "2012-04-01",
+    "slug": "low-valley",
+    "alt": "A Minecraft landscape at dusk showing grassy terrain, stone blocks, water, and a glowing torch on a cliffside.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20110101.jpg",
     "date": "2011-01-01",
-    "slug": "warm-valley"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-4",
+    "alt": "A weathered animal skull covered in moss sits atop a wooden post in a forest clearing with wildflowers and trees.",
+    "alt_status": "ok"
   },
   {
     "src": "/images/gallery/20080101.jpg",
     "date": "2008-01-01",
-    "slug": "late-cove"
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-3",
+    "alt": "A black and white calf with a pink nose lies on green grass.",
+    "alt_status": "ok"
   },
   {
-    "src": "/images/gallery/2005.jpg",
-    "date": "2005",
-    "slug": "crisp-rail"
+    "src": "/images/gallery/20050116.jpg",
+    "date": "2005-01-16",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin-2",
+    "alt": "A boy sits at a wooden desk using a beige CRT computer with a green screen game displayed; the date \"1/16/2005\" appears in white text.",
+    "alt_status": "ok"
   },
   {
-    "src": "/images/gallery/2000.jpg",
-    "date": "2000",
-    "slug": "high-bend"
+    "src": "/images/gallery/20000603.jpg",
+    "date": "2000-06-03",
+    "location": "Brule, Wisconsin",
+    "slug": "brule-wisconsin",
+    "alt": "A child in a blue jacket and red boots runs toward a yellow and red CASE 530 tractor on gravel ground.",
+    "alt_status": "ok"
   }
 ]

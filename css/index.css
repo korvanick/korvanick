@@ -1,52 +1,83 @@
-/* Colour tokens, families and the full-height shell come from styles.css:
+/* ==========================================================================
+   HOME HERO
+   Colour tokens, families and the full-height shell come from styles.css:
    <body class="page-fill"> + <div class="content-container fill">.
 
-   The hero is the one deliberate exception to the type scale. Newsreader's
-   weight axis stops at 700, so this is as heavy as the family goes -- lighter
-   than the 900 that was here before, but real rather than a browser-faked
-   bold, which is what 900 was actually producing. Uppercase stays. */
+   Two layouts, one media query apart:
+     wide desktop window  ->  row     MAKE IT HAPPEN | video | DO IT RIGHT
+     everything else      ->  column, sized to always fit the screen
 
-/* Main content container: takes the remaining height and centres the hero */
+   The switch is ASPECT RATIO, not width. A window snapped to half a
+   1920x1080 screen is roughly 960x1040 -- narrow in shape, but not far off
+   "desktop" in raw pixels, so a width-only breakpoint files it in the wrong
+   bucket. Shape separates the two cleanly: half-snapped lands near 0.9,
+   a full desktop window near 1.9.
+
+   The hero is the one deliberate exception to the type scale. Newsreader's
+   weight axis stops at 700, so this is as heavy as the family goes -- real
+   rather than the browser-faked bold that a 900 was producing.
+   ========================================================================== */
+
+/* --- Default: stacked, and guaranteed to fit the viewport ---------------- */
+
 .content-container {
     color: var(--ink);
     width: 90%;
     margin: 0 auto;
+    padding: 20px 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;      /* vertically centre the three blocks */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(12px, 3vh, 32px);
     text-align: center;
     box-sizing: border-box;
-    padding: 20px 0;
 }
 
-/* General block styling */
-.block {
-    margin: 20px;
-    flex: 1 1 30%;
+/* Headlines take exactly the height their text needs. */
+#block-1,
+#block-3 {
+    flex: 0 0 auto;
 }
 
-/* Block 1 - Make it happen */
-#block-1 h1 {
-    font-size: 5vw;
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
-    text-transform: uppercase;
-    margin: 0;
-}
+/* The video absorbs whatever height is left over, instead of setting it.
+   This is the fix for "Do it right." falling below the fold on a phone. The
+   old rule was width:100% / height:auto, so the clip's own aspect ratio set
+   the block height -- a tall source at 390px wide is several hundred pixels
+   of hero, and the third block gets pushed off the bottom. Now the clip can
+   never dictate page height, whatever shape it happens to be.
 
-/* Block 2 - Video */
-#block-2 video {
-    display: block;           /* kills the inline-baseline gap under the video */
+   min-height: 0 is the load-bearing line -- flex items default to
+   min-height: auto and refuse to shrink below their own content.
+   display:flex here also keeps the /?replace=true easter-egg paragraph
+   centred once index.js swaps out the video. */
+#block-2 {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
     width: 100%;
-    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Absolutely positioned so its height resolves against the block's flexed
+   box rather than against an auto-height ancestor, which percentage heights
+   would otherwise refuse to do. object-fit: contain means the frame is never
+   cropped and never overflows -- letterboxing falls on --paper, so it reads
+   as nothing at all. */
+#block-2 video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border-radius: 10px;
 }
 
-/* Block 3 - Do it right */
-#block-3 h1 {
-    font-size: 5vw;
+.hero-line {
+    font-size: clamp(2rem, 9vw, 4rem);
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.015em;
@@ -54,24 +85,42 @@
     margin: 0;
 }
 
-/* The inline fallback in index.html adds .autoplay-blocked when play() is
-   rejected (Low Power Mode and friends). Nothing styled it before, so the
-   class did nothing -- the video happened to sit on its poster frame anyway.
-   Making it explicit: show the poster as a still image, same shape as the
-   video it replaces. */
+/* --- Wide desktop window: three across ----------------------------------- */
+
+@media (min-width: 900px) and (min-aspect-ratio: 3/2) {
+    .content-container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: clamp(16px, 4vw, 64px);
+    }
+
+    #block-1,
+    #block-3 {
+        flex: 0 1 30%;
+    }
+
+    /* stretch overrides the container's align-items so the video gets the
+       full column height to fit itself into */
+    #block-2 {
+        flex: 1 1 40%;
+        align-self: stretch;
+    }
+
+    .hero-line {
+        font-size: clamp(2.5rem, 5vw, 6rem);
+    }
+}
+
+/* --- Autoplay fallback ---------------------------------------------------
+   index.html adds .autoplay-blocked when play() is rejected (Low Power Mode
+   and friends). A rejected video sits on its poster frame by itself, so this
+   only has to cover the case where the poster fails to decode.
+   ------------------------------------------------------------------------- */
 #block-2 video.autoplay-blocked {
     background: url("/images/home-poster.jpg") center / cover no-repeat;
 }
 
-/* Anyone who has asked their OS for less animation gets the poster instead */
-@media (prefers-reduced-motion: reduce) {
-    #block-2 video {
-        display: none;
-    }
-}
-
-/* Stack the hero on small screens instead of squeezing three columns */
-@media (max-width: 820px) {
-    .content-container { flex-direction: column; gap: 10px; }
-    #block-1 h1, #block-3 h1 { font-size: 2rem; }
-}
+/* Reduced motion is handled in index.html, not here: the old rule hid the
+   video with display:none, which left an empty block rather than the poster
+   it promised. The script now simply declines to start playback, and a
+   paused <video> renders its poster. */

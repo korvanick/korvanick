@@ -1,0 +1,277 @@
+/* Projects styling — theme variables come from styles.css (:root).
+   Long-form prose on the detail pages reuses .post-body from blog.css, which is
+   loaded alongside this file. Nothing here restates typography that already
+   lives there. */
+
+/* --- Index --- */
+.projects-index {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;   /* was 50px, sized for a heading that is now hidden */
+}
+
+/* Status group heading. Structural, so Public Sans rather than the body serif. */
+.status-group {
+  font-family: "Public Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+  margin: 34px 0 0 0;
+}
+.status-group:first-of-type { margin-top: 0; }
+
+.project-list { list-style: none; margin: 0; padding: 0; }
+
+.project-item { border-top: 1px solid var(--line); }
+.project-list:last-of-type .project-item:last-child { border-bottom: 1px solid var(--line); }
+.project-item.empty { color: #777; padding: 24px 4px; }
+
+.project-link {
+  display: block;
+  text-decoration: none;
+  padding: 22px 4px;
+  transition: background 0.15s ease;
+}
+.project-link:hover { background: rgba(127, 127, 127, 0.08); }
+
+/* Status dot. Filled = active, open ring = shelved — the same shape vocabulary
+   the travel map uses for been vs future. The status word is spelled out in the
+   spec line below, so colour never carries the meaning on its own. */
+.project-name {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  color: var(--text);
+  font-size: 1.35em;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.project-name::before {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--text);
+}
+.project-item.at-rest .project-name::before {
+  background: none;
+  border: 1.5px solid #777;
+}
+
+.project-summary {
+  display: block;
+  color: var(--muted);
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0 0 8px 20px;
+}
+
+/* Spec strip: status, dates, and what the thing is built with. Mono, because it
+   is metadata rather than prose. */
+.project-spec {
+  display: block;
+  margin-left: 20px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #777;
+  letter-spacing: 0.02em;
+}
+
+/* --- Detail page --- */
+.project {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.project-heading {
+  color: var(--text);
+  font-size: 2.1em;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+}
+
+.project .project-spec {
+  margin: 0 0 8px 0;
+}
+
+.project-links {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  margin: 0 0 32px 0;
+}
+.project-links a { color: var(--accent); text-decoration: none; }
+.project-links a:hover { text-decoration: underline; }
+.project-links span { color: #777; }
+
+/* State of play — the two or three sentences someone reads if they read nothing
+   else. Set a step up from body and separated by a rule rather than a box. */
+.project-state {
+  color: var(--text);
+  font-size: 1.18rem;
+  line-height: 1.65;
+  padding-bottom: 28px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.project-state p { margin: 0 0 0.8em; }
+.project-state p:last-child { margin-bottom: 0; }
+
+/* Log — dated entries, appended over time. Dates in mono so they align down the
+   left edge and scan as a column. */
+.project-log {
+  margin-top: 3em;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.project-log h2 {
+  font-family: "Public Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+  margin: 0 0 18px 0;
+}
+.project-log ul { list-style: none; margin: 0; padding: 0; }
+.project-log li {
+  display: grid;
+  grid-template-columns: 5.5em 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  color: var(--muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--line);
+}
+.project-log li:first-child { border-top: 0; }
+.project-log .log-date {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: #777;
+  letter-spacing: 0.02em;
+  padding-top: 0.25em;
+}
+
+@media (max-width: 600px) {
+  .project-heading { font-size: 1.6em; }
+  .project-state { font-size: 1.05rem; }
+  .project-log li { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* --- cover images ----------------------------------------------------------
+   A picture of the thing, on the index card and at the top of its page. Both
+   are optional: a project without an `image:` in its front matter simply has
+   none, and nothing shifts.
+   -------------------------------------------------------------------------- */
+
+/* The image sits on the RIGHT so the text column always starts at the same
+   left edge, whether or not a project has one. With the image on the left,
+   every card that had one indented its text and the list stopped lining up.
+
+   Only cards with a thumbnail become a grid at all; the rest keep the plain
+   block layout they already had, which puts their text on that same edge. */
+.project-link:has(.project-thumb) {
+  display: grid;
+  grid-template-columns: 1fr 96px;
+  column-gap: 18px;
+  align-items: start;
+}
+
+/* Placed explicitly rather than reordered in the markup: the image is first in
+   the DOM, and moving it would be churn for something carrying alt="". */
+.project-thumb {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  width: 96px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--panel-2);
+  border: 1px solid var(--rule);
+}
+
+/* With a caption the cover becomes a <figure>; the margin moves to the figure
+   so the caption sits tight under the image rather than 30px away from it. */
+.project-cover-figure {
+  margin: 8px 0 30px;
+}
+
+.project-cover-figure .project-cover {
+  margin-bottom: 0;
+}
+
+/* Matches the captions on images inside the prose below, so a cover caption and
+   a body caption read as the same thing. */
+.project-cover-figure figcaption {
+  margin-top: 8px;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Full width of the reading column and centred. It is the picture of the thing,
+   so it gets the space; the alt text is for screen readers and nothing is
+   printed under it. */
+.project-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 8px auto 30px;
+  border-radius: 8px;
+}
+
+/* --- contents --------------------------------------------------------------
+   Emitted only once a project has three or more sections. Before that a list
+   of two links is noise; after it, this is what keeps the page from reading as
+   one long block.
+   -------------------------------------------------------------------------- */
+
+.project-contents {
+  margin: 0 0 34px;
+  padding: 0;
+  border: 0;
+}
+
+.project-contents ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-contents li + li { margin-top: 6px; }
+
+/* Newsreader, not Public Sans. These are the names of the sections they point
+   at, and everywhere else on the site the NAME of a thing is set in Newsreader
+   while the label around it is Public Sans -- blog post titles on the index,
+   project titles, the city name in the gallery filter bar. A contents list is
+   the same case. A step down in size from the headings themselves. */
+.project-contents a {
+  font-family: var(--display);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.project-contents a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
+.project-contents a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* An anchored heading should not land under the sticky header. */
+.project .post-body h2 { scroll-margin-top: 80px; }
+
+@media (max-width: 600px) {
+  .project-link:has(.project-thumb) { grid-template-columns: 1fr 64px; column-gap: 14px; }
+  .project-thumb { width: 64px; }
+}
+

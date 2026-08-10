@@ -4,22 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books - Korvanick</title>
+    <meta name="description" content="Everything Nick Korhonen has finished reading since 2020, what he is reading now, and the handful he keeps going back to.">
+    <link rel="canonical" href="https://korvanick.com/books">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Korvanick">
+    <meta property="og:url" content="https://korvanick.com/books">
+    <meta property="og:title" content="Books">
+    <meta property="og:description" content="Everything I have finished since 2020, what I am reading now, and the ones I keep going back to.">
     <!-- Theme before paint: dark is the stylesheet default, so this only has to
          act when the visitor has chosen light. Inline and synchronous on purpose --
          an external or deferred script runs after the first paint and would flash. -->
     <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/books.css">
     <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
     <script src="/scripts/nav.js" defer></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Books",
+      "url": "https://korvanick.com/books",
+      "description": "A reading list: everything finished since 2020, what is being read now, and a ranked handful of favourites.",
+      "author": { "@type": "Person", "name": "Nick Korhonen", "url": "https://korvanick.com/professional" }
+    }
+    </script>
 </head>
 <body>
     <nav></nav>
 
-    <div class="content-wrapper">
+    <main class="content-wrapper">
+        <!-- Visually hidden: the shelf rows announce themselves, but the page
+             still needs an <h1> for the four <h2>s to hang off. -->
+        <h1 class="visually-hidden">Books</h1>
+
         <div class="book-shelf">
             <div class="column" id="recently-completed">
                 <h2>Recently Completed</h2>
@@ -29,18 +49,21 @@
                 <h2>Currently Reading</h2>
             </div>
 
-            <div class="column" id="hexaseptim-tbr">
-                <h2>Hexaseptim TBR</h2>
+            <div class="column" id="to-be-read">
+                <h2>To Be Read</h2>
             </div>
 
             <div class="column" id="all-time-greats">
                 <h2>All Time Greats</h2>
             </div>
         </div>
-    </div>
-    <div id="bookModal" class="modal">
+    </main>
+    <!-- The dialog is named by the book title inside it, so a screen reader
+         announces "The Glass Hotel, dialog" rather than a generic label.
+         Focus handling lives in scripts/modal.js. -->
+    <div id="bookModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <button type="button" class="close-modal" aria-label="Close">&times;</button>
             <div class="modal-body">
                 <div class="modal-left">
                     <img id="modalCover" src="" alt="Book Cover">
@@ -50,13 +73,20 @@
                     <h3 id="modalAuthor">Author</h3>
                     <p id="modalSummary" class="modal-summary">Summary</p>
                     <hr>
-                    <h4>My Notes</h4>
-                    <p id="modalNotes">Your notes will appear here.</p>
+                    <!-- Some books get a passage rather than a reaction. The
+                         quote stands on its own: when a book has one and no
+                         notes, the notes block is hidden entirely rather than
+                         apologising for being empty. -->
+                    <blockquote id="modalQuote" class="modal-quote" hidden></blockquote>
+                    <div id="modalNotesBlock">
+                        <h4>My Notes</h4>
+                        <p id="modalNotes">Your notes will appear here.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="/scripts/books.js"></script>
+    <script src="/scripts/modal.js" defer></script>
+    <script src="/scripts/books.js" defer></script>
 </body>
 </html>

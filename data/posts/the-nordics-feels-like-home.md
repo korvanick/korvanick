@@ -12,7 +12,7 @@ It all started with Iceland. First they get you into the country on a cheap exte
 
 A few things noticeable about Iceland right away were the free roaming sheep and beautiful Icelandic horses that scatter across the landscape with the backdrop of mountains. I learned that every year there is a big round-up festival called Réttir and Stóðréttir, which is kind of a big deal in the fall. On one of my hikes, I was actually able to pet an Icelandic horse that a woman was walking back to the stable, and on another, I got up close and personal with a few sheep on the trail. The leader of the pack and I had a bit of a staring contest as his wool ruffled in the wind and he stood majestically on the hillside. 
 
-[![An Icelandic sheep on a hillside near Geysir](/images/gallery/thumbs/20250826_181129.jpg "The staring contest. He won.")](/gallery#geysir)
+[![An Icelandic sheep on a hillside near Geysir](/images/gallery/20250826_181129.jpg "The staring contest. He won.")](/gallery#geysir)
 
 The hikes themselves were incredible, and if anything brings me back to Iceland, it will be more of that.
 

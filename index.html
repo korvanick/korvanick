@@ -9,9 +9,6 @@
          act when the visitor has chosen light. Inline and synchronous on purpose --
          an external or deferred script runs after the first paint and would flash. -->
     <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Public+Sans:ital,wght@0,300..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
@@ -21,11 +18,11 @@
 <body class="page-fill">
     <nav></nav>
 
-    <!-- Container for the four blocks -->
+    <!-- Hero: headline / video / headline -->
     <div class="content-container fill">
         <!-- Block 1: Make it happen -->
         <div class="block" id="block-1">
-            <h1>Make it happen.</h1>
+            <h1 class="hero-line">Make it happen.</h1>
         </div>
 
         <!-- Block 2: Video -->
@@ -44,15 +41,24 @@
 
         <!-- Block 3: Do it right -->
         <div class="block" id="block-3">
-            <h1>Do it right.</h1>
+            <h1 class="hero-line">Do it right.</h1>
         </div>
     </div>
 
-    <!-- Fall back to the poster image if autoplay is blocked (Low Power Mode, etc.) -->
+    <!-- Playback policy lives here rather than in CSS.
+         Reduced motion: leave the video paused so it renders its poster frame.
+         Hiding it in CSS left an empty block instead of the still it promised.
+         Autoplay blocked (Low Power Mode and friends): same outcome, plus a
+         class so the poster can be forced as a background if it fails to decode. -->
     <script>
         (function () {
             var v = document.getElementById('hero-video');
             if (!v) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                v.removeAttribute('autoplay');
+                v.pause();
+                return;
+            }
             var p = v.play();
             if (p && typeof p.catch === 'function') {
                 p.catch(function () { v.classList.add('autoplay-blocked'); });

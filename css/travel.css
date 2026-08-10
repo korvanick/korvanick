@@ -35,12 +35,12 @@
      site theme. They are still theme-aware, because the basemap underneath
      them changes -- see the light override below.
 
-     PURPLE, hue 305. This was blue (hue 255) before Aug 2026, and everything
-     here is the same construction with only the angle moved -- if you ever
-     want it back, swap 305 for 255 in the four places it appears across both
-     blocks. For reference, the blue values were:
-         --dot-been     #5988C4 dark  ·  #3A659A light
-         --marker-lift  #78AEF2 dark  ·  #5488CA light
+     BLUE, hue 255. It was purple (hue 305) for a while, and everything here is
+     the same construction with only the angle moved -- if you ever want purple
+     back, swap 255 for 305 in the six places it appears across both blocks.
+     For reference, the purple values were:
+         --dot-been     #9575B9 dark  ·  #705490 light
+         --marker-lift  #BC98E5 dark  ·  #9673BE light
 
      There is no third hue. The highlight ring and glow are --marker-lift,
      which is the dot's OWN colour raised in lightness -- attention without
@@ -48,19 +48,19 @@
      ink for the entire thing.
 
      Chroma is matched to what the GREEN can hold (ceiling 0.133 dark, 0.114
-     light at L 0.54/0.46). Purple has far more headroom, but using it would
+     light at L 0.54/0.46). Blue has far more headroom, but using it would
      make it shout over the green and break the family. Do not raise chroma
      here without checking the green first.
 
-     To make purple and green read as EQUALS rather than a hierarchy, drop
+     To make blue and green read as EQUALS rather than a hierarchy, drop
      --dot-been to L 0.54 dark / 0.46 light -- the green's own lightness. If
      you do, also drop --ring-quiet to about 0.38 dark, or the quiet outline
      stops separating from the fill it sits on. */
-  --dot-been:      oklch(0.62 0.105 305);  /* #9575B9 */
+  --dot-been:      oklch(0.62 0.105 255);  /* #5988C4 */
   --ring-story:    #ffffff;                /* outline: a city with something written about it */
-  --ring-quiet:    oklch(0.46 0.030 305);  /* outline: a line, or nothing */
+  --ring-quiet:    oklch(0.46 0.030 255);  /* outline: a line, or nothing */
   --dot-future:    oklch(0.54 0.105 155);  /* #328053 green: open circuit, not yet */
-  --marker-lift:   oklch(0.74 0.115 305);  /* #BC98E5 highlight ring + glow */
+  --marker-lift:   oklch(0.74 0.115 255);  /* #78AEF2 highlight ring + glow */
 
   --panel-bg: var(--plate-bg);
 }
@@ -79,11 +79,11 @@
    reads as coloured light, where the old near-black one read as a drop shadow.
    Do not darken --marker-lift below about L 0.58 or the shadow comes back. */
 :root[data-theme="light"] #map {
-  --dot-been:      oklch(0.50 0.098 305);  /* #705490 */
+  --dot-been:      oklch(0.50 0.098 255);  /* #3A659A */
   --ring-story:    #14130F;
-  --ring-quiet:    oklch(0.70 0.030 305);
+  --ring-quiet:    oklch(0.70 0.030 255);
   --dot-future:    oklch(0.46 0.098 155);  /* #1E683F */
-  --marker-lift:   oklch(0.62 0.115 305);  /* #9673BE */
+  --marker-lift:   oklch(0.62 0.115 255);  /* #5488CA */
 }
 
 .container {
@@ -101,6 +101,18 @@
 .travel-dot-wrapper {
   background: none;
   border: 0;
+}
+
+/* Leaflet makes every marker keyboard-reachable -- tabindex="0" and
+   role="button" on the icon element. But this icon is a deliberately 0x0 box
+   with the visible dot transformed into place inside it, so the browser's own
+   focus ring would be drawn around nothing at all. Move it onto the dot.
+   Outline rather than box-shadow: the dot already spends its box-shadow on the
+   pulsing glow, and an outline follows the 50% radius on its own. */
+.travel-dot-wrapper:focus { outline: none; }
+.travel-dot-wrapper:focus-visible .travel-dot {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .travel-dot {

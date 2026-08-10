@@ -1,0 +1,21 @@
+# Daily, and catch up after downtime rather than skipping a run.
+#
+# Once a day is the right cadence: the sitemap only has to be right before a
+# crawler next looks, and publish.py already updates it the instant a post
+# or project page is created. This timer exists for the other case -- a page
+# edited by hand, which no build step knows about.
+
+[Unit]
+Description=Daily korvanick.com sitemap refresh
+Requires=korvanick-sitemap.service
+
+[Timer]
+OnCalendar=daily
+# The box is up all the time, but if it were not, run on the next boot instead
+# of silently missing a day.
+Persistent=true
+# Anything up to an hour late, so this never lines up with the other daily jobs.
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target

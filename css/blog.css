@@ -4,13 +4,10 @@
 .blog-index {
   max-width: 760px;
   margin: 0 auto;
-  padding: 50px 20px;
-}
-
-.blog-title {
-  color: var(--muted);
-  font-size: 2em;
-  margin: 0 0 30px 0;
+  /* 50px was sized for a page with a heading sitting in it. With the heading
+     hidden that became 50px of nothing above the first rule, so the list now
+     starts closer to the header. */
+  padding: 28px 20px 60px;
 }
 
 .post-list { list-style: none; margin: 0; padding: 0; }
