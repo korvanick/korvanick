@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
-  <title>Barn brain - Korvanick</title>
-  <meta name="description" content="Digitizing a small family farm: record keeping on a local server, plus homebuilt sensors for tracking heat cycles.">
+  <title>Barn Brain - Korvanick</title>
+  <meta name="description" content="A running list of things that would make a small family dairy better, and the ones I can actually build.">
   <link rel="canonical" href="https://korvanick.com/projects/barn-brain">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Korvanick">
   <meta property="og:url" content="https://korvanick.com/projects/barn-brain">
-  <meta property="og:title" content="Barn brain">
-  <meta property="og:description" content="Digitizing a small family farm: record keeping on a local server, plus homebuilt sensors for tracking heat cycles.">
+  <meta property="og:title" content="Barn Brain">
+  <meta property="og:description" content="A running list of things that would make a small family dairy better, and the ones I can actually build.">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/blog.css">
   <link rel="stylesheet" href="/css/projects.css">
@@ -22,9 +22,9 @@
   {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "Barn brain",
+    "name": "Barn Brain",
     "url": "https://korvanick.com/projects/barn-brain",
-    "description": "Digitizing a small family farm: record keeping on a local server, plus homebuilt sensors for tracking heat cycles.",
+    "description": "A running list of things that would make a small family dairy better, and the ones I can actually build.",
     "author": {
       "@type": "Person",
       "name": "Nick Korhonen",
@@ -38,20 +38,69 @@
   <main class="project">
     <article>
       <a class="back-link" href="/projects">&larr; Projects</a>
-      <h1 class="project-heading">Barn brain</h1>
-      <p class="project-spec">In motion &middot; Started Mar 2026 &middot; Built with FarmOS, Docker, Postgres</p>
+      <h1 class="project-heading">Barn Brain</h1>
+      <p class="project-spec">In motion &middot; Mar 2026 &rarr; Jul 2026 &middot; Built with farmOS, Docker, Arduino</p>
+      <figure class="project-cover-figure"><img class="project-cover" src="/images/projects/barn-brain_dairy-herd-monitor.jpg" alt="A wall-mounted Dairy Herd Monitor, a large circular chart divided into months and ringed with numbered scales, covered edge to edge with hundreds of small colored sticker tabs in red, yellow, blue and green, each hand-labeled with a cow number and a date. The board is stained and dusty, with spare stickers stuck around the outside."><figcaption>The record system Barn Brain is meant to replace.</figcaption></figure>
       <div class="project-state">
-<p>A working record-keeping system for a small family farm, built on FarmOS and extended
-where the stock install doesn't reach. The part that isn't off the shelf is heat-cycle
-tracking — the timing that actually determines a season's outcome, and the thing a
-paper calendar handles worst.</p>
+<p>Building things and making existing projects more efficient is a passion of mine. One of
+the best opportunities I have to do that on my own is through the family farm.</p>
+<p>I've been keeping a list of improvement ideas for my brother's farm. Most of them are not
+software or electronics, and plenty of them have nothing to do with me. Yet my interest is the
+digital technology. I like tinkering with servers and sensors, and I like perusing and trying
+to understand the data they provide. The current system has none of it, and setting up Barn
+Brain is my attempt to change that.</p>
+      </div>
+      <div class="post-body">
+<h2 id="what-the-farm-needs-and-my-solution">What the farm needs and my solution</h2>
+<p>Heat detection is the first priority. It is difficult to know when animals are in heat or
+should be, and on a dairy this size it is the problem that costs the most. Missing an
+animal's heat means wasting feed on unproductive animals, and missing the chance to keep
+the best animals in the herd.</p>
+<p>Another new burden is an annual report covering every treatment given to every animal.
+Entering the data is tedious, the notes it comes from are unorganized, and the time spent
+assembling the report goes to something that serves an outside review rather than the farm.</p>
+<p>This leads me toward a digital record system, which can replace the existing
+sticker-on-a-calendar method and the photographs with a number and birth date written on
+the back. Having all the information in one place would allow for animal-specific notes,
+automated alerts, and exportable reports in a consistent format. farmOS seems like a reasonable
+solution, and its module system will let me build on top of it for whatever I need, like a
+heat detection system.</p>
+<p>The heat detection will require hardware on top of that. An animal moves differently when
+she is coming into heat, so the plan is placing activity beacons on nylon leg bands, with a
+handful of small radios mounted down the length of the barn listening for them and passing
+what they hear back to the server. The alert comes out of the data instead of out of
+someone noticing. Similar technologies already exist, but the data is locked behind
+subscriptions, proprietary software, and expensive collars that the entire herd would need.
+My solution requires minimal sensors, can easily be moved between animals as needed, and is
+much more affordable. Exactly what a small farm needs.</p>
+<p>Since that network has to exist anyway, it also gives me a chance to try something new,
+which admittedly will probably not work, and is not a priority for the farm since there is
+limited use for the extra data at this scale. I can use the same setup to estimate how much
+milk each cow produces without measuring any of it directly, using sensors and algorithms
+instead of meters. As far as I know that would be the first of its kind. It's only a matter
+of building and testing how close to reality it gets.</p>
       </div>
       <div class="project-log">
         <h2>Log</h2>
         <ul>
-          <li><span class="log-date">Mar 2026</span><span>Started. FarmOS running in Docker alongside Postgres.</span></li>
+          <li><span class="log-date">Jul 2026</span><span>Installed farmOS on offline server with local network device for testing and expansion.</span></li>
+          <li><span class="log-date">May 2026</span><span>Purchased hardware for offline setup.</span></li>
+          <li><span class="log-date">Mar 2026</span><span>Started. farmOS running in Docker for testing.</span></li>
         </ul>
       </div>
+      <nav class="post-nav">
+        <a class="post-nav-item prev" href="/projects/korvanick">
+          <span class="post-nav-label">&larr; Previous</span>
+          <span class="post-nav-title">korvanick.com</span>
+          <span class="post-nav-date">In motion &middot; Aug 2026</span>
+        </a>
+        <a class="post-nav-home" href="/projects">All projects</a>
+        <a class="post-nav-item next" href="/projects/syyni">
+          <span class="post-nav-label">Next &rarr;</span>
+          <span class="post-nav-title">Syyni</span>
+          <span class="post-nav-date">In motion &middot; Aug 2026</span>
+        </a>
+      </nav>
     </article>
   </main>
 </body>

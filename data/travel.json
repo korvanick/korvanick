@@ -171,7 +171,7 @@
         -91.575417
       ],
       "type": "been",
-      "message": "This is where I grew up. It's a town of 300 people, a gas station, diner, and four bars. I somehow made it out of here!"
+      "message": "This is where I grew up. It's a town of 600 people, a gas station, diner, and four bars. I somehow made it out of here!"
     },
     {
       "name": "Cedar Springs, Georgia",
@@ -1189,6 +1189,24 @@
       "coords": [
         35.595363,
         -82.550841
+      ],
+      "type": "been",
+      "message": ""
+    },
+    {
+      "name": "Anacortes, Washington",
+      "coords": [
+        48.516844,
+        -122.612572
+      ],
+      "type": "been",
+      "message": ""
+    },
+    {
+      "name": "Friday Harbor, Washington",
+      "coords": [
+        48.534266,
+        -123.017124
       ],
       "type": "been",
       "message": ""

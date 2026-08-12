@@ -195,7 +195,7 @@ def bump_updated(text):
 
 def add_log(text, when, entry):
     """Newest first, directly under the '## Log' heading."""
-    line = f"- {when} — {entry}"
+    line = f"- {when} -- {entry}"
     m = LOG_HEADING.search(text)
     if not m:
         # No log yet: start one at the end, where it has to live anyway.

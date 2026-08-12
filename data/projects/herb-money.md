@@ -2,8 +2,8 @@
 title: Herb Money
 slug: herb-money
 summary: A real-time dashboard that displays which Old School RuneScape (OSRS) herbs are most profitable to degrime.
-status: at-rest
 started: 2026-05
+updated: 2026-05
 built_with: [Gemini, Python, prices.runescape.wiki API]
 image: /images/projects/herb-money_wiki-degrime.png
 image_alt: A close crop of the Degrime animation. A large green herb icon outlined in cyan hovers above a character standing with both arms raised.
@@ -11,11 +11,10 @@ image_caption: The Degrime animation. Source: oldschool.runescape.wiki
 weight: 4
 ---
 
-Herb Money is a small Python dashboard for maximizing profit from buying grimy herbs on the
-Grand Exchange in OSRS, casting Degrime, and selling the clean herbs.
+Herb Money solved a problem that didn't really exist, and ended up being more useful than
+expected.
 
-This tool was created to solve a problem that didn't really exist, and ended up being more
-useful than expected. The OSRS wiki's
+The OSRS wiki's
 [money making guide](https://oldschool.runescape.wiki/w/Money_making_guide) introduced me
 to casting Degrime, and to a lot of other processing-for-gp tasks. The night I discovered
 it, processing Kwuarm showed a profit of around 2.5M gp/hr, over double what I was making
@@ -154,4 +153,4 @@ profitable soon anyway.
 
 ## Log
 
-*   2026-05 -- Created the first version of the tool with Gemini.
+- 2026-05 -- Created the first version of the tool with Gemini.

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+  <title>Syyni - Korvanick</title>
+  <meta name="description" content="A tool that pulls public government financial data and identifies and researches spending irregularities.">
+  <link rel="canonical" href="https://korvanick.com/projects/syyni">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Korvanick">
+  <meta property="og:url" content="https://korvanick.com/projects/syyni">
+  <meta property="og:title" content="Syyni">
+  <meta property="og:description" content="A tool that pulls public government financial data and identifies and researches spending irregularities.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <link rel="stylesheet" href="/css/projects.css">
+  <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="alternate" type="application/atom+xml" title="Korvanick blog" href="/feed.xml">
+  <script src="/scripts/nav.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Syyni",
+    "url": "https://korvanick.com/projects/syyni",
+    "description": "A tool that pulls public government financial data and identifies and researches spending irregularities.",
+    "author": {
+      "@type": "Person",
+      "name": "Nick Korhonen",
+      "url": "https://korvanick.com/professional"
+    }
+  }
+  </script>
+</head>
+<body>
+  <nav></nav>
+  <main class="project">
+    <article>
+      <a class="back-link" href="/projects">&larr; Projects</a>
+      <h1 class="project-heading">Syyni</h1>
+      <p class="project-spec">In motion &middot; Apr 2026 &rarr; Aug 2026 &middot; Built with Claude, Python, SQLite</p>
+      <figure class="project-cover-figure"><img class="project-cover" src="/images/projects/syyni_schema.png" alt="The SQL schema for the transactions table, listing columns for date, vendor, amount in cents, agency, category, fund, description, fiscal year and source, followed by four indexes."><figcaption>The table everything else gets normalized into.</figcaption></figure>
+      <div class="project-state">
+<p>Syyni (sue-nee) is Finnish for a close inspection or scrutiny, and is a program that
+captures, distills, and reports fraud, waste, and abuse across different levels of
+government. The primary target is municipalities, where the scrutiny is thinnest and the
+data is hardest to get. Cities, counties, school districts and utilities all keep their
+books differently, so a tool general enough to point at any of them might be more useful in
+the longer run.</p>
+<p>The part I want to focus on most is correlating what a government spent against the quality
+of what the public got. Spending alone tells you very little, and most public-finance
+tooling stops there.</p>
+      </div>
+      <div class="post-body">
+<h2 id="understanding-the-scope">Understanding the scope</h2>
+<p>I've had a lot of ideas about this project, and the scope could so easily expand
+indefinitely. Ultimately I want to reduce the amount of public money that gets misspent,
+and do it in an automated, unconventional way. From the initial idea, the tool will consist
+of four parts.</p>
+<ol>
+<li>Resource identification. Finding the publicly available data.</li>
+<li>Data cleaning, parsing, and normalization. Taking in data in any format and putting out
+   something consistent and easy to compare.</li>
+<li>Deep analysis. What the data means. Identifying anomalies and comparing one government
+   against another.</li>
+<li>Narrative development and outreach.</li>
+</ol>
+<p>Parts two and three need to be built and refined before the others, with data input and
+outreach done manually in the meantime. In the future I would love to run the whole thing
+with OpenClaw, which is part of why the idea came up in the first place.</p>
+      </div>
+      <div class="project-log">
+        <h2>Log</h2>
+        <ul>
+          <li><span class="log-date">Aug 2026</span><span>Reworking design architecture and scope.</span></li>
+          <li><span class="log-date">May 2026</span><span>Initial experimentation with CLI tool for data collection.</span></li>
+          <li><span class="log-date">Apr 2026</span><span>Ideation for a public spending analysis tool.</span></li>
+        </ul>
+      </div>
+      <nav class="post-nav">
+        <a class="post-nav-item prev" href="/projects/barn-brain">
+          <span class="post-nav-label">&larr; Previous</span>
+          <span class="post-nav-title">Barn Brain</span>
+          <span class="post-nav-date">In motion &middot; Jul 2026</span>
+        </a>
+        <a class="post-nav-home" href="/projects">All projects</a>
+        <a class="post-nav-item next" href="/projects/family-stories">
+          <span class="post-nav-label">Next &rarr;</span>
+          <span class="post-nav-title">Family Stories</span>
+          <span class="post-nav-date">At rest &middot; Nov 2025</span>
+        </a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>

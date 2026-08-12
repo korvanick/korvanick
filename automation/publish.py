@@ -358,26 +358,40 @@ def render_index(posts):
 </html>
 """
 
-def nav_item(p, direction):
-    """One side of the footer nav. `direction` is 'prev' (the older post) or
-    'next' (the newer one). Renders an empty placeholder at the ends of the
-    archive so the middle link stays centred."""
+def nav_item(p, direction, base, meta):
+    """One side of the footer nav. `direction` is 'prev' or 'next'; which
+    neighbour each one points at is the caller's decision, because the two
+    collections order themselves differently -- see the notes in build_posts
+    and build_projects. Renders an empty placeholder at the ends of the list so
+    the middle link stays centred.
+
+    `base` is the collection URL and `meta` a function returning the small line
+    under the title -- a date for posts, status plus date for projects."""
     if not p:
         return f'        <span class="post-nav-item {direction} empty"></span>'
     label = "&larr; Previous" if direction == "prev" else "Next &rarr;"
-    return f"""        <a class="post-nav-item {direction}" href="/blog/{p['slug']}">
+    return f"""        <a class="post-nav-item {direction}" href="{base}/{p['slug']}">
           <span class="post-nav-label">{label}</span>
           <span class="post-nav-title">{html.escape(p['title'])}</span>
-          <span class="post-nav-date">{nice_date(p['date'])}</span>
+          <span class="post-nav-date">{meta(p)}</span>
         </a>"""
 
 
-def render_post_nav(older, newer):
+def render_footer_nav(prev, nxt, base, home_label, meta):
+    """The prev / all / next block at the foot of a post or a project. One
+    function and one set of classes for both, so the two collections cannot
+    drift apart visually -- blog.css owns the styling and is loaded on project
+    pages too."""
     return f"""      <nav class="post-nav">
-{nav_item(older, "prev")}
-        <a class="post-nav-home" href="/blog">All posts</a>
-{nav_item(newer, "next")}
+{nav_item(prev, "prev", base, meta)}
+        <a class="post-nav-home" href="{base}">{home_label}</a>
+{nav_item(nxt, "next", base, meta)}
       </nav>"""
+
+
+def render_post_nav(older, newer):
+    return render_footer_nav(older, newer, "/blog", "All posts",
+                             lambda p: nice_date(p["date"]))
 
 
 def render_post(p, older=None, newer=None):
@@ -422,6 +436,32 @@ STATUS_ORDER = ["in-motion", "at-rest"]
 # has not failed at anything, it is simply not moving. What a reader wants to
 # know beyond that is already beside each project: its summary, and its date.
 STATUS_LABEL = {"in-motion": "In motion", "at-rest": "At rest"}
+
+# How long a project can go untouched before the page stops calling it live.
+# Three months fits the way these actually get worked on: a burst, then months
+# of nothing, then another burst.
+STALE_AFTER_MONTHS = 3
+
+
+def derive_status(key):
+    """A project with no `status:` is described by its own dates. Recent work
+    means in motion, nothing for a season means at rest.
+
+    An explicit `status:` in the front matter still wins, for the case dates
+    cannot see: a project logged this month because the decision was to shelve
+    it."""
+    if not key:
+        return "in-motion"
+    try:
+        year, month = (int(part) for part in key.split("-")[:2])
+    except ValueError:
+        return "in-motion"
+    # A bare year parses to month 00. Read it as the end of that year, so a
+    # vague date is never treated as staler than it might be.
+    month = min(max(month, 1), 12)
+    today = datetime.date.today()
+    elapsed = (today.year - year) * 12 + (today.month - month)
+    return "in-motion" if elapsed < STALE_AFTER_MONTHS else "at-rest"
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -546,17 +586,21 @@ def parse_project(path):
     m = re.search(r"^#{1,6}\s+", body, re.MULTILINE)
     intro, essay = (body[:m.start()], body[m.start():]) if m else (body, "")
 
-    status = meta.get("status", "in-motion").strip().lower()
-    if status not in STATUS_ORDER:
-        print(f"  ! {path.name}: unknown status '{status}' — treating as in-motion")
-        status = "in-motion"
-
     for field in ("summary", "started", "updated", "built_with", "image"):
         if not meta.get(field):
             UNFILLED.append(f"{path.name}: {field}")
 
     started, started_key = month_label(meta.get("started"))
     updated, updated_key = month_label(meta.get("updated"))
+
+    # Status is worked out from the dates unless the file says otherwise, so a
+    # project goes quiet on its own rather than waiting to be told to.
+    status = meta.get("status", "").strip().lower()
+    if status and status not in STATUS_ORDER:
+        print(f"  ! {path.name}: unknown status '{status}' -- deriving it instead")
+        status = ""
+    status = status or derive_status(updated_key or started_key)
+
     try:
         weight = int(meta.get("weight", ""))
     except ValueError:
@@ -601,7 +645,9 @@ def spec_line(p):
     thing is built with. 'Built with' rather than 'Stack' on purpose: it says
     what went into the project, not what the author claims to command."""
     bits = [STATUS_LABEL[p["status"]]]
-    if p["started"] and p["updated"]:
+    # Same month at both ends is one date wearing an arrow. Fall through and
+    # let it say "Started May 2026" instead of pointing at itself.
+    if p["started"] and p["updated"] and p["started"] != p["updated"]:
         bits.append(f"{html.escape(p['started'])} &rarr; {html.escape(p['updated'])}")
     elif p["started"]:
         bits.append("Started " + html.escape(p["started"]))
@@ -612,6 +658,25 @@ def spec_line(p):
     if p["built"]:
         bits.append("Built with " + html.escape(", ".join(p["built"])))
     return " &middot; ".join(bits)
+
+
+def project_nav_meta(p):
+    """The small line under the title in the footer nav. Status first, because
+    a walk down the index crosses from In motion into At rest and this is the
+    line that says so before the click; a bare date would read like a
+    publication date, which a project has not got. Prefers the last touch over
+    the start -- it is the more recent fact and it is what the index sorted
+    on."""
+    bits = [STATUS_LABEL[p["status"]]]
+    when = p["updated"] or p["started"]
+    if when:
+        bits.append(html.escape(when))
+    return " &middot; ".join(bits)
+
+
+def render_project_nav(prev, nxt):
+    return render_footer_nav(prev, nxt, "/projects", "All projects",
+                             project_nav_meta)
 
 
 def render_projects_index(projects):
@@ -692,7 +757,7 @@ def with_anchors(body_html):
     return body_html, contents
 
 
-def render_project(p):
+def render_project(p, prev=None, nxt=None):
     links = ""
     if p["links"]:
         joined = ' <span>&middot;</span> '.join(
@@ -746,7 +811,8 @@ def render_project(p):
       <a class="back-link" href="/projects">&larr; Projects</a>
       <h1 class="project-heading">{html.escape(p['title'])}</h1>
       <p class="project-spec">{spec_line(p)}</p>
-{links}{cover}{intro}{contents}{essay}{log}    </article>
+{links}{cover}{intro}{contents}{essay}{log}{render_project_nav(prev, nxt)}
+    </article>
   </main>
 </body>
 </html>
@@ -776,8 +842,19 @@ def build_projects(site_dir, projects_dir):
 
     out_dir = site_dir / "projects"
     out_dir.mkdir(exist_ok=True)
-    for p in projects:
-        (out_dir / f"{p['slug']}.html").write_text(render_project(p), encoding="utf-8")
+    for i, p in enumerate(projects):
+        # Reading order, not the blog's. On /blog, down the page means earlier
+        # in time, so the one below is "Previous". A project list has no time
+        # axis -- down the page just means the next one, and someone who
+        # arrived from the top of the index expects "Next" to continue down it.
+        #
+        # The walk crosses the In motion / At rest boundary deliberately. The
+        # status sits under the title in every card, so a reader is told which
+        # group they are about to enter before they click.
+        prev = projects[i - 1] if i > 0 else None
+        nxt = projects[i + 1] if i + 1 < len(projects) else None
+        (out_dir / f"{p['slug']}.html").write_text(
+            render_project(p, prev, nxt), encoding="utf-8")
         print(f"  project projects/{p['slug']}.html   ({STATUS_LABEL[p['status']]})")
 
     warn_relative_images(projects, "projects")
@@ -854,6 +931,9 @@ def main():
     # posts is newest-first, so the OLDER neighbour sits later in the list and
     # the NEWER one sits earlier -- "previous" in the footer means earlier in time
     for i, p in enumerate(posts):
+        # Chronological, so "Previous" is the older post -- the one further
+        # DOWN a newest-first index. Projects flip this on purpose; see
+        # build_projects.
         older = posts[i + 1] if i + 1 < len(posts) else None
         newer = posts[i - 1] if i > 0 else None
         (blog_dir / f"{p['slug']}.html").write_text(
