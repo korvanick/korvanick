@@ -153,6 +153,6 @@ profitable soon anyway.
 
 ## Log
 
+- 2026-08 -- Corrected 2% tax, allow user input for filtering, minor feature additions.
 - 2026-08 -- Put the tool under git and published the repository on GitHub.
-- 2026-08 -- Corrected the GE tax to 2%, added huasca, and added inputs for Herblore level, capital and actual clean rate. The table now reflows to fit a narrow window, and flags stale prices and herbs whose hourly price swing is wider than their margin.
 - 2026-05 -- Created the first version of the tool with Gemini.
