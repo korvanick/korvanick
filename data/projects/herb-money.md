@@ -8,6 +8,7 @@ built_with: [Gemini, Python, prices.runescape.wiki API]
 image: /images/projects/herb-money_wiki-degrime.png
 image_alt: A close crop of the Degrime animation. A large green herb icon outlined in cyan hovers above a character standing with both arms raised.
 image_caption: The Degrime animation. Source: oldschool.runescape.wiki
+repo: https://github.com/korvanick/herb-money
 weight: 4
 ---
 
