@@ -8,7 +8,7 @@ built_with: [Claude, Gemini, Leaflet, Python, JS]
 image: /images/projects/korvanick_original-home.png
 image_alt: A screenshot of green webpage with the text "MAKE IT HAPPEN" and "DO IT RIGHT", along with a central image of an airplane wing.
 image_caption: View of the first iteration of my site.
-repo: https://github.com/Korvanick/Korvanick
+repo: https://github.com/korvanick/korvanick
 live: https://korvanick.com
 weight: 1
 ---

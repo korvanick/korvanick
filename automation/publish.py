@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-publish.py -- turn Markdown into themed blog and project pages for Korvanick.
+publish.py -- turn Markdown into themed blog and project pages for korvanick.
 
 This is the publish step. Run it after ANY change to a .md file in data/posts/
 or data/projects/. It rebuilds every page from every source file each time, so
@@ -278,7 +278,7 @@ def meta_block(path, title, description="", kind="website", published=""):
         lines.append(f'  <meta name="description" content="{html.escape(desc, quote=True)}">')
     lines.append(f'  <link rel="canonical" href="{url}">')
     lines.append(f'  <meta property="og:type" content="{kind}">')
-    lines.append('  <meta property="og:site_name" content="Korvanick">')
+    lines.append('  <meta property="og:site_name" content="korvanick">')
     lines.append(f'  <meta property="og:url" content="{url}">')
     lines.append(f'  <meta property="og:title" content="{html.escape(title, quote=True)}">')
     if desc:
@@ -309,11 +309,11 @@ def head(title, extra_css=(), meta="", structured=""):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){{try{{if(localStorage.getItem("theme")==="light")document.documentElement.setAttribute("data-theme","light");}}catch(e){{}}}})();</script>
-  <title>{html.escape(title)} - Korvanick</title>
+  <title>{html.escape(title)} - korvanick</title>
 {meta}  <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/blog.css">
 {extra}  <link rel="icon" href="/images/favicon/favicon.ico" type="image/x-icon">
-  <link rel="alternate" type="application/atom+xml" title="Korvanick blog" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="korvanick blog" href="/feed.xml">
   <script src="/scripts/nav.js" defer></script>
 {structured}</head>"""
 
@@ -873,7 +873,7 @@ def build_projects(site_dir, projects_dir):
 
 # ---------------------------------------------------------------- main
 def main():
-    ap = argparse.ArgumentParser(description="Build the Korvanick blog and projects pages from Markdown.")
+    ap = argparse.ArgumentParser(description="Build the korvanick blog and projects pages from Markdown.")
     ap.add_argument("--site", help="directory that holds your .html pages (auto-detected otherwise)")
     ap.add_argument("--posts", help="directory of .md posts (default: <project>/data/posts)")
     ap.add_argument("--projects", help="directory of .md projects (default: <project>/data/projects)")
@@ -1061,7 +1061,7 @@ def write_feed(posts, out):
 
     xml = f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Korvanick</title>
+  <title>korvanick</title>
   <subtitle>Writing by {AUTHOR}</subtitle>
   <link href="{BASE_URL}/feed.xml" rel="self"/>
   <link href="{BASE_URL}/blog"/>
