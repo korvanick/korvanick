@@ -110,6 +110,23 @@
 .post-body pre code { background: none; padding: 0; }
 .post-body hr { border: 0; height: 1px; background: var(--line); margin: 2.4em 0; }
 
+/* --- naming a font in prose -------------------------------------------------
+   A font's name set in the font it names, so the paragraph about choosing them
+   shows its work. Nothing new is loaded: all three families are already
+   declared in styles.css and used elsewhere on every page.
+
+   The mono is stepped down slightly. IBM Plex Mono runs wider and taller than
+   Newsreader at the same size, so at 1em it reads as a shout mid-sentence.
+
+   Newsreader is the body face already, so that rule is a no-op today. It stays
+   because it records the intent, and because it would still be correct if the
+   body face ever changed.
+   -------------------------------------------------------------------------- */
+
+.in-newsreader  { font-family: var(--display); }
+.in-public-sans { font-family: var(--ui); }
+.in-plex-mono   { font-family: var(--micro); font-size: 0.94em; }
+
 /* --- Footer navigation --- */
 .post-nav {
   display: grid;

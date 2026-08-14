@@ -33,7 +33,7 @@ I found some websites that compared a bunch of them side by side, but only came 
 
 Eventually I found Newsreader. The site now uses <span class="in-newsreader">Newsreader</span> for reading, <span class="in-public-sans">Public Sans</span> for structure, and <span class="in-plex-mono">IBM Plex Mono</span> for the small stuff. Who knew that IBM had their own [type family](https://www.ibm.com/plex/)? I stuck with just the Plex Mono rather than the whole family, because I really like the feel of Newsreader. All of the fonts I use are served from this domain rather than from Google, which keeps my traffic and yours out of Google's logs.
 
-## The EIA implementation
+## The Energy Information Administration (EIA) implementation
 
 Connecting to the EIA API was one of the first features I got really excited about. Many utilities have load-control programs to reduce demand during peak periods, and avoid having to over-build resources that only get used a few times a year. Over-building is a very expensive solution. Reducing demand is typically voluntary and not very impactful over a short period of time.
 

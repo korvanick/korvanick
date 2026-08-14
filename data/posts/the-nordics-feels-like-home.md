@@ -1,5 +1,5 @@
 ---
-title: The Nordics - Feels Like Home
+title: The Nordics
 date: 2025-11-14
 summary: A hop, skip and a jump through the big five.
 ---

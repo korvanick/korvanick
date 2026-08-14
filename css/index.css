@@ -40,12 +40,9 @@
     flex: 0 0 auto;
 }
 
-/* The video absorbs whatever height is left over, instead of setting it.
-   This is the fix for "Do it right." falling below the fold on a phone. The
-   old rule was width:100% / height:auto, so the clip's own aspect ratio set
-   the block height -- a tall source at 390px wide is several hundred pixels
-   of hero, and the third block gets pushed off the bottom. Now the clip can
-   never dictate page height, whatever shape it happens to be.
+/* The block no longer claims all the leftover height. It used to, back when
+   the source was a tall phone clip that filled it; a 16:9 clip fits to width
+   and leaves the rest as empty page, which pushes the two headlines apart.
 
    min-height: 0 is the load-bearing line -- flex items default to
    min-height: auto and refuse to shrink below their own content.
@@ -53,7 +50,7 @@
    centred once index.js swaps out the video. */
 #block-2 {
     position: relative;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-height: 0;
     width: 100%;
     display: flex;
@@ -61,19 +58,54 @@
     justify-content: center;
 }
 
-/* Absolutely positioned so its height resolves against the block's flexed
-   box rather than against an auto-height ancestor, which percentage heights
-   would otherwise refuse to do. object-fit: contain means the frame is never
-   cropped and never overflows -- letterboxing falls on --paper, so it reads
-   as nothing at all. */
+/* The frame itself. Scoped with :has(video) so the easter-egg paragraph is
+   never clipped by the overflow rule or squeezed into a fixed box.
+
+   aspect-ratio gives the block a shape of its own, so the clip can never
+   dictate page height -- that was the job the old absolute positioning did.
+   The shape is DELIBERATELY NOT 16/9: the source is 16/9, so a box of any
+   other ratio is what produces the crop. 4/3 here is also what closes the
+   dead space above and below on a phone -- a 16/9 clip across a 390px screen
+   is only ~220px tall, and the rest of the column was empty.
+
+   max-height is the guard that keeps "Do it right." above the fold; when it
+   bites, the box just gets wider and the crop moves to the top and bottom.
+
+   The -webkit-mask-image line is a WebKit workaround, not decoration. Safari
+   decodes video into its own compositing layer, and a composited layer is
+   not clipped by an ancestor's overflow + border-radius -- the video paints
+   straight over the rounded corners. Giving the parent a mask forces it to
+   become a masked layer that its children are composited into. The gradient
+   is a no-op by design: an alpha mask reads both colour stops as fully
+   opaque, so nothing is hidden, the mask exists only to promote the layer. */
+#block-2:has(video) {
+    --frame-radius: 18px;
+    aspect-ratio: 4 / 3;
+    max-height: 55vh;
+    overflow: hidden;
+    border-radius: var(--frame-radius);
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* object-fit: cover, not contain. contain letterboxed the clip inside the
+   element box, so the rounded corners were being drawn around empty space
+   where nothing could see them -- the frame has to reach the edges for the
+   radius to read at all.
+
+   clip-path is the line that actually rounds the corners on iOS. border-radius
+   on a <video> is the long-standing WebKit gap: the element's box is rounded,
+   the decoded frame painted into it is not. clip-path is applied at paint time
+   to the element's own content, so the composited video layer is genuinely
+   cut. border-radius stays as well -- it is what every other browser uses,
+   and it keeps the element box in the same shape as the clip. */
 #block-2 video {
-    position: absolute;
-    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
+    object-fit: cover;
+    border-radius: var(--frame-radius, 18px);
+    clip-path: inset(0 round var(--frame-radius, 18px));
 }
 
 .hero-line {
@@ -99,11 +131,21 @@
         flex: 0 1 30%;
     }
 
-    /* stretch overrides the container's align-items so the video gets the
-       full column height to fit itself into */
+    /* stretch existed only to give the absolutely positioned video a box to
+       fill. The frame now has its own aspect ratio, so it sits centred in the
+       row like the headlines do.
+
+       A wider shape here than the 4/3 used on a phone: there is no vertical
+       space to fill in a row layout, so the frame goes back to nearly the
+       source ratio. 1.85/1 against a 16/9 source (1.78) still trims a little
+       off the top and bottom -- set it to 16/9 for no crop at all. */
     #block-2 {
         flex: 1 1 40%;
-        align-self: stretch;
+        align-self: center;
+    }
+
+    #block-2:has(video) {
+        aspect-ratio: 1.85 / 1;
     }
 
     .hero-line {

@@ -384,9 +384,25 @@ body > nav {
   justify-content: center;   /* centred links */
   gap: 2px;
   background: var(--nav-bg);
-  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--rule);
   padding: 0 20px;
+}
+
+/* The blur lives on a pseudo-element, NOT on the nav itself. With
+   `backdrop-filter` on the nav, the browser paints the whole bar -- links
+   included -- as one composited layer, and it splits wide layers into 256px
+   tiles. On an ultrawide the bar spans enough tiles that the active link's
+   accent underline smeared a faint 1px vertical line up the full height of the
+   bar at a tile edge. Filtering a layer that sits BEHIND the links keeps them
+   out of it, and the line goes away. Visually identical: the blurred backdrop
+   paints first, then the nav's 0.92-alpha background over the top of it. */
+body > nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
 body > nav a {

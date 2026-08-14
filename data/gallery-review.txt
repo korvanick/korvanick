@@ -1,0 +1,9 @@
+Photos with GPS that matched no city in travel.json.
+Matching radius is 20 km. Add the city with add_city.py, or widen
+the radius with --radius, then re-run update_gallery.py.
+
+Re-run with --name-unmatched to have OpenStreetMap name each spot.
+
+photo	coordinates	nearest city on your map	looks like
+20220903_181958.jpg	39.438001, -76.240962	nearest: Washington, D.C. (90 km away)
+20240915_110329.jpg	39.989795, -110.274026	nearest: Salt Lake City, Utah (161 km away)

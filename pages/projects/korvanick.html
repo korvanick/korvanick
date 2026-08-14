@@ -50,7 +50,7 @@
         <ul>
           <li><a href="#letting-the-model-write-the-code">Letting the model write the code</a></li>
           <li><a href="#choosing-the-fonts">Choosing the fonts</a></li>
-          <li><a href="#the-eia-implementation">The EIA implementation</a></li>
+          <li><a href="#the-energy-information-administration-eia-implementation">The Energy Information Administration (EIA) implementation</a></li>
           <li><a href="#site-overhaul-and-adding-the-projects-page">Site overhaul and adding the projects page</a></li>
         </ul>
       </nav>
@@ -63,7 +63,7 @@
 <p>For the first year or so the whole site was set in a low effort sans font (I think Roboto) and designed around that. In general, I wanted the site to be minimalist, black and white (actually green, for a little bit, then grey) and kind of boring. It worked fine while there wasn't much to read on the site, but once the travel map and the blog started carrying more words, it began to feel like a soulless wall of text. I wanted something with more character that was still refined.</p>
 <p>I found some websites that compared a bunch of them side by side, but only came away with a few I liked. I tried EB Garamond as a primary font first and liked it a great deal for reading blogs, but I could never make it feel right with the rest of the site. I also tried Montserrat a little bit, which looks Googlish to me and did not match what I was looking for outside of headings.</p>
 <p>Eventually I found Newsreader. The site now uses <span class="in-newsreader">Newsreader</span> for reading, <span class="in-public-sans">Public Sans</span> for structure, and <span class="in-plex-mono">IBM Plex Mono</span> for the small stuff. Who knew that IBM had their own <a href="https://www.ibm.com/plex/">type family</a>? I stuck with just the Plex Mono rather than the whole family, because I really like the feel of Newsreader. All of the fonts I use are served from this domain rather than from Google, which keeps my traffic and yours out of Google's logs.</p>
-<h2 id="the-eia-implementation">The EIA implementation</h2>
+<h2 id="the-energy-information-administration-eia-implementation">The Energy Information Administration (EIA) implementation</h2>
 <p>Connecting to the EIA API was one of the first features I got really excited about. Many utilities have load-control programs to reduce demand during peak periods, and avoid having to over-build resources that only get used a few times a year. Over-building is a very expensive solution. Reducing demand is typically voluntary and not very impactful over a short period of time.</p>
 <p>With this concept in mind, one I am very familiar with at work, rather than focus on demand, my idea was to pull publicly available data through an API and automatically self-restrict energy usage by disabling certain site features when non-renewable power generation exceeded 50% of total power generation in my region. The API data allowed for this and I was able to pull it in hourly increments for the Midwest, where the server is located.</p>
 <p>Now, does this really accomplish anything? No, not really. The energy consumption from a website with single digit views is negligible, and disabling a few minor features even more so. But it was a fun exercise, and gave me the opportunity to direct people toward resources that made them more aware of where their own energy was coming from.</p>
